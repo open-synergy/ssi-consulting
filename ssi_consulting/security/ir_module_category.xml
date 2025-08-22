@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="consulting_module_category" model="ir.module.category">
+    <field name="name">Consulting</field>
+</record>
+
+<record id="consulting_workflow_module_category" model="ir.module.category">
+    <field name="name">Consulting - Workflow</field>
+    <field name="parent_id" ref="consulting_module_category" />
+</record>
+
+<record id="consulting_data_ownership_module_category" model="ir.module.category">
+    <field name="name">Consulting - Data Ownership</field>
+    <field name="parent_id" ref="consulting_module_category" />
+</record>
+
+
+<record id="consulting_configurator_module_category" model="ir.module.category">
+    <field name="name">Consulting - Configurator</field>
+    <field name="parent_id" ref="consulting_module_category" />
+</record>
+
+<record id="consulting_wizard_module_category" model="ir.module.category">
+    <field name="name">Consulting - Wizard</field>
+    <field name="parent_id" ref="consulting_module_category" />
+</record>
+
+<record id="consulting_report_module_category" model="ir.module.category">
+    <field name="name">Consulting - Report</field>
+    <field name="parent_id" ref="consulting_module_category" />
+</record>
+
+</odoo>

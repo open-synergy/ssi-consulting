@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<menuitem
+        id="menu_root_consulting"
+        name="Consulting"
+        web_icon="ssi_consulting,static/description/icon.png"
+    />
+
+<menuitem
+        id="menu_consulting_reporting"
+        name="Reporting"
+        parent="menu_root_consulting"
+        sequence="98"
+    />
+
+<menuitem
+        id="menu_consulting_configuration"
+        name="Configuration"
+        parent="menu_root_consulting"
+        sequence="99"
+    />
+
+
+
+</odoo>

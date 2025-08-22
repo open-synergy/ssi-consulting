@@ -1,0 +1,46 @@
+# Copyright 2025 OpenSynergy Indonesia
+# Copyright 2025 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+{
+    "name": "Consulting",
+    "version": "14.0.1.0.0",
+    "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
+    "website": "https://github.com/open-synergy/ssi-consulting",
+    "license": "AGPL-3",
+    "depends": [
+        "ssi_master_data_mixin",
+        "ssi_transaction_open_mixin",
+        "ssi_transaction_confirm_mixin",
+        "ssi_transaction_done_mixin",
+        "ssi_transaction_cancel_mixin",
+        "ssi_partner",
+        "ssi_res_partner_m2o_configurator_mixin",
+        "ssi_m2o_configurator_mixin",
+    ],
+    "data": [
+        "security/ir_module_category.xml",
+        "security/ir_module_category/consulting_service.xml",
+        "security/res_groups/consulting_chart_template.xml",
+        "security/res_groups/consulting_dashboard_template.xml",
+        "security/res_groups/consulting_data_structure.xml",
+        "security/res_groups/consulting_materizalied_view.xml",
+        "security/res_groups/consulting_report_template.xml",
+        "security/res_groups/consulting_service_type.xml",
+        "security/ir_model_access/consulting_chart_template.xml",
+        "security/ir_model_access/consulting_dashboard_template.xml",
+        "security/ir_model_access/consulting_data_structure.xml",
+        "security/ir_model_access/consulting_materialized_view.xml",
+        "security/ir_model_access/consulting_report_template.xml",
+        "security/ir_model_access/consulting_service_type.xml",
+        "menu.xml",
+        "views/consulting_chart_template.xml",
+        "views/consulting_dashboard_template.xml",
+        "views/consulting_data_structure.xml",
+        "views/consulting_materialized_view.xml",
+        "views/consulting_report_template.xml",
+        "views/consulting_service_type.xml",
+    ],
+    "demo": [],
+    "application": False,
+}
