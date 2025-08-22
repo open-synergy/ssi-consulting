@@ -1,0 +1,25 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data>
+<record id="consulting_data_structure_access_all" model="ir.model.access">
+    <field name="name">Consulting Data Structure - all</field>
+    <field name="model_id" ref="model_consulting_data_structure" />
+    <field name="group_id" eval="False" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="consulting_data_structure_access_configurator" model="ir.model.access">
+    <field name="name">Consulting Data Structure - configurator</field>
+    <field name="model_id" ref="model_consulting_data_structure" />
+    <field name="group_id" ref="consulting_data_structure_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+</data>
+</odoo>
