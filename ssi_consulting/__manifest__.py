@@ -6,7 +6,7 @@
     "name": "Consulting",
     "version": "14.0.1.0.0",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
-    "website": "https://simetri-sinergi.id",
+    "website": "https://github.com/open-synergy/ssi-consulting",
     "license": "AGPL-3",
     "depends": [
         "ssi_master_data_mixin",
@@ -41,7 +41,6 @@
         "views/consulting_report_template.xml",
         "views/consulting_service_type.xml",
     ],
-    "demo": [
-    ],
+    "demo": [],
     "application": False,
 }

@@ -8,9 +8,9 @@
     <field name="name">consulting_service_type - search</field>
     <field name="model">consulting_service_type</field>
     <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_search"
-    />
+                name="inherit_id"
+                ref="ssi_master_data_mixin.mixin_master_data_view_search"
+            />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data />
@@ -21,10 +21,7 @@
 <record id="consulting_service_type_view_tree" model="ir.ui.view">
     <field name="name">consulting_service_type - tree</field>
     <field name="model">consulting_service_type</field>
-    <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_tree"
-    />
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
@@ -37,10 +34,7 @@
     <field name="name">consulting_service_type - form</field>
     <field name="model">consulting_service_type</field>
     <field name="mode">primary</field>
-    <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_form"
-    />
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
     <field name="arch" type="xml">
         <data>
         </data>
@@ -57,11 +51,11 @@
 
 <!-- Menu -->
 <menuitem
-    id="consulting_service_type_view_menu"
-    name="Service Types"
-    action="consulting_service_type_action"
-    groups="consulting_service_type_group"
-    parent="menu_consulting_configuration"
-/>
+            id="consulting_service_type_view_menu"
+            name="Service Types"
+            action="consulting_service_type_action"
+            groups="consulting_service_type_group"
+            parent="menu_consulting_configuration"
+        />
 </data>
 </odoo>

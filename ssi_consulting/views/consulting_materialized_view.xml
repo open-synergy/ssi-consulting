@@ -8,9 +8,9 @@
     <field name="name">consulting_materialized_view - search</field>
     <field name="model">consulting_materialized_view</field>
     <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_search"
-    />
+                name="inherit_id"
+                ref="ssi_master_data_mixin.mixin_master_data_view_search"
+            />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data />
@@ -21,10 +21,7 @@
 <record id="consulting_materialized_view_view_tree" model="ir.ui.view">
     <field name="name">consulting_materialized_view - tree</field>
     <field name="model">consulting_materialized_view</field>
-    <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_tree"
-    />
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
@@ -37,15 +34,12 @@
     <field name="name">consulting_materialized_view - form</field>
     <field name="model">consulting_materialized_view</field>
     <field name="mode">primary</field>
-    <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_form"
-    />
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//page[1]" position="before">
                 <page name="specification" string="Specifications">
-                    <field name="specification" widget="ace"/>
+                    <field name="specification" widget="ace" />
                 </page>
             </xpath>
         </data>
@@ -62,11 +56,11 @@
 
 <!-- Menu -->
 <menuitem
-    id="consulting_materialized_view_menu"
-    name="Materialized Views"
-    action="consulting_materialized_view_action"
-    groups="consulting_materialized_view_group"
-    parent="menu_consulting_configuration"
-/>
+            id="consulting_materialized_view_menu"
+            name="Materialized Views"
+            action="consulting_materialized_view_action"
+            groups="consulting_materialized_view_group"
+            parent="menu_consulting_configuration"
+        />
 </data>
 </odoo>

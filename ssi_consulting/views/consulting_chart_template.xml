@@ -8,9 +8,9 @@
     <field name="name">consulting_chart_template - search</field>
     <field name="model">consulting_chart_template</field>
     <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_search"
-    />
+                name="inherit_id"
+                ref="ssi_master_data_mixin.mixin_master_data_view_search"
+            />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data />
@@ -21,10 +21,7 @@
 <record id="consulting_chart_template_view_tree" model="ir.ui.view">
     <field name="name">consulting_chart_template - tree</field>
     <field name="model">consulting_chart_template</field>
-    <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_tree"
-    />
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
@@ -37,15 +34,12 @@
     <field name="name">consulting_chart_template - form</field>
     <field name="model">consulting_chart_template</field>
     <field name="mode">primary</field>
-    <field
-        name="inherit_id"
-        ref="ssi_master_data_mixin.mixin_master_data_view_form"
-    />
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//page[1]" position="before">
                 <page name="specification" string="Specifications">
-                    <field name="specification" widget="ace"/>
+                    <field name="specification" widget="ace" />
                 </page>
             </xpath>
         </data>
@@ -62,11 +56,11 @@
 
 <!-- Menu -->
 <menuitem
-    id="consulting_chart_template_menu"
-    name="Chart Templates"
-    action="consulting_chart_template_action"
-    groups="consulting_chart_template_group"
-    parent="menu_consulting_configuration"
-/>
+            id="consulting_chart_template_menu"
+            name="Chart Templates"
+            action="consulting_chart_template_action"
+            groups="consulting_chart_template_group"
+            parent="menu_consulting_configuration"
+        />
 </data>
 </odoo>
