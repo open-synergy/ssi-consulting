@@ -1,0 +1,122 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
+        <!-- Search View -->
+        <record id="consulting_service_view_search" model="ir.ui.view">
+            <field name="name">consulting_service - search</field>
+            <field name="model">consulting_service</field>
+            <field
+                name="inherit_id"
+                ref="ssi_transaction_mixin.mixin_transaction_view_search"
+            />
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <data>
+                </data>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="consulting_service_view_tree" model="ir.ui.view">
+            <field name="name">consulting_service - tree</field>
+            <field name="model">consulting_service</field>
+            <field
+                name="inherit_id"
+                ref="ssi_transaction_mixin.mixin_transaction_view_tree"
+            />
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='company_id']" position="after">
+                        <field name="partner_id" widget="many2one_avatar" />
+                        <field
+                            name="contact_partner_id"
+                            widget="many2one_avatar"
+                            optional="hide"
+                        />
+                        <field name="date" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="consulting_service_view_form" model="ir.ui.view">
+            <field name="name">consulting_service - form</field>
+            <field name="model">consulting_service</field>
+            <field name="mode">primary</field>
+            <field
+                name="inherit_id"
+                ref="ssi_transaction_mixin.mixin_transaction_view_form"
+            />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//group[@name='header_right']" position="inside">
+                        <field name="partner_id" widget="many2one_avatar" />
+                        <field name="date" />
+                    </xpath>
+                    <xpath expr="//page[1]" position="before">
+                        <page name="detail" string="Details">
+                            <field name="detail_ids">
+                                <tree editable="top">
+                                    <field name="type_id" />
+                                    <field name="report_template_id" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="technical" string="Technical">
+                            <button
+                                name="action_compute_result"
+                                type="object"
+                                string="Compute"
+                                class="oe_highlight"
+                            />
+                            <separator string="Data Structures" />
+                            <field name="data_structure_ids" />
+                            <separator string="Materialized Views" />
+                            <field name="materialized_view_ids" />
+                            <separator string="Charts" />
+                            <field name="chart_template_ids" />
+                        </page>
+                        <page name="sql" string="SQL Script">
+                            <separator string="Table Creation" />
+                            <field name="table_sql_script" widget="ace" />
+                            <separator string="FK Creation" />
+                            <field name="fk_sql_script" widget="ace" />
+                            <separator string="Additional Creation" />
+                            <field name="additional_sql_script" widget="ace" />
+                            <separator string="Final" />
+                            <field name="final_sql_script" widget="ace" />
+                        </page>
+                        <page name="db" string="Database Setting">
+                            <group name="db_1" colspan="4" col="2">
+                                <field name="pg_schema" string="Schema" />
+                                <field name="superset_role" />
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- Window Action -->
+        <record id="consulting_service_action" model="ir.actions.act_window">
+            <field name="name">Consulting Services</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">consulting_service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem
+            id="consulting_service_menu"
+            name="Consulting Services"
+            action="consulting_service_action"
+            groups="consulting_service_viewer_group"
+            parent="menu_root_consulting"
+            sequence="10"
+        />
+    </data>
+</odoo>

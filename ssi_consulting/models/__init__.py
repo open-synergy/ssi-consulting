@@ -9,4 +9,6 @@ from . import (
     consulting_chart_template,
     consulting_report_template,
     consulting_service_type,
+    consulting_service,
+    consulting_service_detail,
 )

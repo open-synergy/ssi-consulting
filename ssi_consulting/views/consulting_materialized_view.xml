@@ -25,6 +25,9 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="service_type_id" />
+            </xpath>
         </data>
     </field>
 </record>
@@ -37,9 +40,18 @@
     <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
     <field name="arch" type="xml">
         <data>
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="service_type_id" />
+            </xpath>
             <xpath expr="//page[1]" position="before">
                 <page name="specification" string="Specifications">
                     <field name="specification" widget="ace" />
+                </page>
+                <page name="data_structure" string="Data Structures">
+                    <field name="data_structure_ids" />
+                </page>
+                <page name="sql" string="SQL Script">
+                    <field name="sql_script" widget="ace" />
                 </page>
             </xpath>
         </data>
