@@ -10,7 +10,6 @@ class ConsultingService(models.Model):
     _name = "consulting_service"
     _description = "Consulting Service"
     _inherit = [
-        "mixin.transaction_terminate",
         "mixin.transaction_cancel",
         "mixin.transaction_done",
         "mixin.transaction_open",
