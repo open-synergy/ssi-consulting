@@ -41,6 +41,14 @@
                 <page name="specification" string="Specifications">
                     <field name="specification" widget="ace" />
                 </page>
+                <page name="sql" string="SQL Script">
+                    <separator string="Table Creation" />
+                    <field name="table_sql_script" widget="ace" />
+                    <separator string="FK Creation" />
+                    <field name="fk_sql_script" widget="ace" />
+                    <separator string="Additional Creation" />
+                    <field name="additional_sql_script" widget="ace" />
+                </page>
             </xpath>
         </data>
     </field>

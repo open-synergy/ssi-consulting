@@ -16,3 +16,8 @@ class ConsultingChartTemplate(models.Model):
         string="Specification",
         required=True,
     )
+    materialized_view_id = fields.Many2one(
+        string="Materialized View",
+        comodel_name="consulting_materialized_view",
+        required=True,
+    )
