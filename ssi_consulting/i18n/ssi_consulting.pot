@@ -19,7 +19,9 @@ msgid "# Document"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__service_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__service_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__service_id
 msgid "# Service"
 msgstr ""
 
@@ -222,6 +224,16 @@ msgid ""
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__chart_id
+msgid "Chart"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__detail_chart_ids
+msgid "Chart Details"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_chart_template_group
 msgid "Chart Template"
 msgstr ""
@@ -377,8 +389,18 @@ msgid "Consulting Service"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_service_chart
+msgid "Consulting Service - Chart"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model,name:ssi_consulting.model_consulting_service_detail
 msgid "Consulting Service - Detail"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_service_materialized_view
+msgid "Consulting Service - Materialized View"
 msgstr ""
 
 #. module: ssi_consulting
@@ -409,7 +431,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__create_uid
 msgid "Created by"
 msgstr ""
@@ -421,7 +445,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__create_date
 msgid "Created on"
 msgstr ""
@@ -473,7 +499,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__display_name
 msgid "Display Name"
 msgstr ""
@@ -553,7 +581,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__id
 msgid "ID"
 msgstr ""
@@ -627,7 +657,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -639,7 +671,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -651,7 +685,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -709,8 +745,14 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__materialized_view_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__materialized_view_id
 #: model:res.groups,name:ssi_consulting.consulting_materialized_view_group
 msgid "Materialized View"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__detail_materialized_view_ids
+msgid "Materialized View Details"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1037,6 +1079,17 @@ msgid ""
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__superset_database_id
+msgid "Superset Database"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__superset_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__superset_id
+msgid "Superset ID"
 msgstr ""
 
 #. module: ssi_consulting
