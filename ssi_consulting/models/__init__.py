@@ -11,4 +11,6 @@ from . import (
     consulting_service_type,
     consulting_service,
     consulting_service_detail,
+    consulting_service_materialized_view,
+    consulting_service_chart,
 )

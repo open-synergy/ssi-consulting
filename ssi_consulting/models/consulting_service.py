@@ -39,7 +39,6 @@ class ConsultingService(models.Model):
         "cancel_ok",
         "restart_ok",
         "done_ok",
-        "terminate_ok",
         "manual_number_ok",
     ]
     _header_button_order = [
@@ -47,7 +46,6 @@ class ConsultingService(models.Model):
         "action_approve_approval",
         "action_reject_approval",
         "%(ssi_transaction_cancel_mixin.base_select_cancel_reason_action)d",
-        "%(ssi_transaction_terminate_mixin.base_select_terminate_reason_action)d",
         "action_restart",
     ]
 
@@ -59,7 +57,6 @@ class ConsultingService(models.Model):
         "dom_reject",
         "dom_done",
         "dom_cancel",
-        "dom_terminate",
     ]
 
     # Sequence attribute
@@ -74,9 +71,25 @@ class ConsultingService(models.Model):
     pg_schema = fields.Char(required=True, default="public")
     superset_role = fields.Char(required=True, default="public")
 
+    superset_database_id = fields.Integer(required=True)
+
     detail_ids = fields.One2many(
         string="Details",
         comodel_name="consulting_service.detail",
+        inverse_name="service_id",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
+    detail_materialized_view_ids = fields.One2many(
+        string="Materialized View Details",
+        comodel_name="consulting_service.materialized_view",
+        inverse_name="service_id",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
+    detail_chart_ids = fields.One2many(
+        string="Chart Details",
+        comodel_name="consulting_service.chart",
         inverse_name="service_id",
         readonly=True,
         states={"draft": [("readonly", False)]},
@@ -282,6 +295,7 @@ class ConsultingService(models.Model):
         self.ensure_one()
         result = []
         ChartTemplate = self.env["consulting_chart_template"]
+        Chart = self.env["consulting_service.chart"]
         if self.detail_ids:
             mv_ids = self.mapped(
                 "detail_ids.report_template_id.materialized_view_ids"
@@ -289,6 +303,26 @@ class ConsultingService(models.Model):
             criteria = [("materialized_view_id", "in", mv_ids)]
             result = ChartTemplate.search(criteria).ids
         self.write({"chart_template_ids": [(6, 0, result)]})
+
+        criteria = [("service_id", "=", self.id)]
+        chart_ids = Chart.search(criteria).mapped("chart_id").ids
+
+        to_add_ids = list(set(result) ^ set(chart_ids))
+        to_remove_ids = list(set(chart_ids) - set(result))
+
+        for to_add_id in to_add_ids:
+            Chart.create(
+                {
+                    "service_id": self.id,
+                    "chart_id": to_add_id,
+                }
+            )
+
+        criteria_to_delete = [
+            ("service_id", "=", self.id),
+            ("chart_id", "in", to_remove_ids),
+        ]
+        Chart.search(criteria_to_delete).unlink()
 
     def _compute_data_structure(self):
         self.ensure_one()
@@ -300,11 +334,32 @@ class ConsultingService(models.Model):
     def _compute_materialized_view(self):
         self.ensure_one()
         result = []
+        MV = self.env["consulting_service.materialized_view"]
         if self.detail_ids:
             result = self.mapped(
                 "detail_ids.report_template_id.materialized_view_ids"
             ).ids
         self.write({"materialized_view_ids": [(6, 0, result)]})
+
+        criteria = [("service_id", "=", self.id)]
+        mv_ids = MV.search(criteria).mapped("materialized_view_id").ids
+
+        to_add_ids = list(set(result) ^ set(mv_ids))
+        to_remove_ids = list(set(mv_ids) - set(result))
+
+        for to_add_id in to_add_ids:
+            MV.create(
+                {
+                    "service_id": self.id,
+                    "materialized_view_id": to_add_id,
+                }
+            )
+
+        criteria_to_delete = [
+            ("service_id", "=", self.id),
+            ("materialized_view_id", "in", to_remove_ids),
+        ]
+        MV.search(criteria_to_delete).unlink()
 
     @api.model
     def _get_policy_field(self):
@@ -315,7 +370,6 @@ class ConsultingService(models.Model):
             "done_ok",
             "open_ok",
             "cancel_ok",
-            "terminate_ok",
             "reject_ok",
             "restart_ok",
             "restart_approval_ok",
