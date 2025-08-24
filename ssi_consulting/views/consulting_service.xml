@@ -64,6 +64,12 @@
                                     <field name="type_id" />
                                     <field name="report_template_id" />
                                 </tree>
+                                <form>
+                                    <group name="detail_1" colspan="4" col="2">
+                                        <field name="type_id" />
+                                        <field name="report_template_id" />
+                                    </group>
+                                </form>
                             </field>
                         </page>
                         <page name="technical" string="Technical">
@@ -72,13 +78,26 @@
                                 type="object"
                                 string="Compute"
                                 class="oe_highlight"
+                                icon="fa-gear"
                             />
                             <separator string="Data Structures" />
                             <field name="data_structure_ids" />
                             <separator string="Materialized Views" />
-                            <field name="materialized_view_ids" />
+                            <field name="materialized_view_ids" invisible="1" />
+                            <field name="detail_materialized_view_ids">
+                                <tree>
+                                    <field name="materialized_view_id" />
+                                    <field name="superset_id" />
+                                </tree>
+                            </field>
                             <separator string="Charts" />
-                            <field name="chart_template_ids" />
+                            <field name="chart_template_ids" invisible="1" />
+                            <field name="detail_chart_ids">
+                                <tree>
+                                    <field name="chart_id" />
+                                    <field name="superset_id" />
+                                </tree>
+                            </field>
                         </page>
                         <page name="sql" string="SQL Script">
                             <separator string="Table Creation" />
@@ -94,6 +113,7 @@
                             <group name="db_1" colspan="4" col="2">
                                 <field name="pg_schema" string="Schema" />
                                 <field name="superset_role" />
+                                <field name="superset_database_id" />
                             </group>
                         </page>
                     </xpath>
