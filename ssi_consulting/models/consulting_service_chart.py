@@ -21,6 +21,11 @@ class ConsultingServiceChart(models.Model):
         required=True,
         ondelete="restrict",
     )
+    detail_materialized_view_id = fields.Many2one(
+        string="Detail MV",
+        comodel_name="consulting_service.materialized_view",
+        ondelete="set null",
+    )
     superset_id = fields.Integer(
         string="Superset ID",
     )

@@ -95,6 +95,10 @@
                             <field name="detail_chart_ids">
                                 <tree>
                                     <field name="chart_id" />
+                                    <field
+                                        name="detail_materialized_view_id"
+                                        invisible="1"
+                                    />
                                     <field name="superset_id" />
                                 </tree>
                             </field>

@@ -47,6 +47,9 @@
                 <page name="specification" string="Specifications">
                     <field name="specification" widget="ace" />
                 </page>
+                <page name="api" string="API">
+                    <field name="payload" />
+                </page>
             </xpath>
         </data>
     </field>

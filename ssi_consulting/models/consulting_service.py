@@ -295,6 +295,7 @@ class ConsultingService(models.Model):
         self.ensure_one()
         result = []
         ChartTemplate = self.env["consulting_chart_template"]
+        MV = self.env["consulting_service.materialized_view"]
         Chart = self.env["consulting_service.chart"]
         if self.detail_ids:
             mv_ids = self.mapped(
@@ -310,11 +311,21 @@ class ConsultingService(models.Model):
         to_add_ids = list(set(result) ^ set(chart_ids))
         to_remove_ids = list(set(chart_ids) - set(result))
 
-        for to_add_id in to_add_ids:
+        for to_add in ChartTemplate.browse(to_add_ids):
+            # TODO:
+            criteria = [
+                ("service_id", "=", self.id),
+                ("materialized_view_id", "=", to_add.materialized_view_id.id),
+            ]
+            mvs = MV.search(criteria)
+            if len(mvs) > 0:
+                mv = mvs[0]
+
             Chart.create(
                 {
                     "service_id": self.id,
-                    "chart_id": to_add_id,
+                    "chart_id": to_add.id,
+                    "detail_materialized_view_id": mv.id,
                 }
             )
 
