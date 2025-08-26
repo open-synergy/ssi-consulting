@@ -115,6 +115,28 @@ def _validate_spec(spec: Dict[str, Any], env) -> None:
         _logger.debug("Schema tidak ditemukan; lewati validasi.")
 
 
+def _normalize_time_grain(val: Any) -> Optional[str]:
+    """
+    Ubah 'month', 'MONTH', 'Month' → 'P1M'.
+    Jika sudah ISO-8601 (P1M, P1Y, PT1H, dst.) langsung return.
+    """
+    if not val:
+        return None
+    if isinstance(val, str) and val.upper().startswith("P"):
+        return val
+    mapping = {
+        "SECOND": "PT1S",
+        "MINUTE": "PT1M",
+        "HOUR": "PT1H",
+        "DAY": "P1D",
+        "WEEK": "P1W",
+        "MONTH": "P1M",
+        "QUARTER": "P3M",
+        "YEAR": "P1Y",
+    }
+    return mapping.get(str(val).strip().upper())
+
+
 class ConsultingChartTemplate(models.Model):
     _name = "consulting_chart_template"
     _description = "Consulting Chart Template"
@@ -200,7 +222,7 @@ class ConsultingChartTemplate(models.Model):
                     )
 
             granularity_sqla = time_spec.get("column") or None
-            time_grain_sqla = time_spec.get("grain") or None
+            time_grain_sqla = _normalize_time_grain(time_spec.get("grain"))
             time_range = time_spec.get("range") or "No filter"
 
             enc_x = (encoding.get("x") or {}).get("field")
