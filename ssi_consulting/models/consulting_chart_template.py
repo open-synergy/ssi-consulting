@@ -7,7 +7,7 @@ import logging
 from typing import Any, Dict, List, Optional
 
 import yaml
-from odoo import fields, models
+from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -153,12 +153,36 @@ class ConsultingChartTemplate(models.Model):
         required=True,
         help="Harus menyimpan superset_dataset_id (ID dataset di Superset).",
     )
+    schema_parser_id = fields.Many2one(
+        string="Schema Parser",
+        comodel_name="consulting_schema_parser",
+        required=True,
+    )
+    superset_chart_creation_payload = fields.Text(
+        string="Payload",
+        compute="_compute_superset_chart_creation_payload",
+        store=True,
+        help="JSON payload untuk POST /api/v1/chart di Superset.",        
+    )
     payload = fields.Text(
         string="Payload",
         compute="_compute_payload",
         store=True,
         help="JSON payload untuk POST /api/v1/chart di Superset.",
     )
+
+    @api.depends(
+        "specification",
+        "schema_parser_id",
+    )
+    def _compute_superset_chart_creation_payload(self):
+        for record in self:
+            if record.specification and record.schema_parser_id:
+                payload = record.schema_parser_id._parse_specification(record.specification)
+                record.superset_chart_creation_payload = json.dumps(payload, ensure_ascii=False, indent=2)
+            else:
+                record.superset_chart_creation_payload = False
+
 
     def _compute_payload(self):
         for rec in self:

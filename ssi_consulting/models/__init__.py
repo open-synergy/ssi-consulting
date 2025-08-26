@@ -8,6 +8,7 @@ from . import (
     consulting_dashboard_template,
     consulting_chart_template,
     consulting_report_template,
+    consulting_schema_parser,
     consulting_service_type,
     consulting_service,
     consulting_service_detail,
