@@ -9,71 +9,96 @@ $defs:
     type: object
     additionalProperties: false
     properties:
-      name: { type: string, minLength: 1 }   # saved metric label
-      expr:  { type: string, minLength: 1 }  # adhoc SQL metric
-      label: { type: string }                # alias label (opsional)
+      name: {type: string, minLength: 1} # saved metric label
+      expr: {type: string, minLength: 1} # adhoc SQL metric
+      label: {type: string} # alias label (opsional)
     anyOf:
-      - required: [ name ]
-      - required: [ expr ]
+      - required: [name]
+      - required: [expr]
 
   filter:
     type: object
     additionalProperties: false
     properties:
-      col: { type: string, minLength: 1 }
+      col: {type: string, minLength: 1}
       op:
         type: string
-        enum: ["==","!=",">",">=","<","<=","IN","NOT IN","LIKE","ILIKE",
-               "IS NULL","IS NOT NULL","REGEX","TEMPORAL_RANGE","JSON_CONTAINS"]
+        enum:
+          [
+            "==",
+            "!=",
+            ">",
+            ">=",
+            "<",
+            "<=",
+            "IN",
+            "NOT IN",
+            "LIKE",
+            "ILIKE",
+            "IS NULL",
+            "IS NOT NULL",
+            "REGEX",
+            "TEMPORAL_RANGE",
+            "JSON_CONTAINS",
+          ]
       val: {}
-    required: [ col, op ]
+    required: [col, op]
 
   order_by:
     type: object
     additionalProperties: false
     properties:
-      by:   { type: string, minLength: 1 }
-      desc: { type: boolean }
-    required: [ by ]
+      by: {type: string, minLength: 1}
+      desc: {type: boolean}
+    required: [by]
 
   encoding:
     type: object
     additionalProperties: false
     properties:
-      x:     { type: object, properties: { field: { type: string } }, additionalProperties: false }
-      y:     { type: object, properties: { field: { type: string } }, additionalProperties: false }
-      color: { type: object, properties: { field: { type: string } }, additionalProperties: false }
-      size:  { type: object, properties: { field: { type: string } }, additionalProperties: false }
+      x:
+        {type: object, properties: {field: {type: string}}, additionalProperties: false}
+      y:
+        {type: object, properties: {field: {type: string}}, additionalProperties: false}
+      color:
+        {type: object, properties: {field: {type: string}}, additionalProperties: false}
+      size:
+        {type: object, properties: {field: {type: string}}, additionalProperties: false}
       pivot:
         type: object
         additionalProperties: false
         properties:
-          rows:    { type: array, items: { type: string }, uniqueItems: true }
-          columns: { type: array, items: { type: string }, uniqueItems: true }
-          metrics: { type: array, items: [ { $ref: "#/$defs/metric" }, { type: string } ], minItems: 1 }
+          rows: {type: array, items: {type: string}, uniqueItems: true}
+          columns: {type: array, items: {type: string}, uniqueItems: true}
+          metrics:
+            {
+              type: array,
+              items: [{$ref: "#/$defs/metric"}, {type: string}],
+              minItems: 1,
+            }
 
   axis:
     type: object
     additionalProperties: false
     properties:
-      x_label:  { type: string }
-      y_label:  { type: string }
-      rotate_x: { type: integer }
+      x_label: {type: string}
+      y_label: {type: string}
+      rotate_x: {type: integer}
 
   label:
     type: object
     additionalProperties: false
     properties:
-      format:     { type: string }
-      show_value: { type: boolean }
+      format: {type: string}
+      show_value: {type: boolean}
 
 # ---- Root properties ---------------------------------------------------------
 properties:
   technical_name:
     type: string
     pattern: "^[a-z0-9_]+$"
-  title:       { type: string }
-  description: { type: string }
+  title: {type: string}
+  description: {type: string}
 
   # viz_type: daftar yang umum & stabil di Superset / Preset
   viz_type:
@@ -109,99 +134,146 @@ properties:
           # Lainnya yang umum
           - word_cloud
           - echarts_gauge
-      - { type: string, pattern: "^[a-z0-9_]+$" }  # fallback: izinkan viz baru
+      - {type: string, pattern: "^[a-z0-9_]+$"} # fallback: izinkan viz baru
 
   dataset:
     type: object
     additionalProperties: false
     properties:
-      schema: { type: string }
-      table:  { type: string }
+      schema: {type: string}
+      table: {type: string}
 
   time:
     type: object
     additionalProperties: false
     properties:
-      column: { type: [ "string", "null" ] }
-      grain:  { type: [ "string", "null" ], enum: [null,"second","minute","hour","day","week","month","quarter","year"] }
-      range:  { type: [ "string", "null" ] }
+      column: {type: ["string", "null"]}
+      grain:
+        {
+          type: ["string", "null"],
+          enum:
+            [
+              null,
+              "second",
+              "minute",
+              "hour",
+              "day",
+              "week",
+              "month",
+              "quarter",
+              "year",
+            ],
+        }
+      range: {type: ["string", "null"]}
 
   query:
     type: object
     additionalProperties: false
     properties:
-      group_by: { type: array, items: { type: string }, uniqueItems: true }
-      metrics:  { type: array, items: [ { $ref: "#/$defs/metric" }, { type: string } ] }
-      order_by: { type: array, items: { $ref: "#/$defs/order_by" }, maxItems: 1 }
-      row_limit: { type: integer, minimum: 1 }
-      filters:   { type: array, items: { $ref: "#/$defs/filter" } }
+      group_by: {type: array, items: {type: string}, uniqueItems: true}
+      metrics: {type: array, items: [{$ref: "#/$defs/metric"}, {type: string}]}
+      order_by: {type: array, items: {$ref: "#/$defs/order_by"}, maxItems: 1}
+      row_limit: {type: integer, minimum: 1}
+      filters: {type: array, items: {$ref: "#/$defs/filter"}}
 
-  encoding: { $ref: "#/$defs/encoding" }
+  encoding: {$ref: "#/$defs/encoding"}
 
   presentation:
     type: object
     additionalProperties: false
     properties:
-      legend:      { type: boolean }
-      stack:       { type: boolean }
-      orientation: { type: string, enum: ["vertical","horizontal"] }
-      axis:        { $ref: "#/$defs/axis" }
-      label:       { $ref: "#/$defs/label" }
-      sort_mode:   { type: string, enum: ["none","by_metric"] }
+      legend: {type: boolean}
+      stack: {type: boolean}
+      orientation: {type: string, enum: ["vertical", "horizontal"]}
+      axis: {$ref: "#/$defs/axis"}
+      label: {$ref: "#/$defs/label"}
+      sort_mode: {type: string, enum: ["none", "by_metric"]}
 
-required: [ viz_type ]
+required: [viz_type]
 additionalProperties: false
 
 # ---- Minimal rules per keluarga viz -----------------------------------------
 allOf:
   # Time-series family (ECharts generic & mixed)
-  - if: { properties: { viz_type: { enum: ["echarts_timeseries_line","echarts_timeseries_area","echarts_timeseries_bar","mixed_timeseries"] } } }
+  - if:
+      {
+        properties:
+          {
+            viz_type:
+              {
+                enum:
+                  [
+                    "echarts_timeseries_line",
+                    "echarts_timeseries_area",
+                    "echarts_timeseries_bar",
+                    "mixed_timeseries",
+                  ],
+              },
+          },
+      }
     then:
-      required: [ time, query ]
+      required: [time, query]
       properties:
-        time:  { required: [ column ] }
-        query: { properties: { metrics: { minItems: 1 } } }
+        time: {required: [column]}
+        query: {properties: {metrics: {minItems: 1}}}
 
   # Pie
-  - if: { properties: { viz_type: { const: "pie" } } }
+  - if: {properties: {viz_type: {const: "pie"}}}
     then:
       properties:
-        query: { properties: { metrics: { minItems: 1 } } }
+        query: {properties: {metrics: {minItems: 1}}}
 
   # dist_bar (kategori)
-  - if: { properties: { viz_type: { const: "dist_bar" } } }
+  - if: {properties: {viz_type: {const: "dist_bar"}}}
     then:
       anyOf:
         - properties:
-            encoding: { required: ["x","y","color"] }
+            encoding: {required: ["x", "y", "color"]}
         - properties:
-            query: { properties: { group_by: { minItems: 1 } } }
+            query: {properties: {group_by: {minItems: 1}}}
 
   # Treemap / Sunburst
-  - if: { properties: { viz_type: { enum: ["treemap","sunburst"] } } }
+  - if: {properties: {viz_type: {enum: ["treemap", "sunburst"]}}}
     then:
       properties:
-        query: { properties: { metrics: { minItems: 1 } } }
+        query: {properties: {metrics: {minItems: 1}}}
 
   # Heatmap / Histogram / Box plot
-  - if: { properties: { viz_type: { enum: ["heatmap","histogram","box_plot"] } } }
+  - if: {properties: {viz_type: {enum: ["heatmap", "histogram", "box_plot"]}}}
     then:
       properties:
-        query: { properties: { metrics: { minItems: 1 } } }
+        query: {properties: {metrics: {minItems: 1}}}
 
   # Funnel / Word cloud / Gauge / Sankey / Chord / Event flow
-  - if: { properties: { viz_type: { enum: ["funnel","word_cloud","echarts_gauge","sankey","chord","event_flow"] } } }
+  - if:
+      {
+        properties:
+          {
+            viz_type:
+              {
+                enum:
+                  [
+                    "funnel",
+                    "word_cloud",
+                    "echarts_gauge",
+                    "sankey",
+                    "chord",
+                    "event_flow",
+                  ],
+              },
+          },
+      }
     then:
       properties:
-        query: { properties: { metrics: { minItems: 1 } } }
+        query: {properties: {metrics: {minItems: 1}}}
 
   # Pivot table v2
-  - if: { properties: { viz_type: { const: "pivot_table_v2" } } }
+  - if: {properties: {viz_type: {const: "pivot_table_v2"}}}
     then:
-      required: [ encoding ]
+      required: [encoding]
       properties:
         encoding:
           properties:
             pivot:
               properties:
-                rows: { minItems: 1 }
+                rows: {minItems: 1}
