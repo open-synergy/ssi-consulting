@@ -158,8 +158,26 @@ class ConsultingDataStructure(models.Model):
 
             col_parts = [fname, ftype]
 
+            # --- perubahan MINIMAL: deteksi kolom IDENTITY ---
+            def _is_identity_text(s: Optional[str]) -> bool:
+                try:
+                    ss = (s or "").lower()
+                except Exception:
+                    ss = ""
+                return ("generated" in ss) and ("identity" in ss)
+
+            is_identity = _is_identity_text(ftype) or _is_identity_text(
+                default_val if isinstance(default_val, str) else None
+            )
+            # -------------------------------------------------
+
             # default_val bisa berupa "DEFAULT now()" atau langsung "now()"
-            if isinstance(default_val, str) and default_val.strip():
+            # (hindari DEFAULT untuk kolom identity)
+            if (
+                (not is_identity)
+                and isinstance(default_val, str)
+                and default_val.strip()
+            ):
                 dv = default_val.strip()
                 if dv.upper().startswith("DEFAULT"):
                     col_parts.append(dv)
@@ -216,8 +234,37 @@ class ConsultingDataStructure(models.Model):
                 f"ADD COLUMN IF NOT EXISTS {fname} {ftype};"
             )
 
-            # Set DEFAULT sesuai spec (jika ada)
-            if isinstance(default_val, str) and default_val.strip():
+            # --- perubahan MINIMAL: cabang identity vs default biasa ---
+            def _is_identity_text2(s: Optional[str]) -> bool:
+                try:
+                    ss = (s or "").lower()
+                except Exception:
+                    ss = ""
+                return ("generated" in ss) and ("identity" in ss)
+
+            is_identity2 = _is_identity_text2(ftype) or _is_identity_text2(
+                default_val if isinstance(default_val, str) else None
+            )
+
+            if is_identity2:
+                # Jika kolom belum identity, jadikan identity (tanpa SET DEFAULT)
+                stmts.append(
+                    f"""DO $$
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM information_schema.columns
+        WHERE table_schema = '{schema}'
+          AND table_name = '{entity_name}'
+          AND column_name = '{fname}'
+          AND identity_generation IS NULL
+    ) THEN
+        ALTER TABLE {schema}.{entity_name}
+            ALTER COLUMN {fname} ADD GENERATED ALWAYS AS IDENTITY;
+    END IF;
+END$$;"""
+                )
+            elif isinstance(default_val, str) and default_val.strip():
                 dv = default_val.strip()
                 if dv.upper().startswith("DEFAULT"):
                     dv = dv[7:].strip()
@@ -225,6 +272,7 @@ class ConsultingDataStructure(models.Model):
                     f"ALTER TABLE {schema}.{entity_name} "
                     f"ALTER COLUMN {fname} SET DEFAULT {dv};"
                 )
+            # -----------------------------------------------------------
 
             # Set NOT NULL (akan no-op jika sudah NOT NULL; gagal jika ada NULL existing)
             if not_null:
