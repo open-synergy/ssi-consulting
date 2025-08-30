@@ -42,7 +42,7 @@
         <data>
             <xpath expr="//field[@name='active']" position="after">
                 <field name="materialized_view_id" />
-                <field name="schema_parser_id"/>
+                <field name="schema_parser_id" />
             </xpath>
             <xpath expr="//page[1]" position="before">
                 <page name="specification" string="Specifications">
@@ -53,7 +53,7 @@
                 </page>
                 <page name="payload" string="Chart Creation API Payload">
                     <field name="superset_chart_creation_payload" />
-                </page>                
+                </page>
             </xpath>
         </data>
     </field>

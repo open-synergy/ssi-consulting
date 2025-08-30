@@ -162,7 +162,7 @@ class ConsultingChartTemplate(models.Model):
         string="Payload",
         compute="_compute_superset_chart_creation_payload",
         store=True,
-        help="JSON payload untuk POST /api/v1/chart di Superset.",        
+        help="JSON payload untuk POST /api/v1/chart di Superset.",
     )
     payload = fields.Text(
         string="Payload",
@@ -178,13 +178,16 @@ class ConsultingChartTemplate(models.Model):
     def _compute_superset_chart_creation_payload(self):
         for record in self:
             if record.specification and record.schema_parser_id:
-                payload = record.schema_parser_id._parse_specification(record.specification)
-                record.superset_chart_creation_payload = json.dumps(payload, ensure_ascii=False, indent=2)
+                payload = record.schema_parser_id._parse_specification(
+                    record.specification
+                )
+                record.superset_chart_creation_payload = json.dumps(
+                    payload, ensure_ascii=False, indent=2
+                )
             else:
                 record.superset_chart_creation_payload = False
 
-
-    def _compute_payload(self):
+    def _compute_payload(self):  # noqa: C901
         for rec in self:
             rec.payload = ""
             # 1) Parse YAML

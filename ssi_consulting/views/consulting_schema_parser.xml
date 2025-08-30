@@ -43,7 +43,7 @@
                 </page>
                 <page name="parser" string="Parser">
                     <field name="parser" widget="ace" />
-                </page>                
+                </page>
             </xpath>
         </data>
     </field>
