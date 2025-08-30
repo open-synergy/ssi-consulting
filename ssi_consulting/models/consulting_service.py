@@ -339,8 +339,10 @@ class ConsultingService(models.Model):
         self.ensure_one()
         result = []
         if self.detail_ids:
-            result = self.mapped("detail_ids.report_template_id.data_structure_ids").ids
-        self.write({"data_structure_ids": [(6, 0, result)]})
+            result = self.mapped("detail_ids.report_template_id.data_structure_ids")
+            for data_structure in result:
+                result += data_structure.all_dependency_ids
+        self.write({"data_structure_ids": [(6, 0, result.ids)]})
 
     def _compute_materialized_view(self):
         self.ensure_one()

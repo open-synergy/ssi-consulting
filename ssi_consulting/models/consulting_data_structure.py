@@ -85,6 +85,27 @@ class ConsultingDataStructure(models.Model):
         compute="_compute_additional_sql_script",
         store=True,
     )
+    direct_dependency_ids = fields.Many2many(
+        string="Direct Dependencies",
+        comodel_name="consulting_data_structure",
+        relation="rel_data_structure_direct_dependecies",
+        column1="data_structure_id",
+        column2="dependency_id",
+    )
+    all_dependency_ids = fields.Many2many(
+        string="All Direct Dependencies",
+        comodel_name="consulting_data_structure",
+        compute="_compute_all_dependency_ids",
+        store=False,
+        compute_sudo=True,
+    )
+
+    @api.depends("all_dependency_ids")
+    def _compute_all_dependency_ids(self):
+        for record in self:
+            record.all_dependency_ids = record.direct_dependency_ids
+            for module in record.direct_dependency_ids:
+                record.all_dependency_ids += module.all_dependency_ids
 
     # -------------------------------------------------------------------------
     # YAML -> Dict parser

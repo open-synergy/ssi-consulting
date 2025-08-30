@@ -41,6 +41,12 @@
                 <page name="specification" string="Specifications">
                     <field name="specification" widget="ace" />
                 </page>
+                <page name="dependencies" string="Dependencies">
+                    <separator string="Direct Dependencies" />
+                    <field name="direct_dependency_ids" />
+                    <separator string="All Dependencies" />
+                    <field name="all_dependency_ids" />
+                </page>
                 <page name="sql" string="SQL Script">
                     <separator string="Table Creation" />
                     <field name="table_sql_script" widget="ace" />
