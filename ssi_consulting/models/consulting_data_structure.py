@@ -101,9 +101,18 @@ class ConsultingDataStructure(models.Model):
             return None
 
     # -------------------------------------------------------------------------
-    # Phase 1: CREATE TABLE (no FK)
+    # Phase 1: CREATE TABLE + ALTER TABLE (tanpa FK)
     # -------------------------------------------------------------------------
-    def _build_phase1_sql(self, spec: Dict[str, Any]) -> str:
+    def _build_phase1_sql(self, spec: Dict[str, Any]) -> str:  # noqa: C901
+        """
+        Hasilkan SQL idempoten untuk:
+        - CREATE SCHEMA (jika perlu)
+        - CREATE TABLE IF NOT EXISTS <schema>.<table> (... kolom awal ...)
+        - ALTER TABLE ADD COLUMN IF NOT EXISTS untuk setiap kolom pada spec
+        - ALTER COLUMN SET DEFAULT / SET NOT NULL sesuai spec
+        - Menjamin PRIMARY KEY ada (single atau composite), hanya jika belum ada
+        Catatan: Perubahan tipe kolom yang sudah ada tidak dipaksakan di sini.
+        """
         schema = _get_schema(spec)
         entity = spec.get("entity", {}) or {}
         entity_name = _norm_ident(
@@ -116,6 +125,7 @@ class ConsultingDataStructure(models.Model):
         cols_parts: List[Tuple[str, List[str]]] = []
         pks: List[str] = []
 
+        # Kumpulkan definisi kolom untuk CREATE TABLE awal
         for f in fields_spec:
             fname = _norm_ident(f.get("technical_name") or "")
             if not fname:
@@ -126,8 +136,15 @@ class ConsultingDataStructure(models.Model):
             is_pk = _as_bool(f.get("pk"), False)
 
             col_parts = [fname, ftype]
+
+            # default_val bisa berupa "DEFAULT now()" atau langsung "now()"
             if isinstance(default_val, str) and default_val.strip():
-                col_parts.append(default_val.strip())
+                dv = default_val.strip()
+                if dv.upper().startswith("DEFAULT"):
+                    col_parts.append(dv)
+                else:
+                    col_parts.append(f"DEFAULT {dv}")
+
             if not_null:
                 col_parts.append("NOT NULL")
             if is_pk:
@@ -135,6 +152,7 @@ class ConsultingDataStructure(models.Model):
 
             cols_parts.append((fname, col_parts))
 
+        # Susun kolom + PK untuk CREATE TABLE
         if len(pks) == 1:
             single_pk = pks[0]
             cols_sql = []
@@ -148,13 +166,75 @@ class ConsultingDataStructure(models.Model):
         else:
             cols_sql = [" ".join(parts) for _, parts in cols_parts]
 
-        create_table = [
+        stmts: List[str] = []
+
+        # Pastikan schema ada
+        stmts.append(f"CREATE SCHEMA IF NOT EXISTS {schema};")
+
+        # CREATE TABLE awal (aman jika tabel belum ada)
+        stmts += [
             f"CREATE TABLE IF NOT EXISTS {schema}.{entity_name} (",
             "    " + ",\n    ".join(cols_sql),
             ");",
         ]
 
-        return "\n".join(create_table).strip() + "\n"
+        # ALTER TABLE untuk jaga-jaga jika tabel sudah ada:
+        # 1) Tambahkan kolom yang belum ada
+        # 2) Terapkan DEFAULT & NOT NULL sesuai spec
+        for f in fields_spec:
+            fname = _norm_ident(f.get("technical_name") or "")
+            if not fname:
+                continue
+            ftype = (f.get("type") or "text").strip()
+            not_null = _as_bool(f.get("not_null"), False)
+            default_val = f.get("default")
+
+            # Tambah kolom jika belum ada
+            stmts.append(
+                f"ALTER TABLE {schema}.{entity_name} "
+                f"ADD COLUMN IF NOT EXISTS {fname} {ftype};"
+            )
+
+            # Set DEFAULT sesuai spec (jika ada)
+            if isinstance(default_val, str) and default_val.strip():
+                dv = default_val.strip()
+                if dv.upper().startswith("DEFAULT"):
+                    dv = dv[7:].strip()
+                stmts.append(
+                    f"ALTER TABLE {schema}.{entity_name} "
+                    f"ALTER COLUMN {fname} SET DEFAULT {dv};"
+                )
+
+            # Set NOT NULL (akan no-op jika sudah NOT NULL; gagal jika ada NULL existing)
+            if not_null:
+                stmts.append(
+                    f"ALTER TABLE {schema}.{entity_name} "
+                    f"ALTER COLUMN {fname} SET NOT NULL;"
+                )
+
+        # Pastikan PRIMARY KEY ada jika dispesifikasikan
+        if pks:
+            pk_cols = _join_cols(pks)
+            ensure_pk = f"""
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_constraint c
+        JOIN pg_class t ON t.oid = c.conrelid
+        JOIN pg_namespace n ON n.oid = t.relnamespace
+        WHERE c.contype = 'p'
+          AND n.nspname = '{schema}'
+          AND t.relname = '{entity_name}'
+    ) THEN
+        ALTER TABLE {schema}.{entity_name}
+            ADD PRIMARY KEY ({pk_cols});
+    END IF;
+END$$;
+""".strip()
+            stmts.append(ensure_pk)
+
+        return "\n".join(stmts).strip() + "\n"
 
     # -------------------------------------------------------------------------
     # Phase 3: FK only

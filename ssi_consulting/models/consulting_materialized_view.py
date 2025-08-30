@@ -17,7 +17,7 @@ class ConsultingMaterializedView(models.Model):
     specification = fields.Text(
         string="Specification",
         required=True,
-        help="YAML atau JSON yang mendefinisikan materialized view.",
+        help="YAML or JSON yang mendefinisikan materialized view.",
     )
     service_type_id = fields.Many2one(
         string="Service Type",
@@ -120,7 +120,7 @@ class ConsultingMaterializedView(models.Model):
                     f"sources.{src_key}.table wajib ada.",
                     errors,
                 )
-                # FK type check: jika ada, wajib bigint
+                # FK type check: if ada, wajib bigint
                 fks = src_def.get("fk") or []
                 if fks:
                     if not isinstance(fks, list):
@@ -150,13 +150,13 @@ class ConsultingMaterializedView(models.Model):
                 self._expect(bool(name), f"columns[{i}].name wajib ada.", errors)
                 if name:
                     col_names.append(name)
-                # Either transform atau (source.ref + source.column)
+                # Either transform or (source.ref + source.column)
                 has_transform = bool((c or {}).get("transform"))
                 src = (c or {}).get("source") or {}
                 has_source = bool(src.get("ref") and src.get("column"))
                 self._expect(
                     has_transform or has_source,
-                    f"columns[{i}] harus punya 'transform' atau 'source.ref'+'source.column'.",
+                    f"columns[{i}] harus punya 'transform' or 'source.ref'+'source.column'.",
                     errors,
                 )
 
@@ -179,7 +179,7 @@ class ConsultingMaterializedView(models.Model):
         gb = spec.get("group_by") or []
         if gb:
             self._expect(
-                isinstance(gb, list), "group_by harus list jika didefinisikan.", errors
+                isinstance(gb, list), "group_by harus list if didefinisikan.", errors
             )
             if isinstance(gb, list):
                 missing_gb = [g for g in gb if g not in col_names]
@@ -196,7 +196,7 @@ class ConsultingMaterializedView(models.Model):
     # ======================
     def _schema_name(self, spec):
         """
-        Gunakan spec['schema'] jika ada; jika tidak, pakai placeholder '{{tenant_schema}}'
+        Gunakan spec['schema'] if ada; if tidak, pakai placeholder '{{tenant_schema}}'
         agar bisa diganti di layer service.
         """
         s = spec.get("schema")
@@ -309,7 +309,7 @@ class ConsultingMaterializedView(models.Model):
 
     def _generate_sql_generic(self, spec):
         """
-        Generator SQL MV: schema-aware.
+        Generator SQL MV: schema-aware + CREATE/ALTER (redefine).
         """
         raw_name = spec.get("name")
         schema = self._schema_name(spec)
@@ -334,7 +334,7 @@ class ConsultingMaterializedView(models.Model):
         # WITH DATA / NO DATA
         with_data_sql = "WITH DATA" if with_data else "WITH NO DATA"
 
-        # Indexes
+        # ---------- indexes (disusun, akan dijalankan SETELAH definisi MV) ----------
         idxs = spec.get("indexes") or []
         idx_sql_lines = []
         if idxs and isinstance(idxs, list):
@@ -346,7 +346,6 @@ class ConsultingMaterializedView(models.Model):
                 idx_cols = idx.get("columns") or []
                 if not idx_name or not idx_cols:
                     continue
-                # Penting: index name TIDAK di-schema-qualify
                 cols_sql = ", ".join(idx_cols)
                 if idx_type == "unique":
                     idx_sql_lines.append(
@@ -362,7 +361,7 @@ class ConsultingMaterializedView(models.Model):
                         f"CREATE INDEX IF NOT EXISTS {idx_name} ON {fq_name} ({cols_sql});"
                     )
         else:
-            # Default: buat unique index dari primary_key (nama index tanpa schema)
+            # Default: unique index dari primary_key
             pk = spec.get("primary_key") or []
             if pk:
                 idx_name = f"{raw_name}_pk"
@@ -379,7 +378,7 @@ class ConsultingMaterializedView(models.Model):
             "\n".join(idx_sql_lines) if idx_sql_lines else "-- (Lewati pembuatan index)"
         )
 
-        # COMMENTS / PII
+        # ---------- comments ----------
         desc = spec.get("description") or ""
         contains_pii = bool(self._get(spec, "security.pii.contains_pii", False))
         pii_cols = self._get(spec, "security.pii.columns", []) or []
@@ -390,17 +389,41 @@ class ConsultingMaterializedView(models.Model):
             pii_note = " Mengandung PII."
         mv_comment = (desc + pii_note).strip() or raw_name
 
-        sql = f"""
--- [AUTO-GENERATED] Materialized View: {fq_name}
-CREATE MATERIALIZED VIEW IF NOT EXISTS {fq_name} AS
+        # ---------- potongan definisi MV (tanpa ; di akhir, untuk EXECUTE) ----------
+        create_mv_core = f"""CREATE MATERIALIZED VIEW {fq_name} AS
 SELECT
 {select_sql}
 {from_sql}
 {where_sql if where_sql else ""}
 {group_by_sql if group_by_sql else ""}
-{with_data_sql};
+{with_data_sql}"""
 
--- Indexes
+        # ---------- final SQL: CREATE SCHEMA + DO-block (CREATE vs redefine) ----------
+        sql = f"""
+-- [AUTO-GENERATED] Materialized View: {fq_name}
+
+-- Pastikan schema tersedia
+CREATE SCHEMA IF NOT EXISTS {schema};
+
+-- Jika MV belum ada → CREATE
+-- Jika MV sudah ada → redefine (DROP + CREATE) dalam satu blok
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_matviews
+        WHERE schemaname = '{schema}'
+          AND matviewname = '{raw_name}'
+    ) THEN
+        EXECUTE $q${create_mv_core}$q$;
+    ELSE
+        -- Redefine: drop lalu create lagi mengikuti specification terbaru
+        EXECUTE $q$DROP MATERIALIZED VIEW CONCURRENTLY {fq_name}$q$;
+        EXECUTE $q${create_mv_core}$q$;
+    END IF;
+END$$;
+
+-- Indexes (dibuat ulang/diabaikan if sudah ada)
 {indexes_sql}
 
 -- Comments
@@ -433,7 +456,7 @@ COMMENT ON MATERIALIZED VIEW {fq_name}
     # Compute
     # ======================
     @api.depends("specification")
-    def _compute_sql_script(self):
+    def _compute_sql_script(self):  # noqa: C901
         for record in self:
             record.sql_script = ""
 
