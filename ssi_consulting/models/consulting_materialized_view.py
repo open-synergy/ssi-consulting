@@ -389,7 +389,7 @@ class ConsultingMaterializedView(models.Model):
             pii_note = " Mengandung PII."
         mv_comment = (desc + pii_note).strip() or raw_name
 
-        # ---------- potongan definisi MV (tanpa ; di akhir, untuk EXECUTE) ----------
+        # ---------- potongan definisi MV ----------
         create_mv_core = f"""CREATE MATERIALIZED VIEW {fq_name} AS
 SELECT
 {select_sql}
@@ -398,7 +398,7 @@ SELECT
 {group_by_sql if group_by_sql else ""}
 {with_data_sql}"""
 
-        # ---------- final SQL: CREATE SCHEMA + DO-block (CREATE vs redefine) ----------
+        # ---------- final SQL ----------
         sql = f"""
 -- [AUTO-GENERATED] Materialized View: {fq_name}
 
@@ -418,7 +418,7 @@ BEGIN
         EXECUTE $q${create_mv_core}$q$;
     ELSE
         -- Redefine: drop lalu create lagi mengikuti specification terbaru
-        EXECUTE $q$DROP MATERIALIZED VIEW CONCURRENTLY {fq_name}$q$;
+        EXECUTE $q$DROP MATERIALIZED VIEW {fq_name}$q$;
         EXECUTE $q${create_mv_core}$q$;
     END IF;
 END$$;
@@ -430,7 +430,7 @@ END$$;
 COMMENT ON MATERIALIZED VIEW {fq_name}
     IS {self._sql_literal(mv_comment)};
 
--- Contoh perintah refresh (jalankan via scheduler: pg_cron/n8n/systemd timer)
+-- Contoh perintah refresh (jalankan via scheduler)
 -- REFRESH MATERIALIZED VIEW CONCURRENTLY {fq_name};
 """.strip()
 
@@ -441,10 +441,6 @@ COMMENT ON MATERIALIZED VIEW {fq_name}
     # ======================
     @staticmethod
     def _denormalize_newlines(text: str) -> str:
-        """
-        Ubah literal '\\n' / '\\r\\n' menjadi baris baru asli agar output tidak berisi
-        karakter backslash-n yang menyebabkan error saat dieksekusi di PostgreSQL.
-        """
         if not text:
             return ""
         text = text.replace("\\r\\n", "\n")
@@ -476,9 +472,7 @@ COMMENT ON MATERIALIZED VIEW {fq_name}
 
             try:
                 sql = record._generate_sql_generic(spec)
-                # Normalisasi literal newline agar tidak ada '\n' escaped
                 sql = self._denormalize_newlines(sql)
-                # Biarkan multiline, jangan diflatten jadi single-line
                 record.sql_script = sql
             except Exception as e:
                 record.sql_script = record._sql_comment_block(
