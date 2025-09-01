@@ -26,11 +26,17 @@ msgid "# Service"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_chart_template_view_form
+msgid "API"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_needaction
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_needaction
 msgid "Action Needed"
@@ -42,6 +48,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__active
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__active
 msgid "Active"
 msgstr ""
@@ -67,6 +74,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_ids
 msgid "Activities"
@@ -78,6 +86,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_exception_decoration
 msgid "Activity Exception Decoration"
@@ -89,6 +98,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_state
 msgid "Activity State"
@@ -100,6 +110,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_type_icon
 msgid "Activity Type Icon"
@@ -114,6 +125,16 @@ msgstr ""
 #. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_service_all
 msgid "All"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "All Dependencies"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__all_dependency_ids
+msgid "All Direct Dependencies"
 msgstr ""
 
 #. module: ssi_consulting
@@ -160,6 +181,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_attachment_count
 msgid "Attachment Count"
@@ -229,6 +251,11 @@ msgid "Chart"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_chart_template_view_form
+msgid "Chart Creation API Payload"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__detail_chart_ids
 msgid "Chart Details"
 msgstr ""
@@ -256,6 +283,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__code
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__code
 msgid "Code"
 msgstr ""
@@ -377,8 +405,12 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.actions.act_window,name:ssi_consulting.consulting_report_template_view_action
-#: model:ir.ui.menu,name:ssi_consulting.consulting_report_template_view_menu
 msgid "Consulting Report Templates"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_schema_parser
+msgid "Consulting Schema Parser"
 msgstr ""
 
 #. module: ssi_consulting
@@ -430,6 +462,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__create_uid
@@ -444,6 +477,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__create_date
@@ -477,13 +511,28 @@ msgid "Data Structures"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Database Setting"
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__date
+msgid "Date"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__date
-msgid "Date"
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__date_end
+msgid "Date End"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__date_start
+msgid "Date Start"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "Dependencies"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__detail_materialized_view_id
+msgid "Detail MV"
 msgstr ""
 
 #. module: ssi_consulting
@@ -493,11 +542,18 @@ msgid "Details"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__direct_dependency_ids
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "Direct Dependencies"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__display_name
@@ -512,6 +568,19 @@ msgid ""
 "Done policy\n"
 "\n"
 "* If active user can see and execute 'Done' button"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_schema_parser.py:0
+#, python-format
+msgid ""
+"Error executing parser.\n"
+"%s"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "External Tools"
 msgstr ""
 
 #. module: ssi_consulting
@@ -536,6 +605,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_follower_ids
 msgid "Followers"
@@ -547,6 +617,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_channel_ids
 msgid "Followers (Channels)"
@@ -558,6 +629,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_partner_ids
 msgid "Followers (Partners)"
@@ -569,9 +641,15 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_type_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__materialized_view_id
+msgid "Harus menyimpan superset_dataset_id (ID dataset di Superset)."
 msgstr ""
 
 #. module: ssi_consulting
@@ -580,6 +658,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__id
@@ -594,6 +673,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_exception_icon
 msgid "Icon"
@@ -605,6 +685,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_exception_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_exception_icon
 msgid "Icon to indicate an exception activity."
@@ -621,6 +702,8 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_needaction
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_unread
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_needaction
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_needaction
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_needaction
@@ -634,6 +717,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_has_error
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_has_error
 msgid "If checked, some messages have a delivery error."
@@ -645,9 +729,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_is_follower
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_is_follower
 msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__payload
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__superset_chart_creation_payload
+msgid "JSON payload untuk POST /api/v1/chart di Superset."
 msgstr ""
 
 #. module: ssi_consulting
@@ -656,6 +747,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail____last_update
@@ -670,6 +762,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__write_uid
@@ -684,6 +777,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_detail__write_date
@@ -698,6 +792,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_main_attachment_id
 msgid "Main Attachment"
@@ -717,6 +812,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__active
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__active
 msgid ""
 "Master data status\n"
@@ -733,6 +829,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__code
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__code
 msgid ""
 "Master data unique identifier.\n"
@@ -770,6 +867,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_has_error
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_has_error
 msgid "Message Delivery error"
@@ -781,6 +879,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_ids
 msgid "Messages"
@@ -792,6 +891,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__my_activity_date_deadline
 msgid "My Activity Deadline"
@@ -803,6 +903,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__name
 msgid "Name"
 msgstr ""
@@ -818,6 +919,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -829,6 +931,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_summary
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_summary
 msgid "Next Activity Summary"
@@ -840,6 +943,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_type_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_type_id
 msgid "Next Activity Type"
@@ -856,6 +960,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__note
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__note
 msgid "Note"
@@ -867,6 +972,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_needaction_counter
 msgid "Number of Actions"
@@ -878,6 +984,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_has_error_counter
 msgid "Number of errors"
@@ -889,6 +996,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_needaction_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_needaction_counter
 msgid "Number of messages which requires an action"
@@ -900,6 +1008,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_has_error_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_has_error_counter
 msgid "Number of messages with delivery error"
@@ -911,14 +1020,33 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_unread_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_unread_counter
 msgid "Number of unread messages"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__parser
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_schema_parser_view_form
+msgid "Parser"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_schema_parser.py:0
+#, python-format
+msgid "Parser did not set `result`."
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__partner_id
 msgid "Partner"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__payload
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__superset_chart_creation_payload
+msgid "Payload"
 msgstr ""
 
 #. module: ssi_consulting
@@ -929,6 +1057,11 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__policy_template_id
 msgid "Policy Template"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "PostgreSQL"
 msgstr ""
 
 #. module: ssi_consulting
@@ -951,6 +1084,11 @@ msgid "Report Template"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.ui.menu,name:ssi_consulting.consulting_report_template_view_menu
+msgid "Report Templates"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.ui.menu,name:ssi_consulting.menu_consulting_reporting
 msgid "Reporting"
 msgstr ""
@@ -966,6 +1104,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_user_id
 msgid "Responsible User"
@@ -990,6 +1129,31 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__reviewer_id
 msgid "Reviewer"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "S3"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__s3_bucket
+msgid "S3 Bucket"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__s3_endpoint
+msgid "S3 Endpoint"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__s3_key
+msgid "S3 Key"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__s3_secret
+msgid "S3 Secret"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1019,8 +1183,22 @@ msgid "SQL Script for Table Generation (Phase 1)"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__schema
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_schema_parser_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Schema"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__schema_parser_id
+#: model:res.groups,name:ssi_consulting.consulting_schema_parser_group
+msgid "Schema Parser"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.actions.act_window,name:ssi_consulting.consulting_schema_parser_action
+#: model:ir.ui.menu,name:ssi_consulting.consulting_schema_parser_menu
+msgid "Schema Parsers"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1072,6 +1250,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_state
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_state
 msgid ""
@@ -1079,6 +1258,11 @@ msgid ""
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "Superset"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1132,6 +1316,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_exception_decoration
 msgid "Type of the exception activity on record."
@@ -1143,6 +1328,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_unread
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_unread
 msgid "Unread Messages"
@@ -1154,6 +1340,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_unread_counter
 msgid "Unread Messages Counter"
@@ -1198,8 +1385,13 @@ msgid "Viewer"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__specification
+msgid "YAML mengikuti ssi_consulting/schema/chart_schema.yaml"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__specification
-msgid "YAML atau JSON yang mendefinisikan materialized view."
+msgid "YAML or JSON yang mendefinisikan materialized view."
 msgstr ""
 
 #. module: ssi_consulting
@@ -1207,6 +1399,12 @@ msgstr ""
 msgid ""
 "YAML specification describing the SQL entity, fields, constraints, and "
 "indexes."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_schema_parser.py:0
+#, python-format
+msgid "`result` must be a dict, got: %s"
 msgstr ""
 
 #. module: ssi_consulting
