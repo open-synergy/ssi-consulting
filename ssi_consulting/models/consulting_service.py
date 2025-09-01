@@ -68,10 +68,35 @@ class ConsultingService(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
+    date_start = fields.Date(
+        string="Date Start",
+        required=True,
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
+    date_end = fields.Date(
+        string="Date End",
+        required=True,
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
     pg_schema = fields.Char(required=True, default="public")
     superset_role = fields.Char(required=True, default="public")
 
     superset_database_id = fields.Integer(required=True)
+
+    s3_endpoint = fields.Char(
+        string="S3 Endpoint",
+    )
+    s3_bucket = fields.Char(
+        string="S3 Bucket",
+    )
+    s3_key = fields.Char(
+        string="S3 Key",
+    )
+    s3_secret = fields.Char(
+        string="S3 Secret",
+    )
 
     detail_ids = fields.One2many(
         string="Details",
