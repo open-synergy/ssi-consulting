@@ -37,6 +37,8 @@
                             optional="hide"
                         />
                         <field name="date" />
+                        <field name="date_start" />
+                        <field name="date_end" />
                     </xpath>
                 </data>
             </field>
@@ -56,6 +58,8 @@
                     <xpath expr="//group[@name='header_right']" position="inside">
                         <field name="partner_id" widget="many2one_avatar" />
                         <field name="date" />
+                        <field name="date_start" />
+                        <field name="date_end" />
                     </xpath>
                     <xpath expr="//page[1]" position="before">
                         <page name="detail" string="Details">
@@ -113,11 +117,29 @@
                             <separator string="Final" />
                             <field name="final_sql_script" widget="ace" />
                         </page>
-                        <page name="db" string="Database Setting">
-                            <group name="db_1" colspan="4" col="2">
+                        <page name="external" string="External Tools">
+                            <group
+                                name="external_1"
+                                colspan="4"
+                                col="2"
+                                string="PostgreSQL"
+                            >
                                 <field name="pg_schema" string="Schema" />
+                            </group>
+                            <group
+                                name="external_2"
+                                colspan="4"
+                                col="2"
+                                string="Superset"
+                            >
                                 <field name="superset_role" />
                                 <field name="superset_database_id" />
+                            </group>
+                           <group name="external_3" colspan="4" col="2" string="S3">
+                                <field name="s3_endpoint" />
+                                <field name="s3_bucket" />
+                                <field name="s3_key" />
+                                <field name="s3_secret" />
                             </group>
                         </page>
                     </xpath>

@@ -61,7 +61,7 @@
 <!-- Menu -->
 <menuitem
             id="consulting_report_template_view_menu"
-            name="Consulting Report Templates"
+            name="Report Templates"
             action="consulting_report_template_view_action"
             groups="consulting_report_template_group"
             parent="menu_consulting_configuration"

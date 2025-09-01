@@ -17,8 +17,9 @@
         "ssi_transaction_partner_mixin",
         "ssi_res_partner_m2o_configurator_mixin",
         "ssi_m2o_configurator_mixin",
+        "ssi_schema_parser_mixin",
     ],
-    "external_dependencies": {"python": ["yaml"]},
+    "external_dependencies": {"python": ["pyyaml"]},
     "data": [
         "security/ir_module_category.xml",
         "security/ir_module_category/consulting_service.xml",
