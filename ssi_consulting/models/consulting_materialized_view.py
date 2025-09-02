@@ -2,18 +2,15 @@
 # Copyright 2025 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import json
-
 from odoo import api, fields, models
 
 
 class ConsultingMaterializedView(models.Model):
     _name = "consulting_materialized_view"
     _description = "Consulting Materialized View"
-    _inherit = [
-        "mixin.master_data",
-    ]
+    _inherit = ["mixin.master_data"]
 
+    # ---- Fields ----------------------------------------------------------------
     specification = fields.Text(
         string="Specification",
         required=True,
@@ -31,6 +28,23 @@ class ConsultingMaterializedView(models.Model):
         column1="materialized_view_id",
         column2="data_structure_id",
     )
+    schema_parser_id = fields.Many2one(
+        string="Schema Parser",
+        comodel_name="schema_parser",
+        required=True,
+    )
+    specification_valid = fields.Boolean(
+        string="Specification Valid?",
+        compute="_compute_specification",
+        store=True,
+        compute_sudo=True,
+    )
+    specification_error_message = fields.Text(
+        string="Specification Error Message",
+        compute="_compute_specification",
+        store=True,
+        compute_sudo=True,
+    )
     sql_script = fields.Text(
         string="SQL Script",
         compute="_compute_sql_script",
@@ -42,439 +56,66 @@ class ConsultingMaterializedView(models.Model):
         inverse_name="materialized_view_id",
     )
 
-    # ======================
-    # Helpers (parse/valid)
-    # ======================
-    def _sql_comment_block(self, lines):
+    # ---- Spec validation (JSON Schema di schema_parser) -------------------------
+    @api.depends("schema_parser_id", "specification")
+    def _compute_specification(self):
+        for record in self:
+            specification_valid = True
+            error_message = ""
+            if record.schema_parser_id and record.specification:
+                (
+                    _spec_obj,
+                    specification_valid,
+                    error_message,
+                ) = record.schema_parser_id.validate_against_schema(
+                    data_text=record.specification
+                )
+            record.specification_valid = specification_valid
+            record.specification_error_message = error_message
+
+    # ---- Util kecil untuk komentar error ---------------------------------------
+    @staticmethod
+    def _sql_comment_block(lines):
         header = ["/*"]
         body = [f"  {line}" for line in lines]
         footer = ["*/"]
         return "\n".join(header + body + footer)
 
-    def _load_spec(self, text):
-        """
-        Parse specification as YAML first (if PyYAML available), then JSON.
-        Return: (spec_dict or None, errors[list])
-        """
-        errors = []
-        spec = None
-
-        # Try YAML
-        try:
-            import yaml  # type: ignore
-
-            try:
-                spec = yaml.safe_load(text) if text else None
-            except Exception as e:
-                errors.append(f"YAML parse error: {e}")
-        except Exception:
-            pass
-
-        # Try JSON
-        if spec is None:
-            try:
-                spec = json.loads(text) if text else None
-            except Exception as e:
-                errors.append(f"JSON parse error: {e}")
-
-        if not spec:
-            errors.append("Specification is empty or cannot be parsed as YAML/JSON.")
-
-        return spec, errors
-
-    def _expect(self, cond, msg, errors):
-        if not cond:
-            errors.append(msg)
-
-    def _get(self, data, path, default=None):
-        cur = data
-        for key in path.split("."):
-            if isinstance(cur, dict) and key in cur:
-                cur = cur[key]
-            else:
-                return default
-        return cur
-
-    def _validate_spec_generic(self, spec):
-        """
-        Validasi generik spesifikasi MV.
-        """
-        errors = []
-
-        # name
-        self._expect(bool(spec.get("name")), "Field 'name' wajib diisi.", errors)
-
-        # sources
-        sources = spec.get("sources")
-        self._expect(
-            isinstance(sources, dict) and len(sources) > 0,
-            "Field 'sources' wajib dict dan tidak kosong.",
-            errors,
-        )
-        if isinstance(sources, dict):
-            for src_key, src_def in sources.items():
-                self._expect(
-                    isinstance(src_def, dict)
-                    and "table" in src_def
-                    and src_def["table"],
-                    f"sources.{src_key}.table wajib ada.",
-                    errors,
-                )
-                # FK type check: if ada, wajib bigint
-                fks = src_def.get("fk") or []
-                if fks:
-                    if not isinstance(fks, list):
-                        errors.append(f"sources.{src_key}.fk harus berupa list.")
-                    else:
-                        for i, fk in enumerate(fks):
-                            if isinstance(fk, dict) and fk.get("type"):
-                                self._expect(
-                                    fk.get("type") == "bigint",
-                                    f"sources.{src_key}.fk[{i}].type harus 'bigint'.",
-                                    errors,
-                                )
-
-        # columns
-        cols = spec.get("columns")
-        self._expect(
-            isinstance(cols, list) and len(cols) > 0,
-            "Field 'columns' wajib list dan tidak kosong.",
-            errors,
-        )
-
-        col_names = []
-        if isinstance(cols, list):
-            for i, c in enumerate(cols):
-                self._expect(isinstance(c, dict), f"columns[{i}] harus dict.", errors)
-                name = (c or {}).get("name")
-                self._expect(bool(name), f"columns[{i}].name wajib ada.", errors)
-                if name:
-                    col_names.append(name)
-                # Either transform or (source.ref + source.column)
-                has_transform = bool((c or {}).get("transform"))
-                src = (c or {}).get("source") or {}
-                has_source = bool(src.get("ref") and src.get("column"))
-                self._expect(
-                    has_transform or has_source,
-                    f"columns[{i}] harus punya 'transform' or 'source.ref'+'source.column'.",
-                    errors,
-                )
-
-        # primary_key
-        pk = spec.get("primary_key")
-        self._expect(
-            isinstance(pk, list) and len(pk) > 0,
-            "Field 'primary_key' wajib list dan tidak kosong.",
-            errors,
-        )
-        if isinstance(pk, list):
-            missing_pk = [k for k in pk if k not in col_names]
-            self._expect(
-                len(missing_pk) == 0,
-                f"primary_key memuat kolom yang tidak ada: {', '.join(missing_pk)}.",
-                errors,
-            )
-
-        # group_by (opsional)
-        gb = spec.get("group_by") or []
-        if gb:
-            self._expect(
-                isinstance(gb, list), "group_by harus list if didefinisikan.", errors
-            )
-            if isinstance(gb, list):
-                missing_gb = [g for g in gb if g not in col_names]
-                self._expect(
-                    len(missing_gb) == 0,
-                    f"group_by memuat kolom yang tidak ada: {', '.join(missing_gb)}.",
-                    errors,
-                )
-
-        return errors
-
-    # ======================
-    # SQL Generator (schema-aware)
-    # ======================
-    def _schema_name(self, spec):
-        """
-        Gunakan spec['schema'] if ada; if tidak, pakai placeholder '{{tenant_schema}}'
-        agar bisa diganti di layer service.
-        """
-        s = spec.get("schema")
-        if isinstance(s, str) and s.strip():
-            return s.strip()
-        return "{{tenant_schema}}"
-
-    def _sql_literal(self, text):
-        """
-        Escape string untuk SQL literal (single-quoted).
-        """
-        s = text or ""
-        s = s.replace("'", "''")
-        return f"'{s}'"
-
-    def _detect_main_ref(self, spec):
-        """
-        Tentukan source utama: prioritaskan kolom 'periode',
-        kalau tidak ada pilih source pertama.
-        """
-        main_ref = None
-        cols = spec.get("columns") or []
-        for c in cols:
-            if c.get("name") == "periode":
-                src = c.get("source") or {}
-                if src.get("ref"):
-                    main_ref = src["ref"]
-                    break
-        if not main_ref:
-            sources = spec.get("sources") or {}
-            if sources:
-                main_ref = list(sources.keys())[0]
-        return main_ref
-
-    def _build_select_list(self, spec):
-        """
-        Kembalikan list tuple (expr, alias, is_groupable).
-        """
-        select_items = []
-        cols = spec.get("columns") or []
-        for c in cols:
-            alias = c.get("name")
-            transform = c.get("transform")
-            if transform:
-                expr = transform.strip()
-                select_items.append((expr, alias, False))
-            else:
-                src = c.get("source") or {}
-                ref = src.get("ref")
-                col = src.get("column")
-                expr = f"{ref}.{col}"
-                select_items.append((expr, alias, True))
-        return select_items
-
-    def _build_from_clause(self, spec, main_ref):
-        """
-        Bangun FROM + CROSS JOIN semua sources dengan schema qualification.
-        """
-        sources = spec.get("sources") or {}
-        if not sources:
-            return "", []
-
-        order_keys = list(sources.keys())
-        if main_ref in order_keys:
-            order_keys.remove(main_ref)
-            ordered = [main_ref] + order_keys
-        else:
-            ordered = order_keys
-
-        schema = self._schema_name(spec)
-
-        def qualify_table(t):
-            t = str(t)
-            return t if "." in t else f"{schema}.{t}"
-
-        from_parts = []
-        used_aliases = []
-        for i, key in enumerate(ordered):
-            raw_tbl = sources[key]["table"]
-            tbl = qualify_table(raw_tbl)
-            if i == 0:
-                from_parts.append(f"FROM {tbl} {key}")
-            else:
-                from_parts.append(f"CROSS JOIN {tbl} {key}")
-            used_aliases.append(key)
-
-        return "\n".join(from_parts), used_aliases
-
-    def _build_where_clause(self, spec):
-        filters = spec.get("filters") or []
-        exprs = []
-        for f in filters:
-            if isinstance(f, dict) and f.get("expression"):
-                exprs.append(f.get("expression"))
-            elif isinstance(f, str) and f.strip():
-                exprs.append(f.strip())
-        if exprs:
-            return "WHERE " + "\n  AND ".join(exprs)
-        return ""
-
-    def _build_group_by_clause(self, spec, select_items):
-        group_by = spec.get("group_by") or []
-        if not group_by:
-            return ""
-        alias_to_idx = {}
-        for idx, (_, alias, _) in enumerate(select_items, start=1):
-            alias_to_idx[alias] = idx
-        idx_list = [str(alias_to_idx[g]) for g in group_by if g in alias_to_idx]
-        return "GROUP BY " + ", ".join(idx_list) if idx_list else ""
-
-    def _generate_sql_generic(self, spec):
-        """
-        Generator SQL MV: schema-aware + CREATE/ALTER (redefine).
-        """
-        raw_name = spec.get("name")
-        schema = self._schema_name(spec)
-        fq_name = f"{schema}.{raw_name}"
-
-        with_data = bool(self._get(spec, "refresh_policy.with_data_on_create", True))
-
-        # SELECT
-        select_items = self._build_select_list(spec)
-        select_sql = ",\n".join(
-            [f"    {expr} AS {alias}" for (expr, alias, _) in select_items]
-        )
-
-        # FROM
-        main_ref = self._detect_main_ref(spec)
-        from_sql, _ = self._build_from_clause(spec, main_ref)
-
-        # WHERE / GROUP BY
-        where_sql = self._build_where_clause(spec)
-        group_by_sql = self._build_group_by_clause(spec, select_items)
-
-        # WITH DATA / NO DATA
-        with_data_sql = "WITH DATA" if with_data else "WITH NO DATA"
-
-        # ---------- indexes (disusun, akan dijalankan SETELAH definisi MV) ----------
-        idxs = spec.get("indexes") or []
-        idx_sql_lines = []
-        if idxs and isinstance(idxs, list):
-            for idx in idxs:
-                if not isinstance(idx, dict):
-                    continue
-                idx_name = idx.get("name")
-                idx_type = (idx.get("type") or "btree").lower()
-                idx_cols = idx.get("columns") or []
-                if not idx_name or not idx_cols:
-                    continue
-                cols_sql = ", ".join(idx_cols)
-                if idx_type == "unique":
-                    idx_sql_lines.append(
-                        "CREATE UNIQUE INDEX IF NOT EXISTS {name} "
-                        "ON {fq} ({cols});".format(
-                            name=idx_name,
-                            fq=fq_name,
-                            cols=cols_sql,
-                        )
-                    )
-                else:
-                    idx_sql_lines.append(
-                        f"CREATE INDEX IF NOT EXISTS {idx_name} ON {fq_name} ({cols_sql});"
-                    )
-        else:
-            # Default: unique index dari primary_key
-            pk = spec.get("primary_key") or []
-            if pk:
-                idx_name = f"{raw_name}_pk"
-                idx_sql_lines.append(
-                    "CREATE UNIQUE INDEX IF NOT EXISTS {name} "
-                    "ON {fq} ({cols});".format(
-                        name=idx_name,
-                        fq=fq_name,
-                        cols=", ".join(pk),
-                    )
-                )
-
-        indexes_sql = (
-            "\n".join(idx_sql_lines) if idx_sql_lines else "-- (Lewati pembuatan index)"
-        )
-
-        # ---------- comments ----------
-        desc = spec.get("description") or ""
-        contains_pii = bool(self._get(spec, "security.pii.contains_pii", False))
-        pii_cols = self._get(spec, "security.pii.columns", []) or []
-        pii_note = ""
-        if contains_pii and pii_cols:
-            pii_note = f" Mengandung PII pada kolom: {', '.join(pii_cols)}."
-        elif contains_pii:
-            pii_note = " Mengandung PII."
-        mv_comment = (desc + pii_note).strip() or raw_name
-
-        # ---------- potongan definisi MV ----------
-        create_mv_core = f"""CREATE MATERIALIZED VIEW {fq_name} AS
-SELECT
-{select_sql}
-{from_sql}
-{where_sql if where_sql else ""}
-{group_by_sql if group_by_sql else ""}
-{with_data_sql}"""
-
-        # ---------- final SQL ----------
-        sql = f"""
--- [AUTO-GENERATED] Materialized View: {fq_name}
-
--- Pastikan schema tersedia
-CREATE SCHEMA IF NOT EXISTS {schema};
-
--- Jika MV belum ada → CREATE
--- Jika MV sudah ada → redefine (DROP + CREATE) dalam satu blok
-DO $$
-BEGIN
-    IF NOT EXISTS (
-        SELECT 1
-        FROM pg_matviews
-        WHERE schemaname = '{schema}'
-          AND matviewname = '{raw_name}'
-    ) THEN
-        EXECUTE $q${create_mv_core}$q$;
-    ELSE
-        -- Redefine: drop lalu create lagi mengikuti specification terbaru
-        EXECUTE $q$DROP MATERIALIZED VIEW {fq_name}$q$;
-        EXECUTE $q${create_mv_core}$q$;
-    END IF;
-END$$;
-
--- Indexes (dibuat ulang/diabaikan if sudah ada)
-{indexes_sql}
-
--- Comments
-COMMENT ON MATERIALIZED VIEW {fq_name}
-    IS {self._sql_literal(mv_comment)};
-
--- Contoh perintah refresh (jalankan via scheduler)
--- REFRESH MATERIALIZED VIEW CONCURRENTLY {fq_name};
-""".strip()
-
-        return sql
-
-    # ======================
-    # Utilities (newline normalization)
-    # ======================
-    @staticmethod
-    def _denormalize_newlines(text: str) -> str:
-        if not text:
-            return ""
-        text = text.replace("\\r\\n", "\n")
-        text = text.replace("\\n", "\n")
-        text = text.replace("\r\n", "\n")
-        return text
-
-    # ======================
-    # Compute
-    # ======================
-    @api.depends("specification")
+    # ---- Compute SQL: delegasi penuh ke schema_parser ---------------------------
+    @api.depends("schema_parser_id", "specification")
     def _compute_sql_script(self):  # noqa: C901
         for record in self:
             record.sql_script = ""
-
-            spec, parse_errors = record._load_spec(record.specification or "")
-            if parse_errors:
-                record.sql_script = record._sql_comment_block(
-                    ["Gagal mem-parsing specification."] + parse_errors
+            if not record.schema_parser_id:
+                record.sql_script = self._sql_comment_block(
+                    ["Schema Parser belum diisi pada materialized view."]
+                )
+                continue
+            if not record.specification:
+                record.sql_script = self._sql_comment_block(
+                    ["Specification masih kosong."]
                 )
                 continue
 
-            val_errors = record._validate_spec_generic(spec)
-            if val_errors:
-                record.sql_script = record._sql_comment_block(
-                    ["Specification tidak valid:"] + val_errors
+            # Catatan: seluruh helper sudah pindah ke data parser
+            result, ok, err = record.schema_parser_id.parse_specification(
+                schema=record.specification
+            )
+            if not ok:
+                record.sql_script = self._sql_comment_block(
+                    ["Gagal mengeksekusi parser.", err or ""]
                 )
                 continue
 
-            try:
-                sql = record._generate_sql_generic(spec)
-                sql = self._denormalize_newlines(sql)
-                record.sql_script = sql
-            except Exception as e:
-                record.sql_script = record._sql_comment_block(
-                    [f"Gagal menghasilkan SQL dari specification: {e}"]
+            if not isinstance(result, dict) or "sql" not in result:
+                record.sql_script = self._sql_comment_block(
+                    [
+                        "Parser tidak mengembalikan format yang diharapkan.",
+                        "Harus: result = {'sql': '<SCRIPT>'}",
+                    ]
                 )
+                continue
+
+            record.sql_script = (
+                (result.get("sql") or "").replace("\r\n", "\n").replace("\\n", "\n")
+            )
