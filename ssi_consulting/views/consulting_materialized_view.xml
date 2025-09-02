@@ -45,7 +45,23 @@
             </xpath>
             <xpath expr="//page[1]" position="before">
                 <page name="specification" string="Specifications">
+                    <group name="specification_1" colspan="4" col="2">
+                        <field name="schema_parser_id" />
+                    </group>
+                    <separator string="Specification" />
                     <field name="specification" widget="ace" />
+                    <group
+                                name="specification_2"
+                                string="Validation"
+                                colspan="4"
+                                col="2"
+                            >
+                        <field name="specification_valid" string="Valid?" />
+                        <field
+                                    name="specification_error_message"
+                                    string="Error Message"
+                                />
+                    </group>
                 </page>
                 <page name="data_structure" string="Data Structures">
                     <field name="data_structure_ids" />
