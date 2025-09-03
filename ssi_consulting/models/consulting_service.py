@@ -192,6 +192,12 @@ class ConsultingService(models.Model):
         if self.report_template_id:
             self.ai_prompt = self.report_template_id.ai_prompt
 
+    @api.onchange(
+        "type_id",
+    )
+    def onchange_report_template_id(self):
+        self.report_template_id = False
+
     # ===========================
     # Utilities: newline & comment handling
     # ===========================
