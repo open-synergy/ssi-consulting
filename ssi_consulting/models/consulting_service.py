@@ -121,13 +121,6 @@ class ConsultingService(models.Model):
         string="S3 Secret",
     )
 
-    detail_ids = fields.One2many(
-        string="Details",
-        comodel_name="consulting_service.detail",
-        inverse_name="service_id",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
     detail_materialized_view_ids = fields.One2many(
         string="Materialized View Details",
         comodel_name="consulting_service.materialized_view",
@@ -359,10 +352,8 @@ class ConsultingService(models.Model):
         ChartTemplate = self.env["consulting_chart_template"]
         MV = self.env["consulting_service.materialized_view"]
         Chart = self.env["consulting_service.chart"]
-        if self.detail_ids:
-            mv_ids = self.mapped(
-                "detail_ids.report_template_id.materialized_view_ids"
-            ).ids
+        if self.report_template_id:
+            mv_ids = self.mapped("report_template_id.materialized_view_ids").ids
             criteria = [("materialized_view_id", "in", mv_ids)]
             result = ChartTemplate.search(criteria).ids
         self.write({"chart_template_ids": [(6, 0, result)]})
@@ -400,8 +391,8 @@ class ConsultingService(models.Model):
     def _compute_data_structure(self):
         self.ensure_one()
         result = []
-        if self.detail_ids:
-            result = self.mapped("detail_ids.report_template_id.data_structure_ids")
+        if self.report_template_id:
+            result = self.mapped("report_template_id.data_structure_ids")
             for data_structure in result:
                 result += data_structure.all_dependency_ids
         self.write({"data_structure_ids": [(6, 0, result.ids)]})
@@ -410,10 +401,8 @@ class ConsultingService(models.Model):
         self.ensure_one()
         result = []
         MV = self.env["consulting_service.materialized_view"]
-        if self.detail_ids:
-            result = self.mapped(
-                "detail_ids.report_template_id.materialized_view_ids"
-            ).ids
+        if self.report_template_id:
+            result = self.mapped("report_template_id.materialized_view_ids").ids
         self.write({"materialized_view_ids": [(6, 0, result)]})
 
         criteria = [("service_id", "=", self.id)]

@@ -72,20 +72,6 @@
                         <page name="prompt" string="AI Prompt">
                             <field name="ai_prompt" />
                         </page>
-                        <page name="detail" string="Details">
-                            <field name="detail_ids">
-                                <tree editable="top">
-                                    <field name="type_id" />
-                                    <field name="report_template_id" />
-                                </tree>
-                                <form>
-                                    <group name="detail_1" colspan="4" col="2">
-                                        <field name="type_id" />
-                                        <field name="report_template_id" />
-                                    </group>
-                                </form>
-                            </field>
-                        </page>
                         <page name="technical" string="Technical">
                             <button
                                 name="action_compute_result"
