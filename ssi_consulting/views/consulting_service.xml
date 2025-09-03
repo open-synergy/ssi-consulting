@@ -66,6 +66,9 @@
                         <field name="date_end" />
                     </xpath>
                     <xpath expr="//page[1]" position="before">
+                        <page name="prompt" string="AI Prompt">
+                            <field name="ai_prompt" />
+                        </page>
                         <page name="detail" string="Details">
                             <field name="detail_ids">
                                 <tree editable="top">

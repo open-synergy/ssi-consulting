@@ -78,6 +78,13 @@ class ConsultingService(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
+    ai_prompt = fields.Text(
+        string="AI Prompt",
+        required=True,
+        ondelete="restrict",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
     date = fields.Date(
         string="Date",
         required=True,
@@ -176,6 +183,14 @@ class ConsultingService(models.Model):
         compute="_compute_final_sql_script",
         store=True,
     )
+
+    @api.onchange(
+        "report_template_id",
+    )
+    def onchange_ai_prompt(self):
+        self.ai_prompt = ""
+        if self.report_template_id:
+            self.ai_prompt = self.report_template_id.ai_prompt
 
     # ===========================
     # Utilities: newline & comment handling
