@@ -93,6 +93,16 @@
                                     <field name="materialized_view_id" />
                                     <field name="superset_id" />
                                 </tree>
+                                <form>
+                                    <group
+                                        name="detail_materialized_view_1"
+                                        colspan="4"
+                                        col="2"
+                                    >
+                                        <field name="materialized_view_id" />
+                                        <field name="superset_id" />
+                                    </group>
+                                </form>
                             </field>
                             <separator string="Charts" />
                             <field name="chart_template_ids" invisible="1" />
@@ -105,6 +115,16 @@
                                     />
                                     <field name="superset_id" />
                                 </tree>
+                                <form>
+                                    <group name="detail_chart" colspan="4" col="2">
+                                        <field name="chart_id" />
+                                        <field
+                                            name="detail_materialized_view_id"
+                                            invisible="1"
+                                        />
+                                        <field name="superset_id" />
+                                    </group>
+                                </form>
                             </field>
                         </page>
                         <page name="sql" string="SQL Script">
