@@ -38,8 +38,8 @@
     <field name="arch" type="xml">
         <data>
             <xpath expr="//page[1]" position="before">
-                <page name="specification" string="Specifications">
-                    <field name="specification" widget="ace" />
+                <page name="prompt" string="AI Prompt">
+                    <field name="ai_prompt" widget="ace" />
                 </page>
                 <page name="materialized_view" string="Materialized Views">
                     <field name="materialized_view_ids" />

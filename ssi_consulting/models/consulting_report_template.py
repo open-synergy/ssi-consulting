@@ -12,8 +12,8 @@ class ConsultingReportTemplate(models.Model):
         "mixin.master_data",
     ]
 
-    specification = fields.Text(
-        string="Specification",
+    ai_prompt = fields.Text(
+        string="AI Prompt",
         required=True,
     )
     service_type_id = fields.Many2one(
