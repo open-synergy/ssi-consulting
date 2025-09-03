@@ -11,7 +11,6 @@ from . import (
     consulting_schema_parser,
     consulting_service_type,
     consulting_service,
-    consulting_service_detail,
     consulting_service_materialized_view,
     consulting_service_chart,
 )

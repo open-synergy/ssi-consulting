@@ -57,7 +57,10 @@
                 <data>
                     <xpath expr="//field[@name='user_id']" position="after">
                         <field name="type_id" />
-                        <field name="report_template_id" />
+                        <field
+                            name="report_template_id"
+                            domain="[('service_type_id','=',type_id)]"
+                        />
                     </xpath>
                     <xpath expr="//group[@name='header_right']" position="inside">
                         <field name="partner_id" widget="many2one_avatar" />
@@ -66,19 +69,8 @@
                         <field name="date_end" />
                     </xpath>
                     <xpath expr="//page[1]" position="before">
-                        <page name="detail" string="Details">
-                            <field name="detail_ids">
-                                <tree editable="top">
-                                    <field name="type_id" />
-                                    <field name="report_template_id" />
-                                </tree>
-                                <form>
-                                    <group name="detail_1" colspan="4" col="2">
-                                        <field name="type_id" />
-                                        <field name="report_template_id" />
-                                    </group>
-                                </form>
-                            </field>
+                        <page name="prompt" string="AI Prompt">
+                            <field name="ai_prompt" />
                         </page>
                         <page name="technical" string="Technical">
                             <button
