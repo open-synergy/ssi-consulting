@@ -55,6 +55,10 @@
             />
             <field name="arch" type="xml">
                 <data>
+                    <xpath expr="//field[@name='user_id']" position="after">
+                        <field name="type_id" />
+                        <field name="report_template_id" />
+                    </xpath>
                     <xpath expr="//group[@name='header_right']" position="inside">
                         <field name="partner_id" widget="many2one_avatar" />
                         <field name="date" />
@@ -92,7 +96,19 @@
                                 <tree>
                                     <field name="materialized_view_id" />
                                     <field name="superset_id" />
+                                    <field name="s3_url" widget="url" />
                                 </tree>
+                                <form>
+                                    <group
+                                        name="detail_materialized_view_1"
+                                        colspan="4"
+                                        col="2"
+                                    >
+                                        <field name="materialized_view_id" />
+                                        <field name="superset_id" />
+                                        <field name="s3_url" widget="url" />
+                                    </group>
+                                </form>
                             </field>
                             <separator string="Charts" />
                             <field name="chart_template_ids" invisible="1" />
@@ -104,7 +120,19 @@
                                         invisible="1"
                                     />
                                     <field name="superset_id" />
+                                    <field name="s3_url" widget="url" />
                                 </tree>
+                                <form>
+                                    <group name="detail_chart" colspan="4" col="2">
+                                        <field name="chart_id" />
+                                        <field
+                                            name="detail_materialized_view_id"
+                                            invisible="1"
+                                        />
+                                        <field name="superset_id" />
+                                        <field name="s3_url" widget="url" />
+                                    </group>
+                                </form>
                             </field>
                         </page>
                         <page name="sql" string="SQL Script">

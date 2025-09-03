@@ -45,6 +45,36 @@
                     <field name="materialized_view_ids" />
                     <field name="data_structure_ids" />
                 </page>
+                <page name="style" string="Style">
+                    <group name="style_1" colspan="4" col="2">
+                        <field name="style_schema_parser_id" />
+                    </group>
+                    <separator string="Specification" />
+                    <field name="style_specification" />
+                    <group
+                                name="style_2"
+                                colspan="4"
+                                col="2"
+                                string="Schema Validation"
+                            >
+                        <field name="style_valid" string="Valid?" />
+                        <field name="style_error_message" string="Error Message" />
+                    </group>
+                    <separator string="Result" />
+                    <field name="style_parsing_result" />
+                    <group
+                                name="style_3"
+                                colspan="4"
+                                col="2"
+                                string="Parsing Validation"
+                            >
+                        <field name="style_parsing_valid" string="Valid?" />
+                        <field
+                                    name="style_parsing_error_message"
+                                    string="Error Message"
+                                />
+                    </group>
+                </page>
             </xpath>
         </data>
     </field>

@@ -62,6 +62,22 @@ class ConsultingService(models.Model):
     # Sequence attribute
     _create_sequence_state = "open"
 
+    type_id = fields.Many2one(
+        string="Type",
+        comodel_name="consulting_service_type",
+        required=True,
+        ondelete="restrict",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
+    report_template_id = fields.Many2one(
+        string="Report Template",
+        comodel_name="consulting_report_template",
+        required=True,
+        ondelete="restrict",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
     date = fields.Date(
         string="Date",
         required=True,
