@@ -4,7 +4,7 @@
 
 {
     "name": "Consulting",
-    "version": "14.0.3.2.0",
+    "version": "14.0.3.3.0",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "website": "https://simetri-sinergi.id",
     "license": "AGPL-3",
