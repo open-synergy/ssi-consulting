@@ -571,6 +571,7 @@ msgstr ""
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Error Message"
 msgstr ""
 
@@ -1044,7 +1045,13 @@ msgid "Parser did not set `result`."
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "Parsing"
+msgstr ""
+
+#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Parsing Validation"
 msgstr ""
 
@@ -1190,6 +1197,7 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__s3_url
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__s3_url
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "S3 URL"
 msgstr ""
 
@@ -1230,6 +1238,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__schema_parser_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__schema_parser_id
 #: model:res.groups,name:ssi_consulting.consulting_schema_parser_group
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Schema Parser"
 msgstr ""
 
@@ -1263,6 +1272,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__specification
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Specification"
 msgstr ""
 
@@ -1274,6 +1284,11 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__specification_valid
 msgid "Specification Valid?"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "Specification Validation"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1365,6 +1380,47 @@ msgid "Superset Role"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "System Prompting"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_error_message
+msgid "System Prompting Error Message"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_s3_url
+msgid "System Prompting S3 URL"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_schema_parser_id
+msgid "System Prompting Schema Parser"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_specification
+msgid "System Prompting Specification"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_specification_error_message
+msgid "System Prompting Specification Error Message"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_specification_valid
+msgid "System Prompting Specification Valid?"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_valid
+msgid "System Prompting Valid?"
+msgstr ""
+
+#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Table Creation"
@@ -1435,6 +1491,47 @@ msgid "User"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "User Prompting"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_error_message
+msgid "User Prompting Error Message"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_s3_url
+msgid "User Prompting S3 URL"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_schema_parser_id
+msgid "User Prompting Schema Parser"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_specification
+msgid "User Prompting Specification"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_specification_error_message
+msgid "User Prompting Specification Error Message"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_specification_valid
+msgid "User Prompting Specification Valid?"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_valid
+msgid "User Prompting Valid?"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__user_id
 msgid ""
 "User that responsible for document\n"
@@ -1460,6 +1557,7 @@ msgstr ""
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Valid?"
 msgstr ""
 
