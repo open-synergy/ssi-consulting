@@ -26,9 +26,7 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__ai_prompt
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__ai_prompt
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "AI Prompt"
 msgstr ""
 
@@ -597,6 +595,17 @@ msgstr ""
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Final"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__final_report
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "Final Report"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__final_report_s3_url
+msgid "Final Report S3 URL"
 msgstr ""
 
 #. module: ssi_consulting
