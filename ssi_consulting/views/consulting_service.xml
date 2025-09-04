@@ -69,8 +69,15 @@
                         <field name="date_end" />
                     </xpath>
                     <xpath expr="//page[1]" position="before">
-                        <page name="prompt" string="AI Prompt">
-                            <field name="ai_prompt" />
+                        <page name="final_report" string="Final Report">
+                            <group name="final_report_1" colspan="4" col="2">
+                                <field
+                                    name="final_report_s3_url"
+                                    string="S3 URL"
+                                    widget="url"
+                                />
+                            </group>
+                            <field name="final_report" widget="ace" />
                         </page>
                         <page name="technical" string="Technical">
                             <button
