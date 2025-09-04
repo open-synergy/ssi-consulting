@@ -2,8 +2,14 @@
 # Copyright 2025 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
+from urllib.parse import urlsplit
+
+import requests
 from odoo import api, fields, models
 from odoo.addons.ssi_decorator import ssi_decorator
+
+_logger = logging.getLogger(__name__)
 
 
 class ConsultingService(models.Model):
@@ -73,13 +79,6 @@ class ConsultingService(models.Model):
     report_template_id = fields.Many2one(
         string="Report Template",
         comodel_name="consulting_report_template",
-        required=True,
-        ondelete="restrict",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
-    ai_prompt = fields.Text(
-        string="AI Prompt",
         required=True,
         ondelete="restrict",
         readonly=True,
@@ -267,6 +266,108 @@ class ConsultingService(models.Model):
         readonly=True,
     )
 
+    # Final Report
+    final_report_s3_url = fields.Char(
+        string="Final Report S3 URL",
+        readonly=True,
+    )
+    final_report = fields.Text(
+        string="Final Report",
+        compute="_compute_final_report",
+        store=True,
+        compute_sudo=True,
+    )
+
+    @api.depends("final_report_s3_url")
+    def _compute_final_report(self):
+        """
+        Mengambil file Markdown dari final_report_s3_url dan
+        mengisikan hasilnya ke field final_report.
+        - Mendukung http/https (termasuk presigned S3 URL).
+        - Batas ukuran file: 5 MB.
+        - Normalisasi newline ke '\n'.
+        """
+        MAX_BYTES = 5 * 1024 * 1024  # 5 MB
+
+        for rec in self:
+            rec.final_report = "Weks"
+            url = (rec.final_report_s3_url or "").strip()
+            if not url:
+                continue
+
+            # Validasi skema URL
+            try:
+                parsed = urlsplit(url)
+            except Exception as e:
+                _logger.warning("final_report_s3_url tidak valid: %s (err=%s)", url, e)
+                continue
+
+            if parsed.scheme not in ("http", "https"):
+                _logger.warning(
+                    "Skema URL tidak didukung untuk final_report_s3_url: %s", url
+                )
+                continue
+
+            headers = {
+                "Accept": "text/markdown, text/plain;q=0.9, */*;q=0.1",
+                "User-Agent": "ssi-odoo/14 final-report-fetcher",
+            }
+
+            try:
+                # stream=True agar bisa batasi ukuran
+                with requests.get(
+                    url, headers=headers, timeout=(5, 30), stream=True
+                ) as resp:
+                    resp.raise_for_status()
+
+                    # Tentukan encoding seawal mungkin
+                    encoding = (
+                        resp.encoding
+                        or getattr(resp, "apparent_encoding", None)
+                        or "utf-8"
+                    )
+
+                    total = 0
+                    chunks = []
+                    for chunk in resp.iter_content(
+                        chunk_size=65536, decode_unicode=False
+                    ):
+                        if not chunk:
+                            continue
+                        total += len(chunk)
+                        if total > MAX_BYTES:
+                            raise ValueError("Ukuran file final report melebihi 5 MB.")
+                        chunks.append(chunk)
+
+                raw = b"".join(chunks)
+
+                # Decode konten sebagai teks
+                try:
+                    text = raw.decode(encoding, errors="replace")
+                except Exception:
+                    text = raw.decode("utf-8", errors="replace")
+
+                # Normalisasi newline
+                text = text.replace("\r\n", "\n").replace("\r", "\n")
+
+                # (Opsional) cek sangat dasar: minimal ada karakter
+                if not text.strip():
+                    _logger.info("Konten final report kosong dari URL: %s", url)
+                    rec.final_report = False
+                else:
+                    rec.final_report = text
+
+            except requests.exceptions.RequestException as e:
+                _logger.error(
+                    "Gagal mengambil final_report dari S3 URL: %s ; err=%s", url, e
+                )
+                rec.final_report = False
+            except Exception as e:
+                _logger.exception(
+                    "Kesalahan saat memproses final_report dari %s: %s", url, e
+                )
+                rec.final_report = False
+
     @api.depends(
         "system_prompting_schema_parser_id",
         "system_prompting_specification",
@@ -337,14 +438,6 @@ class ConsultingService(models.Model):
             record.user_prompting_valid = parsing_valid
             record.user_prompting_error_message = parsing_error_message
             record.user_prompting = parsing_result
-
-    @api.onchange(
-        "report_template_id",
-    )
-    def onchange_ai_prompt(self):
-        self.ai_prompt = ""
-        if self.report_template_id:
-            self.ai_prompt = self.report_template_id.ai_prompt
 
     @api.onchange(
         "type_id",
