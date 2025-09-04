@@ -459,6 +459,11 @@ msgid "Contact"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+msgid "Content"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__create_uid
@@ -782,6 +787,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__mv_text
+msgid "MV on Text"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_main_attachment_id
@@ -1052,6 +1062,12 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__pg_schema
 msgid "Pg Schema"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__mv_text
+msgid ""
+"Plain text table (Markdown-like) generated from the CSV pointed by S3 URL."
 msgstr ""
 
 #. module: ssi_consulting
