@@ -100,6 +100,11 @@
                                         <field name="superset_id" />
                                         <field name="s3_url" widget="url" />
                                     </group>
+                                    <notebook>
+                                        <page name="content" string="Content">
+                                            <field name="mv_text" />
+                                        </page>
+                                    </notebook>
                                 </form>
                             </field>
                             <separator string="Charts" />
