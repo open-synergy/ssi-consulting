@@ -154,6 +154,7 @@
                                 <field
                                     name="system_prompting_schema_parser_id"
                                     string="Schema Parser"
+                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_sp)d)]"
                                 />
                                 <field
                                     name="system_prompting_s3_url"
@@ -198,6 +199,7 @@
                                 <field
                                     name="user_prompting_schema_parser_id"
                                     string="Schema Parser"
+                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_up)d)]"
                                 />
                                 <field
                                     name="user_prompting_s3_url"

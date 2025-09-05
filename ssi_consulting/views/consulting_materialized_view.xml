@@ -46,7 +46,10 @@
             <xpath expr="//page[1]" position="before">
                 <page name="specification" string="Specifications">
                     <group name="specification_1" colspan="4" col="2">
-                        <field name="schema_parser_id" />
+                        <field
+                                    name="schema_parser_id"
+                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_mv)d)]"
+                                />
                     </group>
                     <separator string="Specification" />
                     <field name="specification" widget="ace" />

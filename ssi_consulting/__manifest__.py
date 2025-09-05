@@ -19,8 +19,14 @@
         "ssi_m2o_configurator_mixin",
         "ssi_schema_parser_mixin",
     ],
-    "external_dependencies": {"python": ["pyyaml", "tabulate"]},
+    "external_dependencies": {
+        "python": [
+            "pyyaml",
+            "tabulate",
+        ],
+    },
     "data": [
+        "data/schema_parser_category.xml",
         "security/ir_module_category.xml",
         "security/ir_module_category/consulting_service.xml",
         "security/res_groups/consulting_chart_template.xml",

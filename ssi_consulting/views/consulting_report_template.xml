@@ -53,7 +53,10 @@
                 </page>
                 <page name="style" string="Style">
                     <group name="style_1" colspan="4" col="2">
-                        <field name="style_schema_parser_id" />
+                        <field
+                                    name="style_schema_parser_id"
+                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_rs)d)]"
+                                />
                     </group>
                     <separator string="Specification" />
                     <field name="style_specification" />

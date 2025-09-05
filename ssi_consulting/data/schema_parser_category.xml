@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="schema_parser_category_ds" model="schema_parser_category">
+    <field name="name">Data Structure</field>
+    <field name="code">CS-DS</field>
+</record>
+
+<record id="schema_parser_category_mv" model="schema_parser_category">
+    <field name="name">Materialized View</field>
+    <field name="code">CS-MV</field>
+</record>
+
+<record id="schema_parser_category_sc" model="schema_parser_category">
+    <field name="name">Superset Chart</field>
+    <field name="code">CS-SC</field>
+</record>
+
+<record id="schema_parser_category_rs" model="schema_parser_category">
+    <field name="name">Report Style</field>
+    <field name="code">CS-RS</field>
+</record>
+
+<record id="schema_parser_category_sp" model="schema_parser_category">
+    <field name="name">System Prompting</field>
+    <field name="code">CS-SP</field>
+</record>
+
+<record id="schema_parser_category_up" model="schema_parser_category">
+    <field name="name">User Prompting</field>
+    <field name="code">CS-UP</field>
+</record>
+</odoo>
