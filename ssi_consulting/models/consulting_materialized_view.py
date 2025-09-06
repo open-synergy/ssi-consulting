@@ -99,7 +99,7 @@ class ConsultingMaterializedView(models.Model):
 
             # Catatan: seluruh helper sudah pindah ke data parser
             result, ok, err = record.schema_parser_id.parse_specification(
-                schema=record.specification
+                specification=record.specification
             )
             if not ok:
                 record.sql_script = self._sql_comment_block(
