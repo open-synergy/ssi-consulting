@@ -14,6 +14,10 @@ from tabulate import tabulate
 class ConsultingServiceMaterializedView(models.Model):
     _name = "consulting_service.materialized_view"
     _description = "Consulting Service - Materialized View"
+    _inherit = [
+        "mail.thread",
+        "mail.activity.mixin",
+    ]
 
     service_id = fields.Many2one(
         string="# Service",

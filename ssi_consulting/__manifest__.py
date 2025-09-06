@@ -55,6 +55,7 @@
         "views/consulting_schema_parser.xml",
         "views/consulting_service_type.xml",
         "views/consulting_service.xml",
+        "views/consulting_service_materialized_view.xml",
     ],
     "demo": [],
     "application": False,

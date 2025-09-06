@@ -29,6 +29,3 @@ class ConsultingServiceChart(models.Model):
     superset_id = fields.Integer(
         string="Superset ID",
     )
-    s3_url = fields.Char(
-        string="S3 URL",
-    )

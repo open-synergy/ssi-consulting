@@ -36,6 +36,8 @@
                             widget="many2one_avatar"
                             optional="hide"
                         />
+                        <field name="type_id" />
+                        <field name="report_template_id" />
                         <field name="date" />
                         <field name="date_start" />
                         <field name="date_end" />
@@ -91,6 +93,13 @@
                             <field name="data_structure_ids" />
                             <separator string="Materialized Views" />
                             <field name="materialized_view_ids" invisible="1" />
+                            <button
+                                name="action_open_detail_mv"
+                                string="Open"
+                                type="object"
+                                icon="fa-bars"
+                                class="oe_highlight"
+                            />
                             <field name="detail_materialized_view_ids">
                                 <tree>
                                     <field name="materialized_view_id" />
@@ -124,7 +133,6 @@
                                         invisible="1"
                                     />
                                     <field name="superset_id" />
-                                    <field name="s3_url" widget="url" />
                                 </tree>
                                 <form>
                                     <group name="detail_chart" colspan="4" col="2">
@@ -134,7 +142,6 @@
                                             invisible="1"
                                         />
                                         <field name="superset_id" />
-                                        <field name="s3_url" widget="url" />
                                     </group>
                                 </form>
                             </field>

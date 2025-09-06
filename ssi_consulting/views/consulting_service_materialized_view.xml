@@ -1,0 +1,70 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- Search View -->
+<record id="consulting_service_materialized_view_view_search" model="ir.ui.view">
+    <field name="name">consulting_service_materialized_view - search</field>
+    <field name="model">consulting_service.materialized_view</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="service_id" />
+            <field name="materialized_view_id" />
+            <field name="s3_url" />
+        </search>
+    </field>
+</record>
+
+<!-- Tree View -->
+<record id="consulting_service_materialized_view_view_tree" model="ir.ui.view">
+    <field name="name">consulting_service_materialized_view - tree</field>
+    <field name="model">consulting_service.materialized_view</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <tree create="false" edit="false" delete="false">
+            <field name="service_id" />
+            <field name="materialized_view_id" />
+            <field name="superset_id" />
+            <field name="s3_url" widget="url" />
+        </tree>
+    </field>
+</record>
+
+<!-- Form View -->
+<record id="consulting_service_materialized_view_view_form" model="ir.ui.view">
+    <field name="name">consulting_service_materialized_view - form</field>
+    <field name="model">consulting_service.materialized_view</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <form create="false" edit="false" delete="false">
+            <header />
+            <sheet>
+                <group name="form_1" colspan="4" col="2">
+                    <field name="service_id" />
+                    <field name="materialized_view_id" />
+                    <field name="superset_id" />
+                    <field name="s3_url" widget="url" />
+                </group>
+                <notebook>
+                    <page name="data" string="Data">
+                        <field name="mv_text" widget="ace" />
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" groups="base.group_user" />
+                <field name="activity_ids" />
+                <field name="message_ids" />
+            </div>
+        </form>
+    </field>
+</record>
+
+<record id="consulting_service_materialized_view_action" model="ir.actions.act_window">
+    <field name="name">Consulting Service - Materialized Views</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">consulting_service.materialized_view</field>
+    <field name="view_mode">tree,form</field>
+</record>
+</odoo>

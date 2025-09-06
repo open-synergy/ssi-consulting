@@ -44,12 +44,99 @@
                 <field name="service_type_id" />
             </xpath>
             <xpath expr="//page[1]" position="before">
-                <page name="prompt" string="AI Prompt">
-                    <field name="ai_prompt" widget="ace" />
-                </page>
                 <page name="materialized_view" string="Materialized Views">
                     <field name="materialized_view_ids" />
                     <field name="data_structure_ids" />
+                </page>
+                <page name="system_prompting" string="System Prompting">
+                    <group name="system_prompting_1" colspan="4" col="2">
+                        <field
+                                    name="system_prompting_schema_parser_id"
+                                    string="Schema Parser"
+                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_sp)d)]"
+                                />
+                        <field
+                                    name="system_prompting_s3_url"
+                                    string="S3 URL"
+                                    widget="url"
+                                />
+                    </group>
+                    <separator string="Specification" />
+                    <field name="system_prompting_specification" widget="ace" />
+                    <group
+                                name="system_prompting_2"
+                                colspan="4"
+                                col="2"
+                                string="Specification Validation"
+                            >
+                        <field
+                                    name="system_prompting_specification_valid"
+                                    string="Valid?"
+                                />
+                        <field
+                                    name="system_prompting_specification_error_message"
+                                    string="Error Message"
+                                />
+                    </group>
+                    <separator string="Parsing" />
+                    <field name="system_prompting" widget="ace" />
+                    <group
+                                name="system_prompting_3"
+                                colspan="4"
+                                col="2"
+                                string="Parsing Validation"
+                            >
+                        <field name="system_prompting_valid" string="Valid?" />
+                        <field
+                                    name="system_prompting_error_message"
+                                    string="Error Message"
+                                />
+                    </group>
+                </page>
+                <page name="user_prompting" string="User Prompting">
+                    <group name="user_prompting_1" colspan="4" col="2">
+                        <field
+                                    name="user_prompting_schema_parser_id"
+                                    string="Schema Parser"
+                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_up)d)]"
+                                />
+                        <field
+                                    name="user_prompting_s3_url"
+                                    string="S3 URL"
+                                    widget="url"
+                                />
+                    </group>
+                    <separator string="Specification" />
+                    <field name="user_prompting_specification" widget="ace" />
+                    <group
+                                name="user_prompting_2"
+                                colspan="4"
+                                col="2"
+                                string="Specification Validation"
+                            >
+                        <field
+                                    name="user_prompting_specification_valid"
+                                    string="Valid?"
+                                />
+                        <field
+                                    name="user_prompting_specification_error_message"
+                                    string="Error Message"
+                                />
+                    </group>
+                    <separator string="Parsing" />
+                    <field name="user_prompting" widget="ace" />
+                    <group
+                                name="user_prompting_3"
+                                colspan="4"
+                                col="2"
+                                string="Parsing Validation"
+                            >
+                        <field name="user_prompting_valid" string="Valid?" />
+                        <field
+                                    name="user_prompting_error_message"
+                                    string="Error Message"
+                                />
+                    </group>
                 </page>
                 <page name="style" string="Style">
                     <group name="style_1" colspan="4" col="2">
