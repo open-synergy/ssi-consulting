@@ -60,4 +60,11 @@
         </form>
     </field>
 </record>
+
+<record id="consulting_service_materialized_view_action" model="ir.actions.act_window">
+    <field name="name">Consulting Service - Materialized Views</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">consulting_service.materialized_view</field>
+    <field name="view_mode">tree,form</field>
+</record>
 </odoo>

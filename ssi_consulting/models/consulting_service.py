@@ -485,6 +485,26 @@ class ConsultingService(models.Model):
                 self.report_template_id.user_prompting_specification
             )
 
+    def action_open_detail_mv(self):
+        for record in self.sudo():
+            result = record._open_detail_mv()
+
+        return result
+
+    def _open_detail_mv(self):
+        self.ensure_one()
+        waction = self.env.ref(
+            "ssi_consulting.consulting_service_materialized_view_action"
+        ).read()[0]
+        waction.update(
+            {
+                "view_mode": "tree,form",
+                "domain": [("id", "in", self.detail_materialized_view_ids.ids)],
+                "context": {},
+            }
+        )
+        return waction
+
     # ===========================
     # Utilities: newline & comment handling
     # ===========================
