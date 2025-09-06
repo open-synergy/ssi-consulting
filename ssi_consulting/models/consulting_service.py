@@ -445,6 +445,46 @@ class ConsultingService(models.Model):
     def onchange_report_template_id(self):
         self.report_template_id = False
 
+    @api.onchange(
+        "report_template_id",
+    )
+    def onchange_system_prompting_schema_parser_id(self):
+        self.system_prompting_schema_parser_id = False
+        if self.report_template_id:
+            self.system_prompting_schema_parser_id = (
+                self.report_template_id.system_prompting_schema_parser_id
+            )
+
+    @api.onchange(
+        "report_template_id",
+    )
+    def onchange_system_prompting_specification(self):
+        self.system_prompting_specification = ""
+        if self.report_template_id:
+            self.system_prompting_specification = (
+                self.report_template_id.system_prompting_specification
+            )
+
+    @api.onchange(
+        "report_template_id",
+    )
+    def onchange_user_prompting_schema_parser_id(self):
+        self.user_prompting_schema_parser_id = False
+        if self.report_template_id:
+            self.user_prompting_schema_parser_id = (
+                self.report_template_id.user_prompting_schema_parser_id
+            )
+
+    @api.onchange(
+        "report_template_id",
+    )
+    def onchange_user_prompting_specification(self):
+        self.user_prompting_specification = ""
+        if self.report_template_id:
+            self.user_prompting_specification = (
+                self.report_template_id.user_prompting_specification
+            )
+
     # ===========================
     # Utilities: newline & comment handling
     # ===========================
