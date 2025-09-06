@@ -133,7 +133,6 @@
                                         invisible="1"
                                     />
                                     <field name="superset_id" />
-                                    <field name="s3_url" widget="url" />
                                 </tree>
                                 <form>
                                     <group name="detail_chart" colspan="4" col="2">
@@ -143,7 +142,6 @@
                                             invisible="1"
                                         />
                                         <field name="superset_id" />
-                                        <field name="s3_url" widget="url" />
                                     </group>
                                 </form>
                             </field>
