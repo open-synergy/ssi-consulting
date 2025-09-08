@@ -134,6 +134,13 @@ class ConsultingService(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
+    detail_business_process_ids = fields.One2many(
+        string="Business Process",
+        comodel_name="consulting_service.business_process",
+        inverse_name="service_id",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
     data_structure_ids = fields.Many2many(
         string="Data Structure",
         comodel_name="consulting_data_structure",
@@ -155,6 +162,7 @@ class ConsultingService(models.Model):
         column1="service_id",
         column2="chart_template_id",
     )
+
     table_sql_script = fields.Text(
         string="SQL Script for Table Generation (Phase 1)",
         compute="_compute_table_sql_script",
@@ -491,6 +499,12 @@ class ConsultingService(models.Model):
 
         return result
 
+    def action_open_detail_business_process(self):
+        for record in self.sudo():
+            result = record._open_detail_business_process()
+
+        return result
+
     def _open_detail_mv(self):
         self.ensure_one()
         waction = self.env.ref(
@@ -500,6 +514,20 @@ class ConsultingService(models.Model):
             {
                 "view_mode": "tree,form",
                 "domain": [("id", "in", self.detail_materialized_view_ids.ids)],
+                "context": {},
+            }
+        )
+        return waction
+
+    def _open_detail_business_process(self):
+        self.ensure_one()
+        waction = self.env.ref(
+            "ssi_consulting.consulting_service_business_process_action"
+        ).read()[0]
+        waction.update(
+            {
+                "view_mode": "tree,form",
+                "domain": [("id", "in", self.detail_business_process_ids.ids)],
                 "context": {},
             }
         )
