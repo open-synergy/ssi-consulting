@@ -1,0 +1,93 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- Search View -->
+<record id="consulting_service_business_process_view_search" model="ir.ui.view">
+    <field name="name">consulting_service_business_process - search</field>
+    <field name="model">consulting_service.business_process</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="service_id" />
+            <field name="name" />
+        </search>
+    </field>
+</record>
+
+<!-- Tree View -->
+<record id="consulting_service_business_process_view_tree" model="ir.ui.view">
+    <field name="name">consulting_service_business_process - tree</field>
+    <field name="model">consulting_service.business_process</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name" />
+            <field name="service_id" />
+            <field name="graphml_s3_url" widget="url" />
+        </tree>
+    </field>
+</record>
+
+<!-- Form View -->
+<record id="consulting_service_business_process_view_form" model="ir.ui.view">
+    <field name="name">consulting_service_business_process - form</field>
+    <field name="model">consulting_service.business_process</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <form>
+            <header />
+            <sheet>
+                <group name="form_1" colspan="4" col="2">
+                    <field name="id" invisible="1" />
+                    <field name="service_id" />
+                    <field name="name" />
+                </group>
+                <notebook>
+                    <page name="graphml" string="Graphml">
+                        <group name="graphml_1" colspan="4" col="2">
+                            <field name="graphml_s3_url" string="S3 URL" widget="url" />
+                        </group>
+                        <separator string="Raw" />
+                        <field name="graphml" widget="ace" />
+                    </page>
+                    <page name="naration" string="Naration">
+                        <group name="naration_1" colspan="4" col="2">
+                            <field
+                                    name="naration_s3_url"
+                                    string="S3 URL"
+                                    widget="url"
+                                />
+                        </group>
+                        <separator string="Result" />
+                        <field name="naration" widget="ace" />
+                    </page>
+                    <page name="analysis" string="Analysis">
+                        <group name="analysis_1" colspan="4" col="2">
+                            <field
+                                    name="analysis_s3_url"
+                                    string="S3 URL"
+                                    widget="url"
+                                />
+                        </group>
+                        <separator string="Result" />
+                        <field name="analysis" widget="ace" />
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" groups="base.group_user" />
+                <field name="activity_ids" />
+                <field name="message_ids" />
+            </div>
+        </form>
+    </field>
+</record>
+
+<record id="consulting_service_business_process_action" model="ir.actions.act_window">
+    <field name="name">Consulting Service - Business Process</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">consulting_service.business_process</field>
+    <field name="view_mode">tree,form</field>
+</record>
+</odoo>

@@ -146,6 +146,27 @@
                                 </form>
                             </field>
                         </page>
+                        <page name="business_process" string="Business Process">
+                            <button
+                                name="action_open_detail_business_process"
+                                string="Open"
+                                type="object"
+                                icon="fa-bars"
+                                class="oe_highlight"
+                            />
+                            <field name="detail_business_process_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="graphml_s3_url" widget="url" />
+                                </tree>
+                                <form>
+                                    <group name="business_process" colspan="4" col="2">
+                                        <field name="name" />
+                                        <field name="graphml_s3_url" widget="url" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
                         <page name="sql" string="SQL Script">
                             <separator string="Table Creation" />
                             <field name="table_sql_script" widget="ace" />
