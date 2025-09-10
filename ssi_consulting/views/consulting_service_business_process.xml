@@ -90,4 +90,13 @@
     <field name="res_model">consulting_service.business_process</field>
     <field name="view_mode">tree,form</field>
 </record>
+
+<menuitem
+        id="consulting_service_business_process_menu"
+        name="Business Process"
+        action="consulting_service_business_process_action"
+        groups="consulting_service_viewer_group"
+        parent="menu_root_consulting"
+        sequence="20"
+    />
 </odoo>
