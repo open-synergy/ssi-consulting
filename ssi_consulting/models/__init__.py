@@ -14,4 +14,5 @@ from . import (
     consulting_service_materialized_view,
     consulting_service_chart,
     consulting_service_business_process,
+    consulting_service_business_process_area,
 )

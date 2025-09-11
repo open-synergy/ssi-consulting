@@ -57,6 +57,7 @@
         "views/consulting_service.xml",
         "views/consulting_service_materialized_view.xml",
         "views/consulting_service_business_process.xml",
+        "views/consulting_service_business_process_area.xml",
     ],
     "demo": [],
     "application": False,
