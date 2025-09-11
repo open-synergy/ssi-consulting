@@ -13,9 +13,9 @@ from odoo.addons.ssi_decorator import ssi_decorator
 _logger = logging.getLogger(__name__)
 
 
-class ConsultingServiceBusinessProcess(models.Model):
-    _name = "consulting_service.business_process"
-    _description = "Consulting Service - Business Process"
+class ConsultingServiceBusinessProcessArea(models.Model):
+    _name = "consulting_service.business_process_area"
+    _description = "Consulting Service - Business Process Area"
     _inherit = [
         "mixin.transaction_cancel",
         "mixin.transaction_done",
@@ -70,26 +70,6 @@ class ConsultingServiceBusinessProcess(models.Model):
         ondelete="set null",
         states={"draft": [("readonly", False)]},
     )
-    area_id = fields.Many2one(
-        string="Business Process Area",
-        comodel_name="consulting_service.business_process_area",
-        required=True,
-        ondelete="restrict",
-        states={"draft": [("readonly", False)]},
-    )
-    parent_id = fields.Many2one(
-        string="Parent Business Process",
-        comodel_name="consulting_service.business_process",
-        required=False,
-        ondelete="set null",
-        states={"draft": [("readonly", False)]},
-    )
-    child_ids = fields.One2many(
-        string="Childs Business Process",
-        comodel_name="consulting_service.business_process",
-        required=False,
-        inverse_name="parent_id",
-    )
     title = fields.Char(
         string="Title",
         default="-",
@@ -103,18 +83,16 @@ class ConsultingServiceBusinessProcess(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
+
+    business_process_ids = fields.One2many(
+        string="Business Process",
+        comodel_name="consulting_service.business_process",
+        inverse_name="area_id",
+        readonly=True,
+    )
+
     s3_prefix = fields.Char(
         string="S3 Prefix",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
-    graphml = fields.Text(
-        string="Raw Graphml",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
-    graphml_s3_url = fields.Char(
-        string="Graphml S3 URL",
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
@@ -127,11 +105,6 @@ class ConsultingServiceBusinessProcess(models.Model):
         string="Analysis",
         compute="_compute_analysis",
         store=True,
-    )
-    analysis_json_url = fields.Char(
-        string="Analysis (JSON) S3 URL",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
 
     @api.depends("analysis_s3_url")
