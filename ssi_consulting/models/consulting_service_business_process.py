@@ -70,6 +70,19 @@ class ConsultingServiceBusinessProcess(models.Model):
         ondelete="set null",
         states={"draft": [("readonly", False)]},
     )
+    parent_id = fields.Many2one(
+        string="Parent Business Process",
+        comodel_name="consulting_service.business_process",
+        required=False,
+        ondelete="set null",
+        states={"draft": [("readonly", False)]},
+    )
+    child_ids = fields.One2many(
+        string="Childs Business Process",
+        comodel_name="consulting_service.business_process",
+        required=False,
+        inverse_name="parent_id",
+    )
     title = fields.Char(
         string="Title",
         default="-",
@@ -102,6 +115,11 @@ class ConsultingServiceBusinessProcess(models.Model):
         string="Analysis",
         compute="_compute_analysis",
         store=True,
+    )
+    analysis_json_url = fields.Char(
+        string="Analysis (JSON) S3 URL",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
     )
 
     @api.depends("analysis_s3_url")

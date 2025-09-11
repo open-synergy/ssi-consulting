@@ -32,6 +32,7 @@
             <xpath expr="//field[@name='display_name']" position="after">
                 <field name="partner_id" />
                 <field name="title" />
+                <field name="parent_id" />
                 <field name="service_id" />
             </xpath>
         </data>
@@ -49,6 +50,7 @@
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="partner_id" />
                 <field name="service_id" />
+                <field name="parent_id" />
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
@@ -67,10 +69,22 @@
                 </page>
                 <page name="analysis" string="Analysis">
                     <group name="analysis_1" colspan="4" col="2">
-                        <field name="analysis_s3_url" string="S3 URL" widget="url" />
+                        <field
+                                name="analysis_s3_url"
+                                string="Analysis URL"
+                                widget="url"
+                            />
+                        <field
+                                name="analysis_json_url"
+                                string="Anlysis (JSON) URL"
+                                widget="url"
+                            />
                     </group>
                     <separator string="Result" />
                     <field name="analysis" widget="ace" />
+                </page>
+                <page name="child" string="Child Business Process">
+                    <field name="child_ids" />
                 </page>
             </xpath>
         </data>
