@@ -148,6 +148,8 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_service_all
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_all
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_all
 msgid "All"
 msgstr ""
 
@@ -272,6 +274,8 @@ msgstr ""
 #: model:ir.actions.act_window,name:ssi_consulting.consulting_service_business_process_action
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__detail_business_process_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__business_process_ids
+#: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_data_ownership_module_category
+#: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_workflow_module_category
 #: model:ir.ui.menu,name:ssi_consulting.consulting_service_business_process_menu
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Business Process"
@@ -279,6 +283,8 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__area_id
+#: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_area_data_ownership_module_category
+#: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_area_workflow_module_category
 msgid "Business Process Area"
 msgstr ""
 
@@ -419,6 +425,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__company_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__company_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__company_id
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_company_group
 msgid "Company"
 msgstr ""
@@ -431,6 +439,8 @@ msgid "Company Partner"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_child_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_child_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_child_company_group
 msgid "Company and All Child Companies"
 msgstr ""
@@ -1833,6 +1843,8 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_user_group
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_user_group
 #: model:res.groups,name:ssi_consulting.consulting_service_user_group
 msgid "User"
 msgstr ""
@@ -1929,11 +1941,15 @@ msgid "Validation"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_validator_group
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_validator_group
 #: model:res.groups,name:ssi_consulting.consulting_service_validator_group
 msgid "Validator"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_viewer_group
+#: model:res.groups,name:ssi_consulting.consulting_service_business_process_viewer_group
 #: model:res.groups,name:ssi_consulting.consulting_service_viewer_group
 msgid "Viewer"
 msgstr ""
