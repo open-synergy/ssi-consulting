@@ -59,49 +59,5 @@
     <field name="perm_create" eval="1" />
     <field name="perm_unlink" eval="1" />
 </record>
-
-<record id="consulting_service_business_process_all_access" model="ir.model.access">
-    <field name="name">consulting_service.business_process - all</field>
-    <field name="model_id" ref="model_consulting_service_business_process" />
-    <field name="group_id" eval="False" />
-    <field name="perm_read" eval="1" />
-    <field name="perm_write" eval="0" />
-    <field name="perm_create" eval="0" />
-    <field name="perm_unlink" eval="0" />
-</record>
-<record id="consulting_service_business_process_user_access" model="ir.model.access">
-    <field name="name">consulting_service.business_process - user</field>
-    <field name="model_id" ref="model_consulting_service_business_process" />
-    <field name="group_id" ref="consulting_service_user_group" />
-    <field name="perm_read" eval="1" />
-    <field name="perm_write" eval="1" />
-    <field name="perm_create" eval="1" />
-    <field name="perm_unlink" eval="1" />
-</record>
-
-<record
-            id="consulting_service_business_process_area_all_access"
-            model="ir.model.access"
-        >
-    <field name="name">consulting_service.business_process_area - all</field>
-    <field name="model_id" ref="model_consulting_service_business_process_area" />
-    <field name="group_id" eval="False" />
-    <field name="perm_read" eval="1" />
-    <field name="perm_write" eval="0" />
-    <field name="perm_create" eval="0" />
-    <field name="perm_unlink" eval="0" />
-</record>
-<record
-            id="consulting_service_business_process_area_user_access"
-            model="ir.model.access"
-        >
-    <field name="name">consulting_service.business_process_area - user</field>
-    <field name="model_id" ref="model_consulting_service_business_process_area" />
-    <field name="group_id" ref="consulting_service_user_group" />
-    <field name="perm_read" eval="1" />
-    <field name="perm_write" eval="1" />
-    <field name="perm_create" eval="1" />
-    <field name="perm_unlink" eval="1" />
-</record>
 </data>
 </odoo>
