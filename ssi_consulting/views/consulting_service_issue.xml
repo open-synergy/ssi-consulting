@@ -3,9 +3,9 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
 <!-- Search View -->
-<record id="consulting_service_business_process_area_view_search" model="ir.ui.view">
-    <field name="name">consulting_service_business_process_area - search</field>
-    <field name="model">consulting_service.business_process_area</field>
+<record id="consulting_service_issue_view_search" model="ir.ui.view">
+    <field name="name">consulting_service_issue - search</field>
+    <field name="model">consulting_service.issue</field>
     <field
             name="inherit_id"
             ref="ssi_transaction_mixin.mixin_transaction_view_search"
@@ -15,6 +15,7 @@
         <data>
             <xpath expr="//field[@name='name']" position="after">
                 <field name="title" />
+                <field name="partner_id" />
                 <field name="service_id" />
             </xpath>
         </data>
@@ -22,9 +23,9 @@
 </record>
 
 <!-- Tree View -->
-<record id="consulting_service_business_process_area_view_tree" model="ir.ui.view">
-    <field name="name">consulting_service_business_process_area - tree</field>
-    <field name="model">consulting_service.business_process_area</field>
+<record id="consulting_service_issue_view_tree" model="ir.ui.view">
+    <field name="name">consulting_service_issue - tree</field>
+    <field name="model">consulting_service.issue</field>
     <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
@@ -39,9 +40,9 @@
 </record>
 
 <!-- Form View -->
-<record id="consulting_service_business_process_area_view_form" model="ir.ui.view">
-    <field name="name">consulting_service_business_process_area - form</field>
-    <field name="model">consulting_service.business_process_area</field>
+<record id="consulting_service_issue_view_form" model="ir.ui.view">
+    <field name="name">consulting_service_issue - form</field>
+    <field name="model">consulting_service.issue</field>
     <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
@@ -52,20 +53,36 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
-                <field name="s3_prefix" />
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />
                 <field name="title" colspan="2" nolabel="1" />
             </xpath>
             <xpath expr="//page[1]" position="before">
-                <page name="analysis" string="Analysis">
-                    <group name="analysis_1" colspan="4" col="2">
+                <page name="mv" string="Materialized Views">
+                    <field name="materialized_view_ids" />
+                </page>
+                <page name="business_process_area" string="Business Process Area">
+                    <field name="business_process_area_ids" />
+                </page>
+                <page name="business_process" string="Business Process">
+                    <field name="business_process_ids" />
+                </page>
+                <page name="specificaton" string="Specification">
+                    <group name="specification" colspan="4" col="2">
                         <field
-                                name="analysis_s3_url"
-                                string="Analysis URL"
-                                widget="url"
+                                name="analysis_specification_schema_parser_id"
+                                string="Schema"
+                                domain="[('category_id','=',%(ssi_consulting.schema_parser_category_issue)d)]"
                             />
+                    </group>
+                    <separator string="Specification" />
+                    <field name="analysis_specification" widget="ace" />
+                </page>
+                <page name="analysis" string="Analysis">
+                    <group name="url" string="S3 URL" colspan="4" col="2">
+                        <field name="analysis_jason_s3_url" string="Raw" widget="url" />
+                        <field name="analysis_s3_url" string="Analysis" widget="url" />
                     </group>
                     <separator string="Result" />
                     <field name="analysis" widget="ace" />
@@ -75,22 +92,19 @@
     </field>
 </record>
 
-<record
-        id="consulting_service_business_process_area_action"
-        model="ir.actions.act_window"
-    >
-    <field name="name">Business Proces Areas</field>
+<record id="consulting_service_issue_action" model="ir.actions.act_window">
+    <field name="name">Issues</field>
     <field name="type">ir.actions.act_window</field>
-    <field name="res_model">consulting_service.business_process_area</field>
+    <field name="res_model">consulting_service.issue</field>
     <field name="view_mode">tree,form</field>
 </record>
 
 <menuitem
-        id="consulting_service_business_process_area_menu"
-        name="Business Proces Area"
-        action="consulting_service_business_process_area_action"
+        id="consulting_service_issue_menu"
+        name="Issues"
+        action="consulting_service_issue_action"
         groups="consulting_service_viewer_group"
         parent="menu_root_consulting"
-        sequence="30"
+        sequence="20"
     />
 </odoo>

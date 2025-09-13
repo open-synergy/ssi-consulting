@@ -2,6 +2,7 @@
 # Copyright 2025 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+
 import logging
 from urllib.parse import quote, urlsplit, urlunsplit
 
@@ -13,9 +14,9 @@ from odoo.addons.ssi_decorator import ssi_decorator
 _logger = logging.getLogger(__name__)
 
 
-class ConsultingServiceBusinessProcess(models.Model):
-    _name = "consulting_service.business_process"
-    _description = "Consulting Service - Business Process"
+class ConsultingServiceIssue(models.Model):
+    _name = "consulting_service.issue"
+    _description = "Consulting Service - Issue"
     _inherit = [
         "mixin.transaction_cancel",
         "mixin.transaction_done",
@@ -27,8 +28,8 @@ class ConsultingServiceBusinessProcess(models.Model):
 
     # Attributes related to add element on view automatically
     _automatically_insert_view_element = True
-    _automatically_insert_open_policy_fields = False
-    _automatically_insert_open_button = False
+    _automatically_insert_done_policy_fields = False
+    _automatically_insert_done_button = False
 
     # Multiple Approval Attribute
     _approval_from_state = "open"
@@ -73,29 +74,8 @@ class ConsultingServiceBusinessProcess(models.Model):
     service_id = fields.Many2one(
         string="# Service",
         comodel_name="consulting_service",
-        required=False,
-        ondelete="set null",
-        states={"draft": [("readonly", False)]},
-    )
-    area_id = fields.Many2one(
-        string="Business Process Area",
-        comodel_name="consulting_service.business_process_area",
         required=True,
-        ondelete="restrict",
-        states={"draft": [("readonly", False)]},
-    )
-    parent_id = fields.Many2one(
-        string="Parent Business Process",
-        comodel_name="consulting_service.business_process",
-        required=False,
-        ondelete="set null",
-        states={"draft": [("readonly", False)]},
-    )
-    child_ids = fields.One2many(
-        string="Childs Business Process",
-        comodel_name="consulting_service.business_process",
-        required=False,
-        inverse_name="parent_id",
+        ondelete="cascade",
     )
     title = fields.Char(
         string="Title",
@@ -110,35 +90,53 @@ class ConsultingServiceBusinessProcess(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
-    s3_prefix = fields.Char(
-        string="S3 Prefix",
+
+    # Analysis specification
+    analysis_specification_schema_parser_id = fields.Many2one(
+        string="Analysis Specification Schema Parser",
+        comodel_name="schema_parser",
+        required=True,
+        ondelete="restrict",
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
-    graphml = fields.Text(
-        string="Raw Graphml",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
+    analysis_specification = fields.Text(
+        string="Analysis Specification",
     )
-    graphml_s3_url = fields.Char(
-        string="Graphml S3 URL",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
+
+    # Analysis Result
+    analysis_jason_s3_url = fields.Char(
+        string="Analysis (JSON) S3 URL",
     )
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
     )
     analysis = fields.Text(
         string="Analysis",
         compute="_compute_analysis",
         store=True,
     )
-    analysis_json_url = fields.Char(
-        string="Analysis (JSON) S3 URL",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
+
+    materialized_view_ids = fields.Many2many(
+        string="Materialized Views",
+        comodel_name="consulting_service.materialized_view",
+        relation="rel_consulting_issue_2_consulting_mv",
+        column1="issue_id",
+        column2="mv_id",
+    )
+    business_process_ids = fields.Many2many(
+        string="Business Process",
+        comodel_name="consulting_service.business_process",
+        relation="rel_consulting_issue_2_consulting_business_process",
+        column1="issue_id",
+        column2="business_process_id",
+    )
+    business_process_area_ids = fields.Many2many(
+        string="Business Process Area",
+        comodel_name="consulting_service.business_process_area",
+        relation="rel_consulting_issue_2_consulting_business_process_area",
+        column1="issue_id",
+        column2="business_process_area_id",
     )
 
     @api.depends("analysis_s3_url")

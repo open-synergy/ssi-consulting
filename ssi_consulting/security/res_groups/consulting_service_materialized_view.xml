@@ -4,41 +4,38 @@
 <odoo>
     <data noupdate="0">
         <record
-            id="consulting_service_business_process_area_viewer_group"
+            id="consulting_service_materialized_view_viewer_group"
             model="res.groups"
         >
             <field name="name">Viewer</field>
             <field
                 name="category_id"
-                ref="consulting_service_business_process_area_workflow_module_category"
+                ref="consulting_service_materialized_view_workflow_module_category"
             />
         </record>
-        <record
-            id="consulting_service_business_process_area_user_group"
-            model="res.groups"
-        >
+        <record id="consulting_service_materialized_view_user_group" model="res.groups">
             <field name="name">User</field>
             <field
                 name="category_id"
-                ref="consulting_service_business_process_area_workflow_module_category"
+                ref="consulting_service_materialized_view_workflow_module_category"
             />
             <field
                 name="implied_ids"
-                eval="[(4, ref('consulting_service_business_process_area_viewer_group'))]"
+                eval="[(4, ref('consulting_service_materialized_view_viewer_group'))]"
             />
         </record>
         <record
-            id="consulting_service_business_process_area_validator_group"
+            id="consulting_service_materialized_view_validator_group"
             model="res.groups"
         >
             <field name="name">Validator</field>
             <field
                 name="category_id"
-                ref="consulting_service_business_process_area_workflow_module_category"
+                ref="consulting_service_materialized_view_workflow_module_category"
             />
             <field
                 name="implied_ids"
-                eval="[(4, ref('consulting_service_business_process_area_user_group'))]"
+                eval="[(4, ref('consulting_service_materialized_view_user_group'))]"
             />
             <field
                 name="users"
@@ -46,38 +43,38 @@
             />
         </record>
         <record
-            id="consulting_service_business_process_area_company_group"
+            id="consulting_service_materialized_view_company_group"
             model="res.groups"
         >
             <field name="name">Company</field>
             <field
                 name="category_id"
-                ref="consulting_service_business_process_area_data_ownership_module_category"
+                ref="consulting_service_materialized_view_data_ownership_module_category"
             />
         </record>
         <record
-            id="consulting_service_business_process_area_child_company_group"
+            id="consulting_service_materialized_view_child_company_group"
             model="res.groups"
         >
             <field name="name">Company and All Child Companies</field>
             <field
                 name="category_id"
-                ref="consulting_service_business_process_area_data_ownership_module_category"
+                ref="consulting_service_materialized_view_data_ownership_module_category"
             />
             <field
                 name="implied_ids"
-                eval="[(4, ref('consulting_service_business_process_area_company_group'))]"
+                eval="[(4, ref('consulting_service_materialized_view_company_group'))]"
             />
         </record>
-        <record id="consulting_service_business_process_area_all" model="res.groups">
+        <record id="consulting_service_materialized_view_all" model="res.groups">
             <field name="name">All</field>
             <field
                 name="category_id"
-                ref="consulting_service_business_process_area_data_ownership_module_category"
+                ref="consulting_service_materialized_view_data_ownership_module_category"
             />
             <field
                 name="implied_ids"
-                eval="[(4, ref('consulting_service_business_process_area_company_group'))]"
+                eval="[(4, ref('consulting_service_materialized_view_company_group'))]"
             />
             <field
                 name="users"
