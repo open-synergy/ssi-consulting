@@ -4,7 +4,7 @@
 
 {
     "name": "Consulting",
-    "version": "14.0.5.4.0",
+    "version": "14.0.5.3.0",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "website": "https://simetri-sinergi.id",
     "license": "AGPL-3",
@@ -90,6 +90,7 @@
         "views/consulting_report_template.xml",
         "views/consulting_schema_parser.xml",
         "views/consulting_service_type.xml",
+        "views/consulting_service.xml",
         "views/consulting_service_materialized_view.xml",
         "views/consulting_service_business_process.xml",
         "views/consulting_service_business_process_area.xml",
