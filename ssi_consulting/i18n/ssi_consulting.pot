@@ -691,7 +691,6 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.actions.act_window,name:ssi_consulting.consulting_service_action
-#: model:ir.ui.menu,name:ssi_consulting.consulting_service_menu
 msgid "Consulting Services"
 msgstr ""
 
