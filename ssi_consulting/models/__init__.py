@@ -15,4 +15,5 @@ from . import (
     consulting_service_chart,
     consulting_service_business_process,
     consulting_service_business_process_area,
+    consulting_service_issue,
 )

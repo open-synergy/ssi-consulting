@@ -32,4 +32,9 @@
     <field name="name">User Prompting</field>
     <field name="code">CS-UP</field>
 </record>
+
+<record id="schema_parser_category_issue" model="schema_parser_category">
+    <field name="name">Issue</field>
+    <field name="code">CS-IS</field>
+</record>
 </odoo>

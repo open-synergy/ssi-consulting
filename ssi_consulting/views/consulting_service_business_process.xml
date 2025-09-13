@@ -107,6 +107,6 @@
         action="consulting_service_business_process_action"
         groups="consulting_service_viewer_group"
         parent="menu_root_consulting"
-        sequence="30"
+        sequence="40"
     />
 </odoo>

@@ -76,6 +76,6 @@
         action="consulting_service_materialized_view_action"
         groups="consulting_service_viewer_group"
         parent="menu_root_consulting"
-        sequence="30"
+        sequence="50"
     />
 </odoo>
