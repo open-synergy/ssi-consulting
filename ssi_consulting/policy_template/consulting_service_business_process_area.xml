@@ -20,6 +20,33 @@
 </record>
 
 <record
+            id="policy_template_consulting_service_business_process_area_open"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_business_process_area"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.business_process_area'),('name','=','open_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.business_process_area'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('consulting_service_business_process_area_user_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+
+<record
             id="policy_template_consulting_service_business_process_area_confirm"
             model="policy.template_detail"
         >
@@ -34,7 +61,7 @@
     <field name="restrict_state" eval="1" />
     <field
                 name="state_ids"
-                search="[('field_id.model_id.model','=','consulting_service.business_process_area'),('value','=','draft')]"
+                search="[('field_id.model_id.model','=','consulting_service.business_process_area'),('value','=','open')]"
             />
     <field name="restrict_user" eval="1" />
     <field name="computation_method">use_group</field>
