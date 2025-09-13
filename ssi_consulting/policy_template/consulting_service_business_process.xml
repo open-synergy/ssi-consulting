@@ -3,7 +3,7 @@
      Copyright 2022 PT. Simetri Sinergi Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-<data noupdate="1">
+<data noupdate="0">
 
 <record
             id="policy_template_consulting_service_business_process"
