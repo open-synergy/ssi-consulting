@@ -281,15 +281,5 @@
             <field name="res_model">consulting_service</field>
             <field name="view_mode">tree,form</field>
         </record>
-
-        <!-- Menu -->
-        <menuitem
-            id="consulting_service_menu"
-            name="Consulting Services"
-            action="consulting_service_action"
-            groups="consulting_service_viewer_group"
-            parent="menu_root_consulting"
-            sequence="10"
-        />
     </data>
 </odoo>
