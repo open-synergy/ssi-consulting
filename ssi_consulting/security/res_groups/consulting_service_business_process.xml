@@ -37,6 +37,10 @@
                 name="implied_ids"
                 eval="[(4, ref('consulting_service_business_process_user_group'))]"
             />
+            <field
+                name="users"
+                eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+            />
         </record>
         <record
             id="consulting_service_business_process_company_group"
@@ -71,6 +75,10 @@
             <field
                 name="implied_ids"
                 eval="[(4, ref('consulting_service_business_process_company_group'))]"
+            />
+            <field
+                name="users"
+                eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
             />
         </record>
     </data>

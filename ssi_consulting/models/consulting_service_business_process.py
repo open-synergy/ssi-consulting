@@ -19,8 +19,8 @@ class ConsultingServiceBusinessProcess(models.Model):
     _inherit = [
         "mixin.transaction_cancel",
         "mixin.transaction_done",
-        "mixin.transaction_open",
         "mixin.transaction_confirm",
+        "mixin.transaction_open",
         "mixin.transaction_partner",
         "mixin.many2one_configurator",
     ]
@@ -31,12 +31,12 @@ class ConsultingServiceBusinessProcess(models.Model):
     _automatically_insert_open_button = False
 
     # Multiple Approval Attribute
-    _approval_from_state = "draft"
+    _approval_from_state = "open"
     _approval_to_state = "done"
     _approval_state = "confirm"
     _after_approved_method = "action_done"
 
-    _statusbar_visible_label = "draft,confirm,open"
+    _statusbar_visible_label = "draft,open,confirm"
     _policy_field_order = [
         "confirm_ok",
         "approve_ok",
@@ -49,6 +49,7 @@ class ConsultingServiceBusinessProcess(models.Model):
         "manual_number_ok",
     ]
     _header_button_order = [
+        "action_open",
         "action_confirm",
         "action_approve_approval",
         "action_reject_approval",
@@ -67,7 +68,7 @@ class ConsultingServiceBusinessProcess(models.Model):
     ]
 
     # Sequence attribute
-    _create_sequence_state = "done"
+    _create_sequence_state = "open"
 
     service_id = fields.Many2one(
         string="# Service",

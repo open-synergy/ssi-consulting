@@ -100,29 +100,6 @@
                                 icon="fa-bars"
                                 class="oe_highlight"
                             />
-                            <field name="detail_materialized_view_ids">
-                                <tree>
-                                    <field name="materialized_view_id" />
-                                    <field name="superset_id" />
-                                    <field name="s3_url" widget="url" />
-                                </tree>
-                                <form>
-                                    <group
-                                        name="detail_materialized_view_1"
-                                        colspan="4"
-                                        col="2"
-                                    >
-                                        <field name="materialized_view_id" />
-                                        <field name="superset_id" />
-                                        <field name="s3_url" widget="url" />
-                                    </group>
-                                    <notebook>
-                                        <page name="content" string="Content">
-                                            <field name="mv_text" />
-                                        </page>
-                                    </notebook>
-                                </form>
-                            </field>
                             <separator string="Charts" />
                             <field name="chart_template_ids" invisible="1" />
                             <field name="detail_chart_ids">
