@@ -50,6 +50,12 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         "action_restart",
     ]
 
+    # Multiple Approval Attribute
+    _approval_from_state = "draft"
+    _approval_to_state = "done"
+    _approval_state = "confirm"
+    _after_approved_method = "action_done"
+
     # Attributes related to add element on search view automatically
     _state_filter_order = [
         "dom_draft",
@@ -61,7 +67,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     ]
 
     # Sequence attribute
-    _create_sequence_state = "open"
+    _create_sequence_state = "done"
 
     service_id = fields.Many2one(
         string="# Service",
