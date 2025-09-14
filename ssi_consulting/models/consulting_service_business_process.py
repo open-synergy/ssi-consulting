@@ -82,14 +82,30 @@ class ConsultingServiceBusinessProcess(models.Model):
         comodel_name="consulting_service.business_process_area",
         required=True,
         ondelete="restrict",
-        states={"draft": [("readonly", False)]},
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     parent_id = fields.Many2one(
         string="Parent Business Process",
         comodel_name="consulting_service.business_process",
         required=False,
         ondelete="set null",
-        states={"draft": [("readonly", False)]},
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     child_ids = fields.One2many(
         string="Childs Business Process",
@@ -102,33 +118,75 @@ class ConsultingServiceBusinessProcess(models.Model):
         default="-",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     date = fields.Date(
         string="Date",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     s3_prefix = fields.Char(
         string="S3 Prefix",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     graphml = fields.Text(
         string="Raw Graphml",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     graphml_s3_url = fields.Char(
         string="Graphml S3 URL",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     analysis = fields.Text(
         string="Analysis",
@@ -138,7 +196,14 @@ class ConsultingServiceBusinessProcess(models.Model):
     analysis_json_url = fields.Char(
         string="Analysis (JSON) S3 URL",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
 
     @api.depends("analysis_s3_url")
