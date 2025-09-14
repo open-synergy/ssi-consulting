@@ -6,6 +6,7 @@
 # External libs used to fetch & render CSV as plain text
 import csv
 import io
+import json
 
 import requests
 from odoo import api, fields, models
@@ -104,8 +105,90 @@ class ConsultingServiceMaterializedView(models.Model):
         string="MV on Text",
         compute="_compute_mv_text",
         store=True,
-        help="Plain text table (Markdown-like) generated from the CSV pointed by S3 URL.",
     )
+    mv_json = fields.Text(
+        string="MV on Text",
+        compute="_compute_mv_json",
+        store=True,
+    )
+
+    @api.depends("google_sheet_url")
+    def _compute_mv_json(self):
+        """
+        Fetch CSV from google_sheet_url and render as minified JSON.
+
+        - Deteksi encoding ringan (utf-8-sig, utf-8, iso-8859-1, fallback utf-8 dengan replace).
+        - Hanya ambil 50 baris pertama (selain header).
+        - Jika gagal fetch/parse, isi field dengan JSON error {"error":"..."}.
+        - JSON di-minify (tanpa spasi/indent).
+        """
+        limit_rows = 50
+        for rec in self:
+            out_json = False
+            url = (rec.google_sheet_url or "").strip()
+            if not url:
+                rec.mv_json = out_json
+                continue
+
+            try:
+                resp = requests.get(url, timeout=60, verify=True)
+                resp.raise_for_status()
+                content_bytes = resp.content
+
+                # Deteksi encoding sederhana
+                encoding = None
+                for enc in ("utf-8-sig", "utf-8", "iso-8859-1"):
+                    try:
+                        content = content_bytes.decode(enc)
+                        encoding = enc
+                        break
+                    except UnicodeDecodeError:
+                        continue
+                if encoding is None:
+                    content = content_bytes.decode("utf-8", errors="replace")
+
+                # Parse CSV
+                reader = csv.reader(io.StringIO(content))
+                rows = list(reader)
+
+                if not rows:
+                    out_obj = []
+                else:
+                    header = rows[0]
+                    data = rows[1 : 1 + limit_rows]
+
+                    # Normalisasi header kosong
+                    if not header or all((h or "").strip() == "" for h in header):
+                        header = [
+                            f"col_{i + 1}"
+                            for i in range(max((len(r) for r in data), default=0))
+                        ]
+
+                    # Pad/truncate baris agar sesuai header
+                    normalized = []
+                    for r in data:
+                        row = list(r[: len(header)]) + [""] * max(
+                            0, len(header) - len(r)
+                        )
+                        normalized.append(
+                            {header[i]: row[i] for i in range(len(header))}
+                        )
+
+                    out_obj = normalized
+
+                # JSON terminify
+                out_json = json.dumps(
+                    out_obj, separators=(",", ":"), ensure_ascii=False
+                )
+
+            except Exception as e:
+                out_json = json.dumps(
+                    {"error": f"Failed to fetch/parse CSV: {e}"},
+                    separators=(",", ":"),
+                    ensure_ascii=False,
+                )
+
+            rec.mv_json = out_json
 
     @api.depends("google_sheet_url")
     def _compute_mv_text(self):

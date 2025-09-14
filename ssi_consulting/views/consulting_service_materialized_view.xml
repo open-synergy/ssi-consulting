@@ -63,6 +63,9 @@
                 <page name="data" string="Data">
                     <field name="mv_text" widget="ace" />
                 </page>
+                <page name="json" string="JSON">
+                    <field name="mv_json" widget="ace" />
+                </page>
             </xpath>
 
         </data>

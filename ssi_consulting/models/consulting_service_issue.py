@@ -216,6 +216,13 @@ class ConsultingServiceIssue(models.Model):
         readonly=True,
     )
 
+    n8n_analysis_execution_id = fields.Integer(
+        string="n8n Analysis Execution ID",
+    )
+    n8n_anaysis_execution_status = fields.Char(
+        string="n8n Analysis Execution Status",
+    )
+
     @api.depends(
         "system_prompting_schema_parser_id",
         "system_prompting_specification",
