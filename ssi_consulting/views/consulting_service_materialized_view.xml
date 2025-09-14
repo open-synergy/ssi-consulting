@@ -59,6 +59,12 @@
                 <label for="title" colspan="2" />
                 <field name="title" colspan="2" nolabel="1" />
             </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="data" string="Data">
+                    <field name="mv_text" widget="ace" />
+                </page>
+            </xpath>
+
         </data>
     </field>
 </record>

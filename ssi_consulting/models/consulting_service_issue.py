@@ -91,19 +91,6 @@ class ConsultingServiceIssue(models.Model):
         states={"draft": [("readonly", False)]},
     )
 
-    # Analysis specification
-    analysis_specification_schema_parser_id = fields.Many2one(
-        string="Analysis Specification Schema Parser",
-        comodel_name="schema_parser",
-        required=True,
-        ondelete="restrict",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
-    analysis_specification = fields.Text(
-        string="Analysis Specification",
-    )
-
     # Analysis Result
     analysis_jason_s3_url = fields.Char(
         string="Analysis (JSON) S3 URL",
@@ -138,6 +125,167 @@ class ConsultingServiceIssue(models.Model):
         column1="issue_id",
         column2="business_process_area_id",
     )
+
+    # AI System Prompting
+    system_prompting_schema_parser_id = fields.Many2one(
+        string="System Prompting Schema Parser",
+        comodel_name="schema_parser",
+        required=True,
+    )
+    system_prompting_specification = fields.Text(
+        string="System Prompting Specification",
+        required=True,
+    )
+    system_prompting_specification_valid = fields.Boolean(
+        string="System Prompting Specification Valid?",
+        compute="_compute_system_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    system_prompting_specification_error_message = fields.Text(
+        string="System Prompting Specification Error Message",
+        compute="_compute_system_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    system_prompting = fields.Text(
+        string="System Prompting Specification",
+        compute="_compute_system_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    system_prompting_valid = fields.Boolean(
+        string="System Prompting Valid?",
+        compute="_compute_system_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    system_prompting_error_message = fields.Text(
+        string="System Prompting Error Message",
+        compute="_compute_system_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    system_prompting_s3_url = fields.Char(
+        string="System Prompting S3 URL",
+        readonly=True,
+    )
+
+    # AI User Prompting
+    user_prompting_schema_parser_id = fields.Many2one(
+        string="User Prompting Schema Parser",
+        comodel_name="schema_parser",
+        required=True,
+    )
+    user_prompting_specification = fields.Text(
+        string="User Prompting Specification",
+        required=True,
+    )
+    user_prompting_specification_valid = fields.Boolean(
+        string="User Prompting Specification Valid?",
+        compute="_compute_user_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    user_prompting_specification_error_message = fields.Text(
+        string="User Prompting Specification Error Message",
+        compute="_compute_user_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    user_prompting = fields.Text(
+        string="User Prompting Specification",
+        compute="_compute_user_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    user_prompting_valid = fields.Boolean(
+        string="User Prompting Valid?",
+        compute="_compute_user_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    user_prompting_error_message = fields.Text(
+        string="User Prompting Error Message",
+        compute="_compute_user_prompting",
+        store=True,
+        compute_sudo=True,
+    )
+    user_prompting_s3_url = fields.Char(
+        string="User Prompting S3 URL",
+        readonly=True,
+    )
+
+    @api.depends(
+        "system_prompting_schema_parser_id",
+        "system_prompting_specification",
+    )
+    def _compute_system_prompting(self):
+        for record in self:
+            specification_valid = parsing_valid = True
+            specification_error_message = parsing_error_message = parsing_result = ""
+            if (
+                record.system_prompting_schema_parser_id
+                and record.system_prompting_specification
+            ):
+                (
+                    _spec_obj,
+                    specification_valid,
+                    specification_error_message,
+                ) = record.system_prompting_schema_parser_id.validate_against_schema(
+                    data_text=record.system_prompting_specification
+                )
+                (
+                    parsing_result,
+                    parsing_valid,
+                    parsing_error_message,
+                ) = record.system_prompting_schema_parser_id.parse_specification(
+                    specification=record.system_prompting_specification
+                )
+            record.system_prompting_specification_valid = specification_valid
+            record.system_prompting_specification_error_message = (
+                specification_error_message
+            )
+            record.system_prompting_valid = parsing_valid
+            record.system_prompting_error_message = parsing_error_message
+            record.system_prompting = parsing_result
+
+    @api.depends(
+        "user_prompting_schema_parser_id",
+        "user_prompting_specification",
+    )
+    def _compute_user_prompting(self):
+        for record in self:
+            specification_valid = parsing_valid = True
+            specification_error_message = parsing_error_message = parsing_result = ""
+            if (
+                record.user_prompting_schema_parser_id
+                and record.user_prompting_specification
+            ):
+                (
+                    _spec_obj,
+                    specification_valid,
+                    specification_error_message,
+                ) = record.user_prompting_schema_parser_id.validate_against_schema(
+                    data_text=record.user_prompting_specification
+                )
+                (
+                    parsing_result,
+                    parsing_valid,
+                    parsing_error_message,
+                ) = record.user_prompting_schema_parser_id.parse_specification(
+                    specification=record.user_prompting_specification,
+                    additional_dict={
+                        "consulting_service": record,
+                    },
+                )
+            record.user_prompting_specification_valid = specification_valid
+            record.user_prompting_specification_error_message = (
+                specification_error_message
+            )
+            record.user_prompting_valid = parsing_valid
+            record.user_prompting_error_message = parsing_error_message
+            record.user_prompting = parsing_result
 
     @api.depends("analysis_s3_url")
     def _compute_analysis(self):  # noqa: C901
