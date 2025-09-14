@@ -1068,6 +1068,11 @@ msgid "Issues"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
+msgid "JSON"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__payload
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__superset_chart_creation_payload
 msgid "JSON payload untuk POST /api/v1/chart di Superset."
@@ -1125,6 +1130,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__mv_json
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__mv_text
 msgid "MV on Text"
 msgstr ""
@@ -1496,12 +1502,6 @@ msgid "Pg Schema"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__mv_text
-msgid ""
-"Plain text table (Markdown-like) generated from the CSV pointed by S3 URL."
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__policy_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__policy_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__policy_template_id
@@ -1662,6 +1662,8 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__s3_prefix
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__s3_prefix
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__s3_prefix
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__s3_prefix
 msgid "S3 Prefix"
 msgstr ""
 
@@ -2180,4 +2182,14 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__data_structure_ids
 msgid "data Structure"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__n8n_analysis_execution_id
+msgid "n8n Analysis Execution ID"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__n8n_anaysis_execution_status
+msgid "n8n Analysis Execution Status"
 msgstr ""
