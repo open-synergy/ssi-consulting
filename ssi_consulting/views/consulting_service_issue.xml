@@ -53,6 +53,7 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
+                <field name="s3_prefix" />
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />

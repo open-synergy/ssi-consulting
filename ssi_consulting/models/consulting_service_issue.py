@@ -91,6 +91,12 @@ class ConsultingServiceIssue(models.Model):
         states={"draft": [("readonly", False)]},
     )
 
+    s3_prefix = fields.Char(
+        string="S3 Prefix",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
+
     # Analysis Result
     analysis_jason_s3_url = fields.Char(
         string="Analysis (JSON) S3 URL",
@@ -214,6 +220,13 @@ class ConsultingServiceIssue(models.Model):
     user_prompting_s3_url = fields.Char(
         string="User Prompting S3 URL",
         readonly=True,
+    )
+
+    n8n_analysis_execution_id = fields.Integer(
+        string="n8n Analysis Execution ID",
+    )
+    n8n_anaysis_execution_status = fields.Char(
+        string="n8n Analysis Execution Status",
     )
 
     @api.depends(

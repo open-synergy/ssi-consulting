@@ -53,6 +53,7 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
+                <field name="s3_prefix" />
                 <field name="google_sheet_url" />
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
@@ -62,6 +63,9 @@
             <xpath expr="//page[1]" position="before">
                 <page name="data" string="Data">
                     <field name="mv_text" widget="ace" />
+                </page>
+                <page name="json" string="JSON">
+                    <field name="mv_json" widget="ace" />
                 </page>
             </xpath>
 
