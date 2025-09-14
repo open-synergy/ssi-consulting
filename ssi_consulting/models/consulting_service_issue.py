@@ -91,6 +91,12 @@ class ConsultingServiceIssue(models.Model):
         states={"draft": [("readonly", False)]},
     )
 
+    s3_prefix = fields.Char(
+        string="S3 Prefix",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
+
     # Analysis Result
     analysis_jason_s3_url = fields.Char(
         string="Analysis (JSON) S3 URL",

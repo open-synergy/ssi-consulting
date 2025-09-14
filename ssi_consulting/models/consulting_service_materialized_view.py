@@ -96,6 +96,11 @@ class ConsultingServiceMaterializedView(models.Model):
         required=False,
         ondelete="cascade",
     )
+    s3_prefix = fields.Char(
+        string="S3 Prefix",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+    )
     google_sheet_url = fields.Char(
         string="Google Sheet URL",
         readonly=True,

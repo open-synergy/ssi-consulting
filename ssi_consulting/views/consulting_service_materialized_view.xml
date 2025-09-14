@@ -53,6 +53,7 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
+                <field name="s3_prefix" />
                 <field name="google_sheet_url" />
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
