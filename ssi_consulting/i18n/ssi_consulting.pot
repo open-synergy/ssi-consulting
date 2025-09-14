@@ -933,11 +933,6 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__google_sheet_url
-msgid "Google Sheet URL"
-msgstr ""
-
-#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
 msgid "Graphml"
 msgstr ""
@@ -1518,7 +1513,13 @@ msgstr ""
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
 msgid "Raw"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__raw
+msgid "Raw Data"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1673,6 +1674,7 @@ msgid "S3 Secret"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__google_sheet_url
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
