@@ -82,27 +82,57 @@ class ConsultingServiceIssue(models.Model):
         default="-",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
     )
     date = fields.Date(
         string="Date",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
-
     s3_prefix = fields.Char(
         string="S3 Prefix",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
 
     # Analysis Result
     analysis_jason_s3_url = fields.Char(
         string="Analysis (JSON) S3 URL",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     analysis = fields.Text(
         string="Analysis",
@@ -116,6 +146,15 @@ class ConsultingServiceIssue(models.Model):
         relation="rel_consulting_issue_2_consulting_mv",
         column1="issue_id",
         column2="mv_id",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     business_process_ids = fields.Many2many(
         string="Business Process",
@@ -123,6 +162,15 @@ class ConsultingServiceIssue(models.Model):
         relation="rel_consulting_issue_2_consulting_business_process",
         column1="issue_id",
         column2="business_process_id",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     business_process_area_ids = fields.Many2many(
         string="Business Process Area",
@@ -130,6 +178,15 @@ class ConsultingServiceIssue(models.Model):
         relation="rel_consulting_issue_2_consulting_business_process_area",
         column1="issue_id",
         column2="business_process_area_id",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
 
     # AI System Prompting
@@ -137,10 +194,28 @@ class ConsultingServiceIssue(models.Model):
         string="System Prompting Schema Parser",
         comodel_name="schema_parser",
         required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     system_prompting_specification = fields.Text(
         string="System Prompting Specification",
         required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     system_prompting_specification_valid = fields.Boolean(
         string="System Prompting Specification Valid?",
@@ -182,10 +257,28 @@ class ConsultingServiceIssue(models.Model):
         string="User Prompting Schema Parser",
         comodel_name="schema_parser",
         required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     user_prompting_specification = fields.Text(
         string="User Prompting Specification",
         required=True,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     user_prompting_specification_valid = fields.Boolean(
         string="User Prompting Specification Valid?",

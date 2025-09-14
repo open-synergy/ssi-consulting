@@ -82,13 +82,27 @@ class ConsultingServiceMaterializedView(models.Model):
         default="-",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     date = fields.Date(
         string="Date",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     materialized_view_id = fields.Many2one(
         string="Materialized View",
@@ -100,17 +114,38 @@ class ConsultingServiceMaterializedView(models.Model):
         string="Raw Data",
         required=False,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     s3_prefix = fields.Char(
         string="S3 Prefix",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     google_sheet_url = fields.Char(
         string="S3 URL",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     mv_text = fields.Text(
         string="MV on Text",

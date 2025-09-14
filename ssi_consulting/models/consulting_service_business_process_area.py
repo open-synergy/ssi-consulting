@@ -81,13 +81,27 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         default="-",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     date = fields.Date(
         string="Date",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
 
     business_process_ids = fields.One2many(
@@ -100,12 +114,26 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     s3_prefix = fields.Char(
         string="S3 Prefix",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     analysis = fields.Text(
         string="Analysis",
