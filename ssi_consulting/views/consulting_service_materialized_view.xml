@@ -54,13 +54,19 @@
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
                 <field name="s3_prefix" />
-                <field name="google_sheet_url" />
+
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />
                 <field name="title" colspan="2" nolabel="1" />
             </xpath>
             <xpath expr="//page[1]" position="before">
+                <page name="raw" string="Raw">
+                    <group name="raw_1" colspan="4" col="2">
+                        <field name="google_sheet_url" widget="url" />
+                    </group>
+                    <field name="raw" />
+                </page>
                 <page name="data" string="Data">
                     <field name="mv_text" widget="ace" />
                 </page>
