@@ -27,8 +27,8 @@ class ConsultingServiceBusinessProcessArea(models.Model):
 
     # Attributes related to add element on view automatically
     _automatically_insert_view_element = True
-    _automatically_insert_open_policy_fields = False
-    _automatically_insert_open_button = False
+    _automatically_insert_done_policy_fields = False
+    _automatically_insert_done_button = False
 
     _statusbar_visible_label = "draft,confirm,open"
     _policy_field_order = [
@@ -51,10 +51,30 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     ]
 
     # Multiple Approval Attribute
-    _approval_from_state = "draft"
+    _approval_from_state = "open"
     _approval_to_state = "done"
     _approval_state = "confirm"
     _after_approved_method = "action_done"
+
+    _policy_field_order = [
+        "confirm_ok",
+        "approve_ok",
+        "reject_ok",
+        "open_ok",
+        "restart_approval_ok",
+        "cancel_ok",
+        "restart_ok",
+        "done_ok",
+        "manual_number_ok",
+    ]
+    _header_button_order = [
+        "action_open",
+        "action_confirm",
+        "action_approve_approval",
+        "action_reject_approval",
+        "%(ssi_transaction_cancel_mixin.base_select_cancel_reason_action)d",
+        "action_restart",
+    ]
 
     # Attributes related to add element on search view automatically
     _state_filter_order = [
