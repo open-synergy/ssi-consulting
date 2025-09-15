@@ -87,7 +87,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     ]
 
     # Sequence attribute
-    _create_sequence_state = "done"
+    _create_sequence_state = "open"
 
     service_id = fields.Many2one(
         string="# Service",
