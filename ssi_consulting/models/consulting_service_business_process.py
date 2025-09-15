@@ -27,8 +27,8 @@ class ConsultingServiceBusinessProcess(models.Model):
 
     # Attributes related to add element on view automatically
     _automatically_insert_view_element = True
-    _automatically_insert_open_policy_fields = False
-    _automatically_insert_open_button = False
+    _automatically_insert_done_policy_fields = False
+    _automatically_insert_done_button = False
 
     # Multiple Approval Attribute
     _approval_from_state = "open"
