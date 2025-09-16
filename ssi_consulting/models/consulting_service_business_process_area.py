@@ -124,7 +124,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         },
     )
 
-    business_process_ids = fields.Manymany(
+    business_process_ids = fields.Many2many(
         string="Business Process",
         comodel_name="consulting_service.business_process",
         relation="rel_business_process_area_2_business_process",
