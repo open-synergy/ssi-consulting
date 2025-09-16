@@ -313,6 +313,7 @@ msgstr ""
 #: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_data_ownership_module_category
 #: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_workflow_module_category
 #: model:ir.ui.menu,name:ssi_consulting.consulting_service_business_process_menu
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Business Process"
