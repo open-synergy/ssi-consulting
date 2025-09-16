@@ -59,6 +59,9 @@
                 <field name="title" colspan="2" nolabel="1" />
             </xpath>
             <xpath expr="//page[1]" position="before">
+                <page name="business_process" string="Business Process">
+                    <field name="business_process_ids" />
+                </page>
                 <page name="analysis" string="Analysis">
                     <group name="analysis_1" colspan="4" col="2">
                         <field

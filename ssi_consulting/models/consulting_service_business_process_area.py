@@ -124,11 +124,21 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         },
     )
 
-    business_process_ids = fields.One2many(
+    business_process_ids = fields.Manymany(
         string="Business Process",
         comodel_name="consulting_service.business_process",
-        inverse_name="area_id",
+        relation="rel_business_process_area_2_business_process",
+        column1="area_id",
+        column2="business_process_id",
         readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
 
     s3_prefix = fields.Char(
