@@ -85,6 +85,8 @@
                     </group>
                     <separator string="Result" />
                     <field name="analysis" widget="ace" />
+                    <separator string="Result (JSON)" />
+                    <field name="analysis_json" widget="ace" />
                 </page>
                 <page name="child" string="Child Business Process">
                     <field name="child_ids" />

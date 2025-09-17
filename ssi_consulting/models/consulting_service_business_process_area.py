@@ -19,8 +19,8 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     _inherit = [
         "mixin.transaction_cancel",
         "mixin.transaction_done",
-        "mixin.transaction_open",
         "mixin.transaction_confirm",
+        "mixin.transaction_open",
         "mixin.transaction_partner",
         "mixin.many2one_configurator",
     ]
@@ -130,6 +130,18 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         relation="rel_business_process_area_2_business_process",
         column1="area_id",
         column2="business_process_id",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
+    )
+    business_process_json = fields.Text(
+        string="Business Process (JSON)",
         readonly=True,
         states={
             "draft": [
