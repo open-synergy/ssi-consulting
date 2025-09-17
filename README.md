@@ -18,7 +18,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_consulting](ssi_consulting/) | 14.0.5.12.0 |  | Consulting
+[ssi_consulting](ssi_consulting/) | 14.0.5.13.0 |  | Consulting
 
 [//]: # (end addons)
 
