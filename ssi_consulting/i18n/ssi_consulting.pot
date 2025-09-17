@@ -199,6 +199,7 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__analysis
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__analysis_json
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__analysis
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__analysis
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
@@ -317,6 +318,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Business Process"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__business_process_json
+msgid "Business Process (JSON)"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1064,6 +1070,7 @@ msgid "Issues"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
 msgid "JSON"
 msgstr ""
@@ -1630,6 +1637,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
 msgid "Result"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
+msgid "Result (JSON)"
 msgstr ""
 
 #. module: ssi_consulting
