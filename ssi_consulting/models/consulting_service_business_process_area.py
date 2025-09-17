@@ -2,6 +2,7 @@
 # Copyright 2025 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import json
 import logging
 from urllib.parse import quote, urlsplit, urlunsplit
 
@@ -142,15 +143,8 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     )
     business_process_json = fields.Text(
         string="Business Process (JSON)",
-        readonly=True,
-        states={
-            "draft": [
-                ("readonly", False),
-            ],
-            "open": [
-                ("readonly", False),
-            ],
-        },
+        compute="_compute_business_process_json",
+        store=True,
     )
 
     s3_prefix = fields.Char(
@@ -182,6 +176,19 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         compute="_compute_analysis",
         store=True,
     )
+
+    @api.depends("business_process_ids", "business_process_ids.analysis_json")
+    def _compute_business_process_json(self):
+        for rec in self:
+            all_json = []
+            for business_process in rec.business_process_ids:
+                if business_process.analysis_json:
+                    try:
+                        parsed = json.loads(business_process.analysis_json)
+                        all_json.append(parsed)
+                    except Exception:
+                        pass
+            rec.business_process_json = json.dumps(all_json, indent=2)
 
     @api.depends("analysis_s3_url")
     def _compute_analysis(self):  # noqa: C901
