@@ -313,7 +313,7 @@ class ConsultingServiceBusinessProcess(models.Model):
         MAX_BYTES = 5 * 1024 * 1024  # 5 MB
 
         for rec in self:
-            rec.analysis = ""
+            rec.analysis_json = ""
             raw_url = (rec.analysis_json_url or "").strip()
             if not raw_url:
                 continue
