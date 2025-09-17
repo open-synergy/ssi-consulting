@@ -392,20 +392,20 @@ class ConsultingServiceBusinessProcess(models.Model):
 
                 if not text.strip():
                     _logger.info("Konten final report kosong dari URL: %s", url)
-                    rec.analysis = False
+                    rec.analysis_json = False
                 else:
-                    rec.analysis = text
+                    rec.analysis_json = text
 
             except requests.exceptions.RequestException as e:
                 _logger.error(
                     "Gagal mengambil naration dari S3 URL: %s ; err=%s", url, e
                 )
-                rec.analysis = False
+                rec.analysis_json = False
             except Exception as e:
                 _logger.exception(
                     "Kesalahan saat memproses naration dari %s: %s", url, e
                 )
-                rec.analysis = False
+                rec.analysis_json = False
 
     @api.model
     def _get_policy_field(self):
