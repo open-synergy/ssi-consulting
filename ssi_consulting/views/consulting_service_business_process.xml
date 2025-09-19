@@ -33,7 +33,6 @@
                 <field name="partner_id" />
                 <field name="title" />
                 <field name="parent_id" />
-                <field name="area_id" />
                 <field name="service_id" />
             </xpath>
         </data>
@@ -51,7 +50,6 @@
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="partner_id" />
                 <field name="service_id" />
-                <field name="area_id" />
                 <field name="parent_id" />
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">

@@ -77,21 +77,6 @@ class ConsultingServiceBusinessProcess(models.Model):
         ondelete="set null",
         states={"draft": [("readonly", False)]},
     )
-    area_id = fields.Many2one(
-        string="Business Process Area",
-        comodel_name="consulting_service.business_process_area",
-        required=True,
-        ondelete="restrict",
-        readonly=True,
-        states={
-            "draft": [
-                ("readonly", False),
-            ],
-            "open": [
-                ("readonly", False),
-            ],
-        },
-    )
     parent_id = fields.Many2one(
         string="Parent Business Process",
         comodel_name="consulting_service.business_process",
