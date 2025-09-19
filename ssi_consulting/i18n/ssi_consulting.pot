@@ -326,7 +326,6 @@ msgid "Business Process (JSON)"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__area_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__business_process_area_ids
 #: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_area_data_ownership_module_category
 #: model:ir.module.category,name:ssi_consulting.consulting_service_business_process_area_workflow_module_category
