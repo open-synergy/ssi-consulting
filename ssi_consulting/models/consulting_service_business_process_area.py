@@ -177,6 +177,26 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         store=True,
     )
 
+    # n8n related fields
+    n8n_analysis_execution_id = fields.Integer(
+        string="n8n Analysis Execution ID",
+        readonly=True,
+    )
+    n8n_analysis_execution_status = fields.Selection(
+        selection=[
+            ("running", "Running"),
+            ("success", "Success"),
+            ("failed", "Failed"),
+            ("cancelled", "Cancelled"),
+        ],
+        string="n8n Analysis Execution Status",
+        readonly=True,
+    )
+    n8n_analysis_latest_execution = fields.Datetime(
+        string="n8n Analysis Latest Execution",
+        readonly=True,
+    )
+
     @api.depends("business_process_ids", "business_process_ids.analysis_json")
     def _compute_business_process_json(self):
         for rec in self:

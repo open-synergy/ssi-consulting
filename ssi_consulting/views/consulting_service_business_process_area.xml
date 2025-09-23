@@ -52,7 +52,7 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
-                <field name="s3_prefix" />
+
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />
@@ -66,6 +66,7 @@
                 </page>
                 <page name="analysis" string="Analysis">
                     <group name="analysis_1" colspan="4" col="2">
+                        <field name="s3_prefix" />
                         <field
                                 name="analysis_s3_url"
                                 string="Analysis URL"
@@ -74,6 +75,19 @@
                     </group>
                     <separator string="Result" />
                     <field name="analysis" widget="ace" />
+                </page>
+                <page name="n8n" string="n8n">
+                    <group name="n8n_1" colspan="4" col="2">
+                        <field name="n8n_analysis_execution_id" string="Execution ID" />
+                        <field
+                                name="n8n_analysis_execution_status"
+                                string="Execution Status"
+                            />
+                        <field
+                                name="n8n_analysis_latest_execution"
+                                string="Latest Execution"
+                            />
+                    </group>
                 </page>
             </xpath>
         </data>
