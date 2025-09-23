@@ -165,6 +165,19 @@
                     <separator string="Result" />
                     <field name="analysis" widget="ace" />
                 </page>
+                <page name="n8n" string="n8n">
+                    <group name="n8n_1" colspan="4" col="2">
+                        <field name="n8n_analysis_execution_id" string="Execution ID" />
+                        <field
+                                name="n8n_analysis_execution_status"
+                                string="Execution Status"
+                            />
+                        <field
+                                name="n8n_analysis_latest_execution"
+                                string="Latest Execution"
+                            />
+                    </group>
+                </page>
             </xpath>
         </data>
     </field>
