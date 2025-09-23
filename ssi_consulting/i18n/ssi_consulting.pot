@@ -436,6 +436,13 @@ msgid ""
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process__n8n_analysis_execution_status__cancelled
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process_area__n8n_analysis_execution_status__cancelled
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_issue__n8n_analysis_execution_status__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__chart_id
 msgid "Chart"
 msgstr ""
@@ -843,6 +850,20 @@ msgid ""
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
+msgid "Execution ID"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
+msgid "Execution Status"
+msgstr ""
+
+#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "External Tools"
 msgstr ""
@@ -851,6 +872,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "FK Creation"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process__n8n_analysis_execution_status__failed
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process_area__n8n_analysis_execution_status__failed
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_issue__n8n_analysis_execution_status__failed
+msgid "Failed"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1129,6 +1157,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
+msgid "Latest Execution"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1653,6 +1688,13 @@ msgid "Reviewer"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process__n8n_analysis_execution_status__running
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process_area__n8n_analysis_execution_status__running
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_issue__n8n_analysis_execution_status__running
+msgid "Running"
+msgstr ""
+
+#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "S3"
 msgstr ""
@@ -1866,6 +1908,13 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__style_valid
 msgid "Style Specification Valid?"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process__n8n_analysis_execution_status__success
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process_area__n8n_analysis_execution_status__success
+#: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_issue__n8n_analysis_execution_status__success
+msgid "Success"
 msgstr ""
 
 #. module: ssi_consulting
@@ -2199,11 +2248,29 @@ msgid "data Structure"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
+msgid "n8n"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__n8n_analysis_execution_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__n8n_analysis_execution_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__n8n_analysis_execution_id
 msgid "n8n Analysis Execution ID"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__n8n_anaysis_execution_status
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__n8n_analysis_execution_status
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__n8n_analysis_execution_status
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__n8n_analysis_execution_status
 msgid "n8n Analysis Execution Status"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__n8n_analysis_latest_execution
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__n8n_analysis_latest_execution
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__n8n_analysis_latest_execution
+msgid "n8n Analysis Latest Execution"
 msgstr ""
