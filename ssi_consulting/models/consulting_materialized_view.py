@@ -21,3 +21,14 @@ class ConsultingMaterializedView(models.Model):
         column1="materialized_view_id",
         column2="data_structure_id",
     )
+
+    def _create_service_mv(self, issue):
+        self.ensure_one()
+        data = {
+            "service_id": issue.service_id.id,
+            "partner_id": issue.service_id.partner_id.id,
+            "materialized_view_id": self.id,
+            "schema": self.schema,
+            "date": issue.date,
+        }
+        return self.env["consulting_service.materialized_view"].create(data)
