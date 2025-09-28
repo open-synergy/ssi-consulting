@@ -23,6 +23,7 @@
         "python": [
             "pyyaml",
             "tabulate",
+            "pandas",
         ],
     },
     "data": [
