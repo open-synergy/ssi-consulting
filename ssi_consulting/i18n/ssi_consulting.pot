@@ -17,6 +17,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__name
 msgid "# Document"
@@ -26,6 +29,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__service_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__service_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__service_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__service_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__service_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__service_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__service_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__service_id
 msgid "# Service"
@@ -40,12 +46,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_needaction
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_needaction
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_needaction
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_needaction
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_needaction
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_needaction
@@ -56,6 +66,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__active
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__active
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__active
@@ -67,6 +78,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__active_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__active_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__active_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__active_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__active_approval_ids
 msgid "Active Approvals"
@@ -76,6 +90,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__active_approver_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__active_approver_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__active_approver_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__active_approver_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__active_approver_partner_ids
 msgid "Active Partners"
@@ -85,6 +102,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__active_approver_user_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__active_approver_user_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__active_approver_user_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__active_approver_user_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__active_approver_user_ids
 msgid "Active Users"
@@ -94,12 +114,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_ids
@@ -110,12 +134,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_exception_decoration
@@ -126,12 +154,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_state
@@ -142,12 +174,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_type_icon
@@ -155,15 +191,12 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Additional Creation"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_service_all
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_all
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_all
+#: model:res.groups,name:ssi_consulting.consulting_service_document_extraction_all
+#: model:res.groups,name:ssi_consulting.consulting_service_document_type_all
+#: model:res.groups,name:ssi_consulting.consulting_service_entity_all
 #: model:res.groups,name:ssi_consulting.consulting_service_issue_all
 #: model:res.groups,name:ssi_consulting.consulting_service_materialized_view_all
 msgid "All"
@@ -183,6 +216,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__allowed_contact_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__allowed_contact_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__allowed_contact_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__allowed_contact_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__allowed_contact_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__allowed_contact_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__allowed_contact_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__allowed_contact_ids
 msgid "Allowed Contact"
@@ -192,6 +228,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__allowed_policy_template_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__allowed_policy_template_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__allowed_policy_template_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__allowed_policy_template_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__allowed_policy_template_ids
 msgid "Allowed Policy Templates"
@@ -236,6 +275,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__approval_template_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__approval_template_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__approval_template_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__approval_template_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__approval_template_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__approval_template_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__approval_template_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__approval_template_id
 msgid "Approval Configuration"
@@ -245,6 +287,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__approval_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__approval_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__approval_template_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__approval_template_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__approval_template_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__approval_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__approval_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__approval_template_id
 msgid "Approval Template"
@@ -254,6 +299,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__approval_ids
 msgid "Approvals"
@@ -263,6 +311,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__approve_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__approve_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__approve_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__approve_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__approve_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__approve_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__approve_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__approve_ok
 msgid ""
@@ -275,6 +326,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__approved
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__approved
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__approved
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__approved
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__approved
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__approved
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__approved
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__approved
 msgid "Approved"
@@ -284,16 +338,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_attachment_count
 msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
+msgid "Build"
 msgstr ""
 
 #. module: ssi_consulting
@@ -316,7 +379,6 @@ msgstr ""
 #: model:ir.ui.menu,name:ssi_consulting.consulting_service_business_process_menu
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_area_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Business Process"
 msgstr ""
 
@@ -337,6 +399,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__approve_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__approve_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__approve_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__approve_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__approve_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__approve_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__approve_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__approve_ok
 msgid "Can Approve"
@@ -346,6 +411,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__cancel_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__cancel_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__cancel_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__cancel_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__cancel_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__cancel_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__cancel_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__cancel_ok
 msgid "Can Cancel"
@@ -355,6 +423,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__confirm_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__confirm_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__confirm_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__confirm_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__confirm_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__confirm_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__confirm_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__confirm_ok
 msgid "Can Confirm"
@@ -364,6 +435,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__done_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__done_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__done_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__done_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__done_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__done_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__done_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__done_ok
 msgid "Can Finished"
@@ -373,6 +447,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__manual_number_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__manual_number_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__manual_number_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__manual_number_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__manual_number_ok
 msgid "Can Input Manual Document Number"
@@ -382,6 +459,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__reject_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__reject_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__reject_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__reject_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__reject_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__reject_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__reject_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__reject_ok
 msgid "Can Reject"
@@ -391,6 +471,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__restart_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__restart_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__restart_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__restart_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__restart_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__restart_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__restart_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__restart_ok
 msgid "Can Restart"
@@ -400,6 +483,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__restart_approval_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__restart_approval_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__restart_approval_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__restart_approval_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__restart_approval_ok
 msgid "Can Restart Approval"
@@ -409,6 +495,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__open_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__open_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__open_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__open_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__open_ok
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__open_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__open_ok
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__open_ok
 msgid "Can Start"
@@ -418,6 +507,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__cancel_reason_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__cancel_reason_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__cancel_reason_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__cancel_reason_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__cancel_reason_id
 msgid "Cancel Reason"
@@ -427,6 +519,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__cancel_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__cancel_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__cancel_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__cancel_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__cancel_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__cancel_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__cancel_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__cancel_ok
 msgid ""
@@ -453,25 +548,13 @@ msgid "Chart Creation API Payload"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__detail_chart_ids
-msgid "Chart Details"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_chart_template_group
 msgid "Chart Template"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__chart_template_ids
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__chart_template_ids
 #: model:ir.ui.menu,name:ssi_consulting.consulting_chart_template_menu
 msgid "Chart Templates"
-msgstr ""
-
-#. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Charts"
 msgstr ""
 
 #. module: ssi_consulting
@@ -488,6 +571,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__code
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__code
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__code
@@ -499,11 +583,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__company_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__company_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__company_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__company_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__company_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__company_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__company_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__company_id
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_extraction_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_type_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_entity_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_issue_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_materialized_view_company_group
 msgid "Company"
@@ -513,6 +603,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__company_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__company_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__company_partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__company_partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__company_partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__company_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__company_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__company_partner_id
 msgid "Company Partner"
@@ -522,6 +615,9 @@ msgstr ""
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_child_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_child_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_child_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_extraction_child_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_type_child_company_group
+#: model:res.groups,name:ssi_consulting.consulting_service_entity_child_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_issue_child_company_group
 #: model:res.groups,name:ssi_consulting.consulting_service_materialized_view_child_company_group
 msgid "Company and All Child Companies"
@@ -531,6 +627,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__company_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__company_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__company_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__company_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__company_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__company_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__company_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__company_id
 msgid ""
@@ -538,11 +637,6 @@ msgid ""
 "\n"
 "* Automatically filled with user's company.\n"
 "  Default company can be changed"
-msgstr ""
-
-#. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Compute"
 msgstr ""
 
 #. module: ssi_consulting
@@ -554,6 +648,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__confirm_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__confirm_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__confirm_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__confirm_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__confirm_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__confirm_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__confirm_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__confirm_ok
 msgid ""
@@ -624,9 +721,32 @@ msgid "Consulting Data Structures"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.module.category,name:ssi_consulting.consulting_service_document_extraction_data_ownership_module_category
+#: model:ir.module.category,name:ssi_consulting.consulting_service_document_extraction_workflow_module_category
+msgid "Consulting Document Extraction"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.module.category,name:ssi_consulting.consulting_service_document_type_data_ownership_module_category
+#: model:ir.module.category,name:ssi_consulting.consulting_service_document_type_workflow_module_category
+msgid "Consulting Document Type"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.module.category,name:ssi_consulting.consulting_service_entity_data_ownership_module_category
+#: model:ir.module.category,name:ssi_consulting.consulting_service_entity_workflow_module_category
+msgid "Consulting Entity"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.module.category,name:ssi_consulting.consulting_service_issue_data_ownership_module_category
 #: model:ir.module.category,name:ssi_consulting.consulting_service_issue_workflow_module_category
 msgid "Consulting Issue"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_issue_template
+msgid "Consulting Issue Template"
 msgstr ""
 
 #. module: ssi_consulting
@@ -673,6 +793,21 @@ msgid "Consulting Service - Chart"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_service_document_extraction
+msgid "Consulting Service - Document Extraction"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_service_document_type
+msgid "Consulting Service - Document Type"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model,name:ssi_consulting.model_consulting_service_entity
+msgid "Consulting Service - Entity"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model,name:ssi_consulting.model_consulting_service_issue
 msgid "Consulting Service - Issue"
 msgstr ""
@@ -701,15 +836,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__contact_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__contact_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__contact_partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__contact_partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__contact_partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__contact_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__contact_partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__contact_partner_id
 msgid "Contact"
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
+msgid "Create Entities"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
+msgid "Create Materialized View"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__create_uid
@@ -717,6 +866,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__create_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__create_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__create_uid
@@ -727,6 +879,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__create_date
@@ -734,6 +887,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__create_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__create_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__create_date
@@ -757,15 +913,16 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__data_structure_ids
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__data_structure_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__data_structure_id
 #: model:res.groups,name:ssi_consulting.consulting_data_structure_group
 msgid "Data Structure"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__data_structure_ids
 #: model:ir.ui.menu,name:ssi_consulting.consulting_data_structure_menu
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_issue_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Data Structures"
 msgstr ""
 
@@ -773,6 +930,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__date
 msgid "Date"
@@ -808,6 +968,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__display_name
@@ -815,6 +976,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__display_name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__display_name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__display_name
@@ -822,9 +986,29 @@ msgid "Display Name"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.actions.act_window,name:ssi_consulting.consulting_service_document_extraction_action
+#: model:ir.ui.menu,name:ssi_consulting.consulting_service_document_extraction_menu
+msgid "Document Extractions"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__document_type_id
+msgid "Document Type"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.actions.act_window,name:ssi_consulting.consulting_service_document_type_action
+#: model:ir.ui.menu,name:ssi_consulting.consulting_service_document_type_menu
+msgid "Document Types"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__done_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__done_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__done_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__done_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__done_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__done_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__done_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__done_ok
 msgid ""
@@ -834,10 +1018,21 @@ msgid ""
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
+#: model:ir.actions.act_window,name:ssi_consulting.consulting_service_entity_action
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__entity_ids
+#: model:ir.ui.menu,name:ssi_consulting.consulting_service_entity_menu
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
+msgid "Entities"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__entity_ids
+msgid "Entity"
+msgstr ""
+
+#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Error Message"
 msgstr ""
 
@@ -869,12 +1064,6 @@ msgid "External Tools"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "FK Creation"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process__n8n_analysis_execution_status__failed
 #: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_business_process_area__n8n_analysis_execution_status__failed
 #: model:ir.model.fields.selection,name:ssi_consulting.selection__consulting_service_issue__n8n_analysis_execution_status__failed
@@ -882,36 +1071,24 @@ msgid "Failed"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Final"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__final_report
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Final Report"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__final_report_s3_url
-msgid "Final Report S3 URL"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__final_sql_script
-msgid "Final SQL Script"
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__binary_data
+msgid "File"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_follower_ids
@@ -922,12 +1099,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_channel_ids
@@ -938,12 +1119,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_partner_ids
@@ -954,12 +1139,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_type_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__activity_type_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__activity_type_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__activity_type_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__activity_type_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_type_icon
@@ -985,6 +1174,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__id
@@ -992,6 +1182,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__id
@@ -1002,12 +1195,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_exception_icon
@@ -1018,12 +1215,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_exception_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__activity_exception_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__activity_exception_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__activity_exception_icon
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__activity_exception_icon
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_exception_icon
@@ -1037,6 +1238,8 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_needaction
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_unread
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__message_needaction
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_needaction
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_needaction
@@ -1049,6 +1252,12 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__message_needaction
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__message_unread
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__message_needaction
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__message_unread
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__message_needaction
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__message_unread
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__message_needaction
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__message_needaction
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__message_unread
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__message_needaction
@@ -1062,12 +1271,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_has_error
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__message_has_error
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__message_has_error
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__message_has_error
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_has_error
@@ -1078,16 +1291,32 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_is_follower
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_is_follower
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_is_follower
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_is_follower
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_is_follower
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_is_follower
 msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__issue_template_id
+#: model:res.groups,name:ssi_consulting.consulting_issue_template_group
+msgid "Issue Template"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.actions.act_window,name:ssi_consulting.consulting_issue_template_action
+#: model:ir.ui.menu,name:ssi_consulting.consulting_issue_template_view_menu
+msgid "Issue Templates"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1112,6 +1341,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser____last_update
@@ -1119,6 +1349,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type____last_update
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view____last_update
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type____last_update
@@ -1129,6 +1362,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__write_uid
@@ -1136,6 +1370,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__write_uid
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__write_uid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__write_uid
@@ -1146,6 +1383,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__write_date
@@ -1153,6 +1391,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__write_date
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__write_date
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__write_date
@@ -1176,12 +1417,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_main_attachment_id
@@ -1192,6 +1437,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__manual_number_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__manual_number_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__manual_number_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__manual_number_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__manual_number_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__manual_number_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__manual_number_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__manual_number_ok
 msgid ""
@@ -1204,6 +1452,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__active
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__active
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__active
@@ -1221,6 +1470,7 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__code
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__code
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__code
@@ -1240,6 +1490,7 @@ msgstr ""
 #: model:ir.module.category,name:ssi_consulting.consulting_service_materialized_view_data_ownership_module_category
 #: model:ir.module.category,name:ssi_consulting.consulting_service_materialized_view_workflow_module_category
 #: model:res.groups,name:ssi_consulting.consulting_materialized_view_group
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_issue_template_view_form
 msgid "Materialized View"
 msgstr ""
 
@@ -1250,14 +1501,13 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.actions.act_window,name:ssi_consulting.consulting_service_materialized_view_action
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__materialized_view_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__materialized_view_ids
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__materialized_view_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__materialized_view_ids
 #: model:ir.ui.menu,name:ssi_consulting.consulting_materialized_view_menu
 #: model:ir.ui.menu,name:ssi_consulting.consulting_service_materialized_view_menu
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Materialized Views"
 msgstr ""
 
@@ -1265,12 +1515,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_has_error
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_has_error
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_has_error
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_has_error
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_has_error
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_has_error
@@ -1281,12 +1535,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_ids
@@ -1297,12 +1555,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__my_activity_date_deadline
@@ -1313,6 +1575,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__name
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__name
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__name
@@ -1324,6 +1587,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__need_validation
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__need_validation
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__need_validation
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__need_validation
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__need_validation
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__need_validation
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__need_validation
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__need_validation
 msgid "Need Validation"
@@ -1333,12 +1599,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_date_deadline
@@ -1349,12 +1619,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_summary
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_summary
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_summary
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_summary
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_summary
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_summary
@@ -1365,12 +1639,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_type_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_type_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_type_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_type_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_type_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_type_id
@@ -1381,6 +1659,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__next_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__next_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__next_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__next_approval_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__next_approval_ids
 msgid "Next Approvals"
@@ -1390,12 +1671,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__note
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__note
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__note
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__note
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__note
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__note
@@ -1406,12 +1691,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_needaction_counter
@@ -1422,12 +1711,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_has_error_counter
@@ -1438,12 +1731,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_needaction_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__message_needaction_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__message_needaction_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__message_needaction_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__message_needaction_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_needaction_counter
@@ -1454,12 +1751,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_has_error_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__message_has_error_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__message_has_error_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__message_has_error_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__message_has_error_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_has_error_counter
@@ -1470,21 +1771,20 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__message_unread_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__message_unread_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__message_unread_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__message_unread_counter
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__message_unread_counter
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
-
-#. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Open"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1507,14 +1807,12 @@ msgstr ""
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Parsing"
 msgstr ""
 
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Parsing Validation"
 msgstr ""
 
@@ -1522,6 +1820,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__partner_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__partner_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__partner_id
 msgid "Partner"
@@ -1534,33 +1835,31 @@ msgid "Payload"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__pg_schema
-msgid "Pg Schema"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__policy_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__policy_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__policy_template_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__policy_template_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__policy_template_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__policy_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__policy_template_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__policy_template_id
 msgid "Policy Template"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "PostgreSQL"
-msgstr ""
-
-#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_entity_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
 msgid "Raw"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__schema
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__raw
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__schema
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__raw
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__schema
 msgid "Raw Data"
 msgstr ""
 
@@ -1573,6 +1872,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__reject_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__reject_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__reject_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__reject_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__reject_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__reject_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__reject_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__reject_ok
 msgid ""
@@ -1585,6 +1887,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__rejected
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__rejected
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__rejected
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__rejected
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__rejected
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__rejected
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__rejected
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__rejected
 msgid "Rejected"
@@ -1601,7 +1906,6 @@ msgid "Report Style Specification"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__report_template_id
 #: model:res.groups,name:ssi_consulting.consulting_report_template_group
 msgid "Report Template"
 msgstr ""
@@ -1620,6 +1924,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__user_id
 msgid "Responsible"
@@ -1629,12 +1936,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__activity_user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__activity_user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__activity_user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__activity_user_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__activity_user_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__activity_user_id
@@ -1645,6 +1956,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__restart_approval_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__restart_approval_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__restart_approval_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__restart_approval_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__restart_approval_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__restart_approval_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__restart_approval_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__restart_approval_ok
 msgid ""
@@ -1657,6 +1971,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__restart_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__restart_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__restart_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__restart_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__restart_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__restart_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__restart_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__restart_ok
 msgid ""
@@ -1674,6 +1991,7 @@ msgid "Result"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__result_json
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
 msgid "Result (JSON)"
 msgstr ""
@@ -1682,6 +2000,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__reviewer_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__reviewer_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__reviewer_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__reviewer_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__reviewer_id
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__reviewer_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__reviewer_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__reviewer_id
 msgid "Reviewer"
@@ -1710,11 +2031,6 @@ msgid "S3 Endpoint"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__s3_key
-msgid "S3 Key"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__s3_prefix
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__s3_prefix
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__s3_prefix
@@ -1723,59 +2039,30 @@ msgid "S3 Prefix"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__s3_secret
-msgid "S3 Secret"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__google_sheet_url
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_business_process_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "S3 URL"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__sql_script
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__schema
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__schema
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__schema
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "SQL Script"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__additional_sql_script
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__additional_sql_script
-msgid "SQL Script for Additional Generation (Phase 4)"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__fk_sql_script
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__fk_sql_script
-msgid "SQL Script for FK Generation (Phase 3)"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__table_sql_script
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__table_sql_script
-msgid "SQL Script for Table Generation (Phase 1)"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__schema
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_schema_parser_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_entity_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_materialized_view_view_form
 msgid "Schema"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__schema_parser_id
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__schema_parser_id
 #: model:res.groups,name:ssi_consulting.consulting_schema_parser_group
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Schema Parser"
 msgstr ""
 
@@ -1791,7 +2078,11 @@ msgid "Schema Validation"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__service_type_id
+#: model:ir.ui.menu,name:ssi_consulting.consulting_service_issue
+msgid "Service"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__service_type_id
 #: model:res.groups,name:ssi_consulting.consulting_service_type_group
 msgid "Service Type"
@@ -1805,37 +2096,20 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__specification
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__specification
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__specification
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__specification
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Specification"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__specification_error_message
-msgid "Specification Error Message"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__specification_valid
-msgid "Specification Valid?"
-msgstr ""
-
-#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Specification Validation"
 msgstr ""
 
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_chart_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_dashboard_template_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
 msgid "Specifications"
 msgstr ""
 
@@ -1843,6 +2117,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__open_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__open_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__open_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__open_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__open_ok
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__open_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__open_ok
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__open_ok
 msgid ""
@@ -1855,6 +2132,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__state
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__state
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__state
 msgid "State"
@@ -1864,12 +2144,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_state
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__activity_state
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__activity_state
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__activity_state
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__activity_state
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_state
@@ -1918,49 +2202,30 @@ msgid "Success"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Superset"
-msgstr ""
-
-#. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__superset_database_id
-msgid "Superset Database"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__superset_id
 msgid "Superset ID"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__superset_role
-msgid "Superset Role"
-msgstr ""
-
-#. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "System Prompting"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_error_message
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_error_message
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_error_message
 msgid "System Prompting Error Message"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_s3_url
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_s3_url
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_s3_url
 msgid "System Prompting S3 URL"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_schema_parser_id
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_schema_parser_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_schema_parser_id
 msgid "System Prompting Schema Parser"
 msgstr ""
@@ -1968,8 +2233,6 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_specification
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_specification
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_specification
 msgid "System Prompting Specification"
@@ -1977,39 +2240,28 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_specification_error_message
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_specification_error_message
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_specification_error_message
 msgid "System Prompting Specification Error Message"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_specification_valid
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_specification_valid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_specification_valid
 msgid "System Prompting Specification Valid?"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__system_prompting_valid
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__system_prompting_valid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__system_prompting_valid
 msgid "System Prompting Valid?"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Table Creation"
-msgstr ""
-
-#. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
-msgid "Technical"
-msgstr ""
-
-#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__title
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__title
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__title
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__title
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__title
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__title
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__title
 msgid "Title"
@@ -2019,6 +2271,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__name
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__name
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__name
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__name
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__name
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__name
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__name
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__name
 msgid ""
@@ -2041,12 +2296,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_chart_template__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_dashboard_template__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_issue_template__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_report_template__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_schema_parser__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__activity_exception_decoration
@@ -2057,12 +2316,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_unread
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_unread
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_unread
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_unread
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_unread
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_unread
@@ -2073,12 +2336,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_chart_template__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_dashboard_template__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_issue_template__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_schema_parser__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_business_process_area__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_extraction__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_document_type__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_type__message_unread_counter
@@ -2088,6 +2355,9 @@ msgstr ""
 #. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_user_group
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_user_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_extraction_user_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_type_user_group
+#: model:res.groups,name:ssi_consulting.consulting_service_entity_user_group
 #: model:res.groups,name:ssi_consulting.consulting_service_issue_user_group
 #: model:res.groups,name:ssi_consulting.consulting_service_materialized_view_user_group
 #: model:res.groups,name:ssi_consulting.consulting_service_user_group
@@ -2097,27 +2367,23 @@ msgstr ""
 #. module: ssi_consulting
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "User Prompting"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_error_message
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_error_message
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_error_message
 msgid "User Prompting Error Message"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_s3_url
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_s3_url
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_s3_url
 msgid "User Prompting S3 URL"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_schema_parser_id
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_schema_parser_id
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_schema_parser_id
 msgid "User Prompting Schema Parser"
 msgstr ""
@@ -2125,8 +2391,6 @@ msgstr ""
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_specification
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_specification
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_specification
 msgid "User Prompting Specification"
@@ -2134,21 +2398,18 @@ msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_specification_error_message
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_specification_error_message
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_specification_error_message
 msgid "User Prompting Specification Error Message"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_specification_valid
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_specification_valid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_specification_valid
 msgid "User Prompting Specification Valid?"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__user_prompting_valid
-#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service__user_prompting_valid
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__user_prompting_valid
 msgid "User Prompting Valid?"
 msgstr ""
@@ -2157,6 +2418,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__user_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__user_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__user_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__user_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__user_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__user_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__user_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__user_id
 msgid ""
@@ -2171,6 +2435,9 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__reviewer_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__reviewer_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__reviewer_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__reviewer_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__reviewer_id
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__reviewer_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__reviewer_id
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__reviewer_id
 msgid ""
@@ -2183,27 +2450,26 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service__active_approver_user_ids
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process__active_approver_user_ids
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_business_process_area__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_extraction__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_document_type__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_consulting.field_consulting_service_entity__active_approver_user_ids
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_issue__active_approver_user_ids
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__active_approver_user_ids
 msgid "Users that can approve/reject document"
 msgstr ""
 
 #. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_view_form
 msgid "Valid?"
-msgstr ""
-
-#. module: ssi_consulting
-#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_materialized_view_view_form
-msgid "Validation"
 msgstr ""
 
 #. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_validator_group
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_validator_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_extraction_validator_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_type_validator_group
+#: model:res.groups,name:ssi_consulting.consulting_service_entity_validator_group
 #: model:res.groups,name:ssi_consulting.consulting_service_issue_validator_group
 #: model:res.groups,name:ssi_consulting.consulting_service_materialized_view_validator_group
 #: model:res.groups,name:ssi_consulting.consulting_service_validator_group
@@ -2213,6 +2479,9 @@ msgstr ""
 #. module: ssi_consulting
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_area_viewer_group
 #: model:res.groups,name:ssi_consulting.consulting_service_business_process_viewer_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_extraction_viewer_group
+#: model:res.groups,name:ssi_consulting.consulting_service_document_type_viewer_group
+#: model:res.groups,name:ssi_consulting.consulting_service_entity_viewer_group
 #: model:res.groups,name:ssi_consulting.consulting_service_issue_viewer_group
 #: model:res.groups,name:ssi_consulting.consulting_service_materialized_view_viewer_group
 #: model:res.groups,name:ssi_consulting.consulting_service_viewer_group
@@ -2225,15 +2494,223 @@ msgid "YAML mengikuti ssi_consulting/schema/chart_schema.yaml"
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,help:ssi_consulting.field_consulting_materialized_view__specification
-msgid "YAML or JSON yang mendefinisikan materialized view."
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_aggregate_and_select] DataFrame masuk kosong."
 msgstr ""
 
 #. module: ssi_consulting
-#: model:ir.model.fields,help:ssi_consulting.field_consulting_data_structure__specification
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_aggregate_and_select] Gagal melakukan agregasi: {err}"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
 msgid ""
-"YAML specification describing the SQL entity, fields, constraints, and "
-"indexes."
+"[_mv_aggregate_and_select] Hasil agregasi kosong. Cek `select`/`group_by` & "
+"data."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_aggregate_and_select] Kolom non-agregat '{col}' tidak ada di data. Cek "
+"'select' dan nama kolom entity."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_aggregate_and_select] Kolom non-agregat berikut harus masuk ke "
+"'group_by': {cols}"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_aggregate_and_select] Kolom untuk agregat '{col}' tidak ditemukan."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_aggregate_and_select] Kolom untuk nunique '{col}' tidak ditemukan."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_apply_filters] Ekspresi filter tidak valid: '{expr}' → {err}"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_apply_filters] Semua baris terfilter habis. Cek ekspresi filters di "
+"schema."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_apply_joins] DataFrame kanan untuk alias '{alias}' kosong/tidak ada."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_apply_joins] Definisi join harus memiliki 'left' dan 'right'."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_apply_joins] Format join tidak valid: left='{left}', right='{right}'. "
+"Gunakan 'alias.field'."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_apply_joins] Hasil JOIN kosong. Cek kunci join & kesesuaian nilai antar"
+" entity."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_apply_joins] Kolom join kanan '{col}' tidak ditemukan di DF alias "
+"'{alias}'."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_apply_joins] Kolom join kiri '{col}' tidak ditemukan di DF berjalan."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_build_base_df] DataFrame sumber utama kosong. Cek entity/title & data "
+"mentah."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_build_base_df] DataFrame utama (alias '{alias}') kosong/tidak "
+"ditemukan."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_build_base_df] Tidak ada sumber yang ter-resolve."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_parse_spec] Schema MV bukan JSON valid: {err}"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_parse_spec] `select` wajib berupa array minimal 1 item."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_parse_spec] `sources` wajib berupa array minimal 1 item."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[_mv_parse_spec] sources[{i}].alias wajib diisi."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_parse_spec] sources[{i}].entity_name (pakai title entity) wajib diisi."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_resolve_sources_to_dfs] Data entity '{title}' kosong. Pastikan field "
+"`raw` berisi data yang sesuai `schema` entity."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_resolve_sources_to_dfs] Entity '{title}' tidak memiliki method "
+"extract_df()."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_resolve_sources_to_dfs] Entity dengan title='{title}' tidak ditemukan "
+"(alias '{alias}')."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_resolve_sources_to_dfs] Kolom key '{key}' tidak ditemukan di entity "
+"'{title}' setelah rename (diharapkan: '{alias_key}'). Cek schema entity & "
+"penamaan kolom."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid ""
+"[_mv_resolve_sources_to_dfs] extract_df() entity '{title}' mengembalikan "
+"None."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[action_build_pandas] Error tak terduga: {err}"
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[action_build_pandas] Field `schema` kosong."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
+#, python-format
+msgid "[action_build_pandas] Tidak ada DataFrame sumber yang berhasil dimuat."
 msgstr ""
 
 #. module: ssi_consulting
