@@ -100,7 +100,6 @@ class ConsultingService(models.Model):
     s3_bucket = fields.Char(
         string="S3 Bucket",
     )
-
     detail_materialized_view_ids = fields.One2many(
         string="Materialized View Details",
         comodel_name="consulting_service.materialized_view",
