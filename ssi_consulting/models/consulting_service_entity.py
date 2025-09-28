@@ -75,6 +75,12 @@ class ConsultingServiceEntity(models.Model):
         required=True,
         ondelete="cascade",
     )
+    data_structure_id = fields.Many2one(
+        string="Data Structure",
+        comodel_name="consulting_data_structure",
+        required=False,
+        ondelete="restrict",
+    )
     title = fields.Char(
         string="Title",
         default="-",
@@ -112,6 +118,17 @@ class ConsultingServiceEntity(models.Model):
             "open": [("readonly", False)],
         },
     )
+
+    @api.onchange("data_structure_id")
+    def _onchange_schema(self):
+        self.schema = ""
+        if self.data_structure_id:
+            self.schema = self.data_structure_id.schema or ""
+
+    @api.onchange("data_structure_id")
+    def onchange_title(self):
+        if self.data_structure_id and self.data_structure_id.name:
+            self.title = self.data_structure_id.name
 
     # ------------------------
     # Helper methods

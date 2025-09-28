@@ -17,6 +17,7 @@
                 <field name="title" />
                 <field name="partner_id" />
                 <field name="service_id" />
+                <field name="data_structure_id" />
             </xpath>
         </data>
     </field>
@@ -34,6 +35,7 @@
                 <field name="partner_id" />
                 <field name="title" />
                 <field name="service_id" />
+                <field name="data_structure_id" />
             </xpath>
         </data>
     </field>
@@ -53,8 +55,7 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
-
-
+                <field name="data_structure_id" />
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />
