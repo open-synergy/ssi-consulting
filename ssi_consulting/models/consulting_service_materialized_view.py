@@ -156,6 +156,20 @@ class ConsultingServiceMaterializedView(models.Model):
         required=False,
     )
 
+    @api.onchange(
+        "materialized_view_id",
+    )
+    def onchange_schema(self):
+        if self.materialized_view_id and self.materialized_view_id.schema:
+            self.schema = self.materialized_view_id.schema or ""
+
+    @api.onchange(
+        "materialized_view_id",
+    )
+    def onchange_title(self):
+        if self.materialized_view_id and self.materialized_view_id.name:
+            self.title = self.materialized_view_id.name
+
     @api.depends("google_sheet_url")
     def _compute_mv_json(self):
         """
