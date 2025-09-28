@@ -66,6 +66,13 @@
                     <field name="schema" widget="ace" />
                 </page>
                 <page name="entity" string="Entities">
+                    <button
+                            name="action_create_entities"
+                            string="Create Entities"
+                            type="object"
+                            class="oe_highlight"
+                            icon="fa-gears"
+                        />
                     <field name="entity_ids" />
                 </page>
                 <page name="raw" string="Raw">

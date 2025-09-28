@@ -47,3 +47,15 @@ class ConsultingDataStructure(models.Model):
             record.all_dependency_ids = record.direct_dependency_ids
             for module in record.direct_dependency_ids:
                 record.all_dependency_ids += module.all_dependency_ids
+
+    def _craete_entity(self, materialized_view):
+        self.ensure_one()
+        data = {
+            "service_id": materialized_view.service_id.id,
+            "partner_id": materialized_view.partner_id.id,
+            "data_structure_id": self.id,
+            "title": self.name,
+            "schema": self.schema,
+            "date": materialized_view.date,
+        }
+        return self.env["consulting_service.entity"].create(data)

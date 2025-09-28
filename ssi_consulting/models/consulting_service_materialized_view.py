@@ -312,6 +312,43 @@ class ConsultingServiceMaterializedView(models.Model):
 
             rec.mv_text = text_out
 
+    def action_create_entities(self):
+        for record in self.sudo():
+            result = record._create_entities()
+        return result
+
+    def _create_entities(self):
+        self.ensure_one()
+        self.write({"entity_ids": [(5, 0, 0)]})  # clear existing entities
+        entity_ids = []
+        if self.materialized_view_id:
+            all_data_structures = self.materialized_view_id.data_structure_ids
+            criteria = [
+                ("service_id", "=", self.service_id.id),
+                ("data_structure_id", "in", all_data_structures.ids),
+            ]
+            existing_entities = self.env["consulting_service.entity"].search(criteria)
+            if len(existing_entities) > 0:
+                entity_ids += existing_entities.ids
+
+            missing_entities = all_data_structures - existing_entities.mapped(
+                "data_structure_id"
+            )
+            for missing_entity in missing_entities:
+                entity = missing_entity._craete_entity(self)
+                entity_ids.append(entity.id)
+
+            action = {
+                "type": "ir.actions.act_window",
+                "name": "Consulting Service Entities",
+                "res_model": "consulting_service.entity",
+                "domain": [("id", "in", entity_ids)],
+                "view_mode": "tree,form",
+            }
+
+            return action
+        return True
+
     # =========================
     # Orkestrator (entry point)
     # =========================
