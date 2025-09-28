@@ -1018,6 +1018,11 @@ msgid ""
 msgstr ""
 
 #. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "Enter example data in CSV format here..."
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.actions.act_window,name:ssi_consulting.consulting_service_entity_action
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__entity_ids
 #: model:ir.ui.menu,name:ssi_consulting.consulting_service_entity_menu
@@ -1042,6 +1047,17 @@ msgstr ""
 msgid ""
 "Error executing parser.\n"
 "%s"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__example_data
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "Example Data"
+msgstr ""
+
+#. module: ssi_consulting
+#: model:ir.model.fields,field_description:ssi_consulting.field_consulting_data_structure__example_data_display
+msgid "Example Data Display"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1285,6 +1301,11 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_materialized_view__message_has_error
 #: model:ir.model.fields,help:ssi_consulting.field_consulting_service_type__message_has_error
 msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "Input Example Data (CSV Format)"
 msgstr ""
 
 #. module: ssi_consulting
@@ -1893,6 +1914,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__rejected
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_materialized_view__rejected
 msgid "Rejected"
+msgstr ""
+
+#. module: ssi_consulting
+#: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_data_structure_view_form
+msgid "Rendered Example Data"
 msgstr ""
 
 #. module: ssi_consulting
