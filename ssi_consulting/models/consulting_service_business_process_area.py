@@ -150,6 +150,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     s3_prefix = fields.Char(
         string="S3 Prefix",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -162,6 +163,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -174,6 +176,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     analysis = fields.Text(
         string="Analysis",
         compute="_compute_analysis",
+        copy=False,
         store=True,
     )
 
@@ -181,6 +184,7 @@ class ConsultingServiceBusinessProcessArea(models.Model):
     n8n_analysis_execution_id = fields.Integer(
         string="n8n Analysis Execution ID",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_execution_status = fields.Selection(
         selection=[
@@ -191,10 +195,12 @@ class ConsultingServiceBusinessProcessArea(models.Model):
         ],
         string="n8n Analysis Execution Status",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_latest_execution = fields.Datetime(
         string="n8n Analysis Latest Execution",
         readonly=True,
+        copy=False,
     )
 
     @api.depends("business_process_ids", "business_process_ids.analysis_json")
