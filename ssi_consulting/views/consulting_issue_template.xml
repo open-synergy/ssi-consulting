@@ -1,0 +1,69 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data>
+<!-- Search View -->
+<record id="consulting_issue_template_view_search" model="ir.ui.view">
+    <field name="name">consulting_issue_template - search</field>
+    <field name="model">consulting_issue_template</field>
+    <field
+                name="inherit_id"
+                ref="ssi_master_data_mixin.mixin_master_data_view_search"
+            />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<!-- Tree View -->
+<record id="consulting_issue_template_view_tree" model="ir.ui.view">
+    <field name="name">consulting_issue_template - tree</field>
+    <field name="model">consulting_issue_template</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<!-- Form View -->
+<record id="consulting_issue_template_view_form" model="ir.ui.view">
+    <field name="name">consulting_issue_template - form</field>
+    <field name="model">consulting_issue_template</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//page[1]" position="before">
+                <page name="mv" string="Materialized View">
+                    <field name="materialized_view_ids" />
+                </page>
+                <page name="data_structure" string="Data Structures">
+                    <field name="data_structure_ids" />
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<!-- Window Action -->
+<record id="consulting_issue_template_action" model="ir.actions.act_window">
+    <field name="name">Issue Templates</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">consulting_issue_template</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!-- Menu -->
+<menuitem
+            id="consulting_issue_template_view_menu"
+            name="Issue Templates"
+            action="consulting_issue_template_action"
+            groups="consulting_issue_template_group"
+            parent="menu_consulting_configuration"
+        />
+</data>
+</odoo>

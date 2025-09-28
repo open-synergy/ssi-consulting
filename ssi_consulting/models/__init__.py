@@ -10,6 +10,7 @@ from . import (
     consulting_report_template,
     consulting_schema_parser,
     consulting_service_type,
+    consulting_issue_template,
     consulting_service,
     consulting_service_materialized_view,
     consulting_service_chart,
