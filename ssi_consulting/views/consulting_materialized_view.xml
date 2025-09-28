@@ -25,9 +25,6 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="service_type_id" />
-            </xpath>
         </data>
     </field>
 </record>
@@ -40,37 +37,12 @@
     <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
     <field name="arch" type="xml">
         <data>
-            <xpath expr="//field[@name='active']" position="after">
-                <field name="service_type_id" />
-            </xpath>
             <xpath expr="//page[1]" position="before">
-                <page name="specification" string="Specifications">
-                    <group name="specification_1" colspan="4" col="2">
-                        <field
-                                    name="schema_parser_id"
-                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_mv)d)]"
-                                />
-                    </group>
-                    <separator string="Specification" />
-                    <field name="specification" widget="ace" />
-                    <group
-                                name="specification_2"
-                                string="Validation"
-                                colspan="4"
-                                col="2"
-                            >
-                        <field name="specification_valid" string="Valid?" />
-                        <field
-                                    name="specification_error_message"
-                                    string="Error Message"
-                                />
-                    </group>
+                <page name="schema" string="Schema">
+                    <field name="schema" widget="ace" />
                 </page>
                 <page name="data_structure" string="Data Structures">
                     <field name="data_structure_ids" />
-                </page>
-                <page name="sql" string="SQL Script">
-                    <field name="sql_script" widget="ace" />
                 </page>
             </xpath>
         </data>
