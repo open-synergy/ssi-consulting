@@ -128,6 +128,7 @@ class ConsultingServiceBusinessProcess(models.Model):
     s3_prefix = fields.Char(
         string="S3 Prefix",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -152,6 +153,7 @@ class ConsultingServiceBusinessProcess(models.Model):
     graphml_s3_url = fields.Char(
         string="Graphml S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -164,6 +166,7 @@ class ConsultingServiceBusinessProcess(models.Model):
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -176,11 +179,13 @@ class ConsultingServiceBusinessProcess(models.Model):
     analysis = fields.Text(
         string="Analysis",
         compute="_compute_analysis",
+        copy=False,
         store=True,
     )
     analysis_json_url = fields.Char(
         string="Analysis (JSON) S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -192,6 +197,7 @@ class ConsultingServiceBusinessProcess(models.Model):
     )
     analysis_json = fields.Text(
         string="Analysis",
+        copy=False,
         compute="_compute_analysis_json",
         store=True,
     )
@@ -200,6 +206,7 @@ class ConsultingServiceBusinessProcess(models.Model):
     n8n_analysis_execution_id = fields.Integer(
         string="n8n Analysis Execution ID",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_execution_status = fields.Selection(
         selection=[
@@ -210,6 +217,7 @@ class ConsultingServiceBusinessProcess(models.Model):
         ],
         string="n8n Analysis Execution Status",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_latest_execution = fields.Datetime(
         string="n8n Analysis Latest Execution",

@@ -53,7 +53,9 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
+                <field name="issue_template_id" />
                 <field name="s3_prefix" />
+
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />
@@ -61,6 +63,15 @@
             </xpath>
             <xpath expr="//page[1]" position="before">
                 <page name="mv" string="Materialized Views">
+                    <group name="mv_1" colspan="4" col="2">
+                        <button
+                                name="action_create_mv"
+                                string="Create Materialized View"
+                                type="object"
+                                class="oe_highlight"
+                                icon="fa-gears"
+                            />
+                    </group>
                     <field name="materialized_view_ids" />
                 </page>
                 <page name="business_process_area" string="Business Process Area">

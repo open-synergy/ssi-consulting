@@ -1,0 +1,85 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- Search View -->
+<record id="consulting_service_document_type_view_search" model="ir.ui.view">
+    <field name="name">consulting_service_document_type - search</field>
+    <field name="model">consulting_service.document_type</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="title" />
+                <field name="partner_id" />
+                <field name="service_id" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<!-- Tree View -->
+<record id="consulting_service_document_type_view_tree" model="ir.ui.view">
+    <field name="name">consulting_service_document_type - tree</field>
+    <field name="model">consulting_service.document_type</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="partner_id" />
+                <field name="title" />
+                <field name="service_id" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<!-- Form View -->
+<record id="consulting_service_document_type_view_form" model="ir.ui.view">
+    <field name="name">consulting_service_document_type - form</field>
+    <field name="model">consulting_service.document_type</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="partner_id" />
+                <field name="service_id" />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date" />
+
+
+            </xpath>
+            <xpath expr="//group[@name='header_center']" position="inside">
+                <label for="title" colspan="2" />
+                <field name="title" colspan="2" nolabel="1" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+            </xpath>
+
+        </data>
+    </field>
+</record>
+
+<record id="consulting_service_document_type_action" model="ir.actions.act_window">
+    <field name="name">Document Types</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">consulting_service.document_type</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="consulting_service_document_type_menu"
+        name="Document Types"
+        action="consulting_service_document_type_action"
+        groups="consulting_service_viewer_group"
+        parent="menu_root_consulting"
+        sequence="50"
+    />
+</odoo>

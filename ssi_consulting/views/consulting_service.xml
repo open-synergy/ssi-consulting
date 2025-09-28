@@ -37,7 +37,6 @@
                             optional="hide"
                         />
                         <field name="type_id" />
-                        <field name="report_template_id" />
                         <field name="date" />
                         <field name="date_start" />
                         <field name="date_end" />
@@ -59,10 +58,6 @@
                 <data>
                     <xpath expr="//field[@name='user_id']" position="after">
                         <field name="type_id" />
-                        <field
-                            name="report_template_id"
-                            domain="[('service_type_id','=',type_id)]"
-                        />
                     </xpath>
                     <xpath expr="//group[@name='header_right']" position="inside">
                         <field name="partner_id" widget="many2one_avatar" />
@@ -71,202 +66,10 @@
                         <field name="date_end" />
                     </xpath>
                     <xpath expr="//page[1]" position="before">
-                        <page name="final_report" string="Final Report">
-                            <group name="final_report_1" colspan="4" col="2">
-                                <field
-                                    name="final_report_s3_url"
-                                    string="S3 URL"
-                                    widget="url"
-                                />
-                            </group>
-                            <field name="final_report" widget="ace" />
-                        </page>
-                        <page name="technical" string="Technical">
-                            <button
-                                name="action_compute_result"
-                                type="object"
-                                string="Compute"
-                                class="oe_highlight"
-                                icon="fa-gear"
-                            />
-                            <separator string="Data Structures" />
-                            <field name="data_structure_ids" />
-                            <separator string="Materialized Views" />
-                            <field name="materialized_view_ids" invisible="1" />
-                            <button
-                                name="action_open_detail_mv"
-                                string="Open"
-                                type="object"
-                                icon="fa-bars"
-                                class="oe_highlight"
-                            />
-                            <separator string="Charts" />
-                            <field name="chart_template_ids" invisible="1" />
-                            <field name="detail_chart_ids">
-                                <tree>
-                                    <field name="chart_id" />
-                                    <field
-                                        name="detail_materialized_view_id"
-                                        invisible="1"
-                                    />
-                                    <field name="superset_id" />
-                                </tree>
-                                <form>
-                                    <group name="detail_chart" colspan="4" col="2">
-                                        <field name="chart_id" />
-                                        <field
-                                            name="detail_materialized_view_id"
-                                            invisible="1"
-                                        />
-                                        <field name="superset_id" />
-                                    </group>
-                                </form>
-                            </field>
-                        </page>
-                        <page name="business_process" string="Business Process">
-                            <button
-                                name="action_open_detail_business_process"
-                                string="Open"
-                                type="object"
-                                icon="fa-bars"
-                                class="oe_highlight"
-                            />
-                            <field name="detail_business_process_ids">
-                                <tree>
-                                    <field name="name" />
-                                    <field name="graphml_s3_url" widget="url" />
-                                </tree>
-                                <form>
-                                    <group name="business_process" colspan="4" col="2">
-                                        <field name="name" />
-                                        <field name="graphml_s3_url" widget="url" />
-                                    </group>
-                                </form>
-                            </field>
-                        </page>
-                        <page name="sql" string="SQL Script">
-                            <separator string="Table Creation" />
-                            <field name="table_sql_script" widget="ace" />
-                            <separator string="FK Creation" />
-                            <field name="fk_sql_script" widget="ace" />
-                            <separator string="Additional Creation" />
-                            <field name="additional_sql_script" widget="ace" />
-                            <separator string="Final" />
-                            <field name="final_sql_script" widget="ace" />
-                        </page>
-                        <page name="system_prompting" string="System Prompting">
-                            <group name="system_prompting_1" colspan="4" col="2">
-                                <field
-                                    name="system_prompting_schema_parser_id"
-                                    string="Schema Parser"
-                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_sp)d)]"
-                                />
-                                <field
-                                    name="system_prompting_s3_url"
-                                    string="S3 URL"
-                                    widget="url"
-                                />
-                            </group>
-                            <separator string="Specification" />
-                            <field name="system_prompting_specification" widget="ace" />
-                            <group
-                                name="system_prompting_2"
-                                colspan="4"
-                                col="2"
-                                string="Specification Validation"
-                            >
-                                <field
-                                    name="system_prompting_specification_valid"
-                                    string="Valid?"
-                                />
-                                <field
-                                    name="system_prompting_specification_error_message"
-                                    string="Error Message"
-                                />
-                            </group>
-                            <separator string="Parsing" />
-                            <field name="system_prompting" widget="ace" />
-                            <group
-                                name="system_prompting_3"
-                                colspan="4"
-                                col="2"
-                                string="Parsing Validation"
-                            >
-                                <field name="system_prompting_valid" string="Valid?" />
-                                <field
-                                    name="system_prompting_error_message"
-                                    string="Error Message"
-                                />
-                            </group>
-                        </page>
-                        <page name="user_prompting" string="User Prompting">
-                            <group name="user_prompting_1" colspan="4" col="2">
-                                <field
-                                    name="user_prompting_schema_parser_id"
-                                    string="Schema Parser"
-                                    domain="[('category_id','=',%(ssi_consulting.schema_parser_category_up)d)]"
-                                />
-                                <field
-                                    name="user_prompting_s3_url"
-                                    string="S3 URL"
-                                    widget="url"
-                                />
-                            </group>
-                            <separator string="Specification" />
-                            <field name="user_prompting_specification" widget="ace" />
-                            <group
-                                name="user_prompting_2"
-                                colspan="4"
-                                col="2"
-                                string="Specification Validation"
-                            >
-                                <field
-                                    name="user_prompting_specification_valid"
-                                    string="Valid?"
-                                />
-                                <field
-                                    name="user_prompting_specification_error_message"
-                                    string="Error Message"
-                                />
-                            </group>
-                            <separator string="Parsing" />
-                            <field name="user_prompting" widget="ace" />
-                            <group
-                                name="user_prompting_3"
-                                colspan="4"
-                                col="2"
-                                string="Parsing Validation"
-                            >
-                                <field name="user_prompting_valid" string="Valid?" />
-                                <field
-                                    name="user_prompting_error_message"
-                                    string="Error Message"
-                                />
-                            </group>
-                        </page>
                         <page name="external" string="External Tools">
-                            <group
-                                name="external_1"
-                                colspan="4"
-                                col="2"
-                                string="PostgreSQL"
-                            >
-                                <field name="pg_schema" string="Schema" />
-                            </group>
-                            <group
-                                name="external_2"
-                                colspan="4"
-                                col="2"
-                                string="Superset"
-                            >
-                                <field name="superset_role" />
-                                <field name="superset_database_id" />
-                            </group>
                            <group name="external_3" colspan="4" col="2" string="S3">
                                 <field name="s3_endpoint" />
                                 <field name="s3_bucket" />
-                                <field name="s3_key" />
-                                <field name="s3_secret" />
                             </group>
                         </page>
                     </xpath>
@@ -281,5 +84,14 @@
             <field name="res_model">consulting_service</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+<menuitem
+            id="consulting_service_issue"
+            name="Service"
+            action="consulting_service_action"
+            groups="consulting_service_viewer_group"
+            parent="menu_root_consulting"
+            sequence="10"
+        />
     </data>
 </odoo>

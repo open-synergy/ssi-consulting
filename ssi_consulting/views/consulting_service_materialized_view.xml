@@ -17,6 +17,7 @@
                 <field name="title" />
                 <field name="partner_id" />
                 <field name="service_id" />
+                <field name="materialized_view_id" />
             </xpath>
         </data>
     </field>
@@ -34,6 +35,7 @@
                 <field name="partner_id" />
                 <field name="title" />
                 <field name="service_id" />
+                <field name="materialized_view_id" />
             </xpath>
         </data>
     </field>
@@ -53,19 +55,38 @@
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
-
-
+                <field name="materialized_view_id" />
             </xpath>
             <xpath expr="//group[@name='header_center']" position="inside">
                 <label for="title" colspan="2" />
                 <field name="title" colspan="2" nolabel="1" />
             </xpath>
             <xpath expr="//page[1]" position="before">
+                <page name="schema" string="Schema">
+                    <field name="schema" widget="ace" />
+                </page>
+                <page name="entity" string="Entities">
+                    <button
+                            name="action_create_entities"
+                            string="Create Entities"
+                            type="object"
+                            class="oe_highlight"
+                            icon="fa-gears"
+                        />
+                    <field name="entity_ids" />
+                </page>
                 <page name="raw" string="Raw">
                     <group name="raw_1" colspan="4" col="2">
                         <field name="s3_prefix" />
                         <field name="google_sheet_url" widget="url" />
                     </group>
+                    <button
+                            name="action_build_pandas"
+                            type="object"
+                            string="Build"
+                            class="oe_highlight"
+                            icon="fa-gears"
+                        />
                     <field name="raw" />
                 </page>
                 <page name="data" string="Data">

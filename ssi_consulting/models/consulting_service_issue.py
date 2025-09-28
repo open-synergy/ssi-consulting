@@ -104,8 +104,23 @@ class ConsultingServiceIssue(models.Model):
             ],
         },
     )
+    issue_template_id = fields.Many2one(
+        string="Issue Template",
+        comodel_name="consulting_issue_template",
+        required=False,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
+    )
     s3_prefix = fields.Char(
         string="S3 Prefix",
+        copy=False,
         readonly=True,
         states={
             "draft": [
@@ -121,6 +136,7 @@ class ConsultingServiceIssue(models.Model):
     analysis_jason_s3_url = fields.Char(
         string="Analysis (JSON) S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -133,6 +149,7 @@ class ConsultingServiceIssue(models.Model):
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -146,6 +163,7 @@ class ConsultingServiceIssue(models.Model):
         string="Analysis",
         compute="_compute_analysis",
         store=True,
+        copy=False,
     )
 
     materialized_view_ids = fields.Many2many(
@@ -326,6 +344,7 @@ class ConsultingServiceIssue(models.Model):
     n8n_analysis_execution_id = fields.Integer(
         string="n8n Analysis Execution ID",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_execution_status = fields.Selection(
         selection=[
@@ -336,10 +355,12 @@ class ConsultingServiceIssue(models.Model):
         ],
         string="n8n Analysis Execution Status",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_latest_execution = fields.Datetime(
         string="n8n Analysis Latest Execution",
         readonly=True,
+        copy=False,
     )
 
     @api.depends(
@@ -509,6 +530,58 @@ class ConsultingServiceIssue(models.Model):
                     "Kesalahan saat memproses naration dari %s: %s", url, e
                 )
                 rec.analysis = False
+
+    @api.onchange(
+        "issue_template_id",
+    )
+    def onchange_title(self):
+        self.title = ""
+        if self.issue_template_id:
+            self.title = self.issue_template_id.name
+
+    def action_create_mv(self):
+        for record in self.sudo():
+            result = record._create_mv()
+
+        return result
+
+    def _create_mv(self):
+        self.ensure_one()
+        result = True
+        if self.issue_template_id:
+            mv_ids = []
+            self.write({"materialized_view_ids": [(6, 0, [])]})
+            mv_templates = self.issue_template_id.materialized_view_ids
+            criteria = [
+                ("materialized_view_id", "in", mv_templates.ids),
+                ("service_id", "=", self.service_id.id),
+            ]
+            existing_mvs = self.env["consulting_service.materialized_view"].search(
+                criteria
+            )
+            if existing_mvs:
+                mv_ids += existing_mvs.ids
+
+            missing_mv_templates = mv_templates - existing_mvs.mapped(
+                "materialized_view_id"
+            )
+            if missing_mv_templates:
+                for mv_template in missing_mv_templates:
+                    mv = mv_template._create_service_mv(self)
+                    mv_ids.append(mv.id)
+
+            if len(mv_ids) > 0:
+                self.write({"materialized_view_ids": [(6, 0, mv_ids)]})
+
+            action = {
+                "name": "Materialized Views",
+                "type": "ir.actions.act_window",
+                "res_model": "consulting_service.materialized_view",
+                "view_mode": "tree,form",
+                "domain": [("id", "in", mv_ids)],
+            }
+            result = action
+        return result
 
     @api.model
     def _get_policy_field(self):

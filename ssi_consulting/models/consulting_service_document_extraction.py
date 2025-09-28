@@ -2,17 +2,16 @@
 # Copyright 2025 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import logging
+
+# External libs used to fetch & render CSV as plain text
 
 from odoo import api, fields, models
 from odoo.addons.ssi_decorator import ssi_decorator
 
-_logger = logging.getLogger(__name__)
 
-
-class ConsultingService(models.Model):
-    _name = "consulting_service"
-    _description = "Consulting Service"
+class ConsultingServiceDocumentExtraction(models.Model):
+    _name = "consulting_service.document_extraction"
+    _description = "Consulting Service - Document Extraction"
     _inherit = [
         "mixin.transaction_cancel",
         "mixin.transaction_done",
@@ -22,18 +21,18 @@ class ConsultingService(models.Model):
         "mixin.many2one_configurator",
     ]
 
+    # Attributes related to add element on view automatically
+    _automatically_insert_view_element = True
+    _automatically_insert_done_policy_fields = False
+    _automatically_insert_done_button = False
+
     # Multiple Approval Attribute
     _approval_from_state = "open"
     _approval_to_state = "done"
     _approval_state = "confirm"
     _after_approved_method = "action_done"
 
-    # Attributes related to add element on view automatically
-    _automatically_insert_view_element = True
-    _automatically_insert_done_policy_fields = False
-    _automatically_insert_done_button = False
-
-    _statusbar_visible_label = "draft,open,confirm,done"
+    _statusbar_visible_label = "draft,open,confirm"
     _policy_field_order = [
         "confirm_ok",
         "approve_ok",
@@ -67,52 +66,78 @@ class ConsultingService(models.Model):
     # Sequence attribute
     _create_sequence_state = "open"
 
-    type_id = fields.Many2one(
-        string="Type",
-        comodel_name="consulting_service_type",
+    service_id = fields.Many2one(
+        string="# Service",
+        comodel_name="consulting_service",
         required=True,
-        ondelete="restrict",
+        ondelete="cascade",
+    )
+    title = fields.Char(
+        string="Title",
+        default="-",
+        required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
     date = fields.Date(
         string="Date",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
-    date_start = fields.Date(
-        string="Date Start",
-        required=True,
+    document_type_id = fields.Many2one(
+        string="Document Type",
+        comodel_name="consulting_service.document_type",
+        required=False,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
-    date_end = fields.Date(
-        string="Date End",
-        required=True,
+    binary_data = fields.Binary(
+        string="File",
+        required=False,
         readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
-
-    s3_endpoint = fields.Char(
-        string="S3 Endpoint",
-    )
-    s3_bucket = fields.Char(
-        string="S3 Bucket",
-    )
-    detail_materialized_view_ids = fields.One2many(
-        string="Materialized View Details",
-        comodel_name="consulting_service.materialized_view",
-        inverse_name="service_id",
+    result_json = fields.Text(
+        string="Result (JSON)",
+        required=False,
         readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
-    detail_business_process_ids = fields.One2many(
-        string="Business Process",
-        comodel_name="consulting_service.business_process",
-        inverse_name="service_id",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+            "open": [
+                ("readonly", False),
+            ],
+        },
     )
 
     @api.model
