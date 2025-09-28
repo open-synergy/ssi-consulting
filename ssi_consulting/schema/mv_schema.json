@@ -1,0 +1,94 @@
+{
+  "$id": "https://cantum.id/schemas/mv_spec_pandas_by_name.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cantum MV Spec (Pandas, Name-based Binding via entity.title)",
+  "type": "object",
+  "required": ["mv_name", "sources", "select"],
+  "additionalProperties": false,
+  "properties": {
+    "mv_name": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source"},
+      "description": "Urutan sources tidak berpengaruh pada binding; pencocokan dilakukan ke consulting_service.entity.title"
+    },
+    "join": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/join"}
+    },
+    "filters": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "description": "Ekspresi untuk pandas.query(); alias kolom pakai format e.field (otomatis dipetakan ke e__field)."
+    },
+    "select": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/selectCol"}
+    },
+    "group_by": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/dottedRef"}
+    }
+  },
+  "$defs": {
+    "alias": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "identifier": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+    "dottedRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*$",
+      "description": "Format alias.field, mis. e.employee_id"
+    },
+    "aggExpr": {
+      "type": "string",
+      "anyOf": [
+        {"pattern": "^sum\\([a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*\\)$"},
+        {"pattern": "^avg\\([a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*\\)$"},
+        {"pattern": "^min\\([a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*\\)$"},
+        {"pattern": "^max\\([a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*\\)$"},
+        {"pattern": "^count\\(\\*\\)$"},
+        {"pattern": "^count\\([a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*\\)$"},
+        {"pattern": "^count_distinct\\([a-z][a-z0-9_]*\\.[A-Za-z_][A-Za-z0-9_]*\\)$"}
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": ["entity_name", "alias"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "description": "Opsional; label dokumentatif."},
+        "entity_name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Nama yang HARUS sama persis dengan consulting_service.entity.title"
+        },
+        "alias": {"$ref": "#/$defs/alias"},
+        "key": {
+          "type": "string",
+          "description": "Nama kolom kunci join pada entity ini (tanpa alias), mis. employee_id"
+        }
+      }
+    },
+    "join": {
+      "type": "object",
+      "required": ["left", "right"],
+      "additionalProperties": false,
+      "properties": {
+        "left": {"$ref": "#/$defs/dottedRef"},
+        "right": {"$ref": "#/$defs/dottedRef"},
+        "type": {"type": "string", "enum": ["inner", "left"], "default": "inner"}
+      }
+    },
+    "selectCol": {
+      "type": "object",
+      "required": ["expr", "as"],
+      "additionalProperties": false,
+      "properties": {
+        "expr": {"anyOf": [{"$ref": "#/$defs/dottedRef"}, {"$ref": "#/$defs/aggExpr"}]},
+        "as": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
+      }
+    }
+  }
+}

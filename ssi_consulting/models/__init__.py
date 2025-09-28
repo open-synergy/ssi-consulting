@@ -16,4 +16,7 @@ from . import (
     consulting_service_business_process,
     consulting_service_business_process_area,
     consulting_service_issue,
+    consulting_service_entity,
+    consulting_service_document_type,
+    consulting_service_document_extraction,
 )

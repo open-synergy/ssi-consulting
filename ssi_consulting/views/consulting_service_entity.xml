@@ -3,9 +3,9 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
 <!-- Search View -->
-<record id="consulting_service_materialized_view_view_search" model="ir.ui.view">
-    <field name="name">consulting_service_materialized_view - search</field>
-    <field name="model">consulting_service.materialized_view</field>
+<record id="consulting_service_entity_view_search" model="ir.ui.view">
+    <field name="name">consulting_service_entity - search</field>
+    <field name="model">consulting_service.entity</field>
     <field
             name="inherit_id"
             ref="ssi_transaction_mixin.mixin_transaction_view_search"
@@ -23,9 +23,9 @@
 </record>
 
 <!-- Tree View -->
-<record id="consulting_service_materialized_view_view_tree" model="ir.ui.view">
-    <field name="name">consulting_service_materialized_view - tree</field>
-    <field name="model">consulting_service.materialized_view</field>
+<record id="consulting_service_entity_view_tree" model="ir.ui.view">
+    <field name="name">consulting_service_entity - tree</field>
+    <field name="model">consulting_service.entity</field>
     <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
@@ -40,9 +40,9 @@
 </record>
 
 <!-- Form View -->
-<record id="consulting_service_materialized_view_view_form" model="ir.ui.view">
-    <field name="name">consulting_service_materialized_view - form</field>
-    <field name="model">consulting_service.materialized_view</field>
+<record id="consulting_service_entity_view_form" model="ir.ui.view">
+    <field name="name">consulting_service_entity - form</field>
+    <field name="model">consulting_service.entity</field>
     <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
@@ -64,28 +64,8 @@
                 <page name="schema" string="Schema">
                     <field name="schema" widget="ace" />
                 </page>
-                <page name="entity" string="Entities">
-                    <field name="entity_ids" />
-                </page>
                 <page name="raw" string="Raw">
-                    <group name="raw_1" colspan="4" col="2">
-                        <field name="s3_prefix" />
-                        <field name="google_sheet_url" widget="url" />
-                    </group>
-                    <button
-                            name="action_build_pandas"
-                            type="object"
-                            string="Build"
-                            class="oe_highlight"
-                            icon="fa-gears"
-                        />
-                    <field name="raw" />
-                </page>
-                <page name="data" string="Data">
-                    <field name="mv_text" widget="ace" />
-                </page>
-                <page name="json" string="JSON">
-                    <field name="mv_json" widget="ace" />
+                    <field name="raw" widget="ace" />
                 </page>
             </xpath>
 
@@ -93,17 +73,17 @@
     </field>
 </record>
 
-<record id="consulting_service_materialized_view_action" model="ir.actions.act_window">
-    <field name="name">Materialized Views</field>
+<record id="consulting_service_entity_action" model="ir.actions.act_window">
+    <field name="name">Entities</field>
     <field name="type">ir.actions.act_window</field>
-    <field name="res_model">consulting_service.materialized_view</field>
+    <field name="res_model">consulting_service.entity</field>
     <field name="view_mode">tree,form</field>
 </record>
 
 <menuitem
-        id="consulting_service_materialized_view_menu"
-        name="Materialized Views"
-        action="consulting_service_materialized_view_action"
+        id="consulting_service_entity_menu"
+        name="Entities"
+        action="consulting_service_entity_action"
         groups="consulting_service_viewer_group"
         parent="menu_root_consulting"
         sequence="50"

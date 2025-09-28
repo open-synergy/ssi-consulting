@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data noupdate="0">
+
+<record
+            id="policy_template_consulting_service_document_extraction"
+            model="policy.template"
+        >
+    <field name="name">Standard</field>
+    <field name="model_id" ref="model_consulting_service_document_extraction" />
+    <field
+                name="state_field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','state')]"
+            />
+    <field name="sequence" eval="100" />
+    <field name="python_code">result=True</field>
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_open"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','open_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('consulting_service_document_extraction_user_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_confirm"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','confirm_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','=','open')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('consulting_service_document_extraction_user_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_approve"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','approve_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_reject"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','reject_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','=','confirm')]"
+            />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_cancel"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','cancel_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','in',['draft','confirm','done'])]"
+            />
+      <field name="restrict_user" eval="1" />
+      <field name="computation_method">use_group</field>
+      <field
+                name="group_ids"
+                eval="[(6,0,[ref('consulting_service_document_extraction_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_restart"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','restart_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','in',['cancel','reject'])]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('consulting_service_document_extraction_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<record
+            id="policy_template_consulting_service_document_extraction_manual_number"
+            model="policy.template_detail"
+        >
+    <field
+                name="template_id"
+                ref="policy_template_consulting_service_document_extraction"
+            />
+    <field
+                name="field_id"
+                search="[('model_id.model','=','consulting_service.document_extraction'),('name','=','manual_number_ok')]"
+            />
+    <field name="restrict_state" eval="1" />
+    <field
+                name="state_ids"
+                search="[('field_id.model_id.model','=','consulting_service.document_extraction'),('value','=','draft')]"
+            />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field
+                name="group_ids"
+                eval="[(6,0,[ref('consulting_service_document_extraction_validator_group')])]"
+            />
+    <field name="restrict_additional" eval="0" />
+</record>
+</data>
+</odoo>
