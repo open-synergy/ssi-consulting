@@ -7,7 +7,11 @@
 #          gunakan placeholder {{tenant_schema}}.
 
 
+import csv
+import io
+
 from odoo import api, fields, models
+from tabulate import tabulate
 
 try:
     import yaml
@@ -40,6 +44,83 @@ class ConsultingDataStructure(models.Model):
         store=False,
         compute_sudo=True,
     )
+    example_data = fields.Text(
+        string="Example Data",
+    )
+    example_data_display = fields.Text(
+        string="Example Data Display",
+        compute="_compute_example_data_display",
+        store=True,
+        compute_sudo=True,
+    )
+
+    @api.depends("example_data")
+    def _compute_example_data_display(self):
+        """
+        Render contoh data CSV menjadi tabel Markdown (format 'github'):
+
+        - Deteksi delimiter otomatis memakai csv.Sniffer (fallback ke ',').
+        - Tampilkan header (baris pertama) dan maks. 50 baris data.
+        - Jika data kosong, tampilkan '(Empty CSV)'.
+        - Jika terjadi error parsing, tampilkan pesan kegagalan yang ramah.
+        """
+        limit_rows = 50
+        for rec in self:
+            text_out = ""
+            try:
+                raw = rec.example_data or ""
+                # Normalisasi newline supaya Sniffer bekerja konsisten
+                sample = raw.strip()
+
+                if not sample:
+                    rec.example_data_display = "(Empty CSV)"
+                    continue
+
+                buf = io.StringIO(sample)
+
+                # Coba deteksi dialect; fallback ke default koma
+                try:
+                    sniff_sample = sample[:4096]
+                    dialect = csv.Sniffer().sniff(sniff_sample)
+                    buf.seek(0)
+                except Exception:
+                    dialect = csv.excel  # delimiter default: ','
+
+                reader = csv.reader(buf, dialect)
+
+                # Ambil header
+                try:
+                    header = next(reader, None)
+                except Exception as e:
+                    rec.example_data_display = f"(Failed to parse header: {e})"
+                    continue
+
+                if not header:
+                    rec.example_data_display = "(Empty CSV)"
+                    continue
+
+                # Kumpulkan hingga limit_rows baris data tanpa membaca semuanya
+                data = []
+                total_rows = 0
+                for row in reader:
+                    total_rows += 1
+                    if len(data) < limit_rows:
+                        data.append(row)
+
+                table = tabulate(data, headers=header, tablefmt="github")
+
+                if total_rows > limit_rows:
+                    table += (
+                        f"\n\n(Note: showing first {limit_rows} rows "
+                        f"out of {total_rows} rows)"
+                    )
+
+                text_out = table or "(Empty CSV)"
+
+            except Exception as e:
+                text_out = f"(Failed to fetch/parse CSV: {e})"
+
+            rec.example_data_display = text_out
 
     @api.depends("all_dependency_ids")
     def _compute_all_dependency_ids(self):

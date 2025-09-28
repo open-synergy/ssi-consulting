@@ -47,6 +47,15 @@
                     <separator string="All Dependencies" />
                     <field name="all_dependency_ids" />
                 </page>
+                <page name="example_data" string="Example Data">
+                    <separator string="Input Example Data (CSV Format)" />
+                    <field
+                                name="example_data"
+                                placeholder="Enter example data in CSV format here..."
+                            />
+                    <separator string="Rendered Example Data" />
+                    <field name="example_data_display" readonly="1" widget="ace" />
+                </page>
             </xpath>
         </data>
     </field>
