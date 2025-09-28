@@ -106,6 +106,7 @@ class ConsultingServiceIssue(models.Model):
     )
     s3_prefix = fields.Char(
         string="S3 Prefix",
+        copy=False,
         readonly=True,
         states={
             "draft": [
@@ -121,6 +122,7 @@ class ConsultingServiceIssue(models.Model):
     analysis_jason_s3_url = fields.Char(
         string="Analysis (JSON) S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -133,6 +135,7 @@ class ConsultingServiceIssue(models.Model):
     analysis_s3_url = fields.Char(
         string="Analysis S3 URL",
         readonly=True,
+        copy=False,
         states={
             "draft": [
                 ("readonly", False),
@@ -146,6 +149,7 @@ class ConsultingServiceIssue(models.Model):
         string="Analysis",
         compute="_compute_analysis",
         store=True,
+        copy=False,
     )
 
     materialized_view_ids = fields.Many2many(
@@ -326,6 +330,7 @@ class ConsultingServiceIssue(models.Model):
     n8n_analysis_execution_id = fields.Integer(
         string="n8n Analysis Execution ID",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_execution_status = fields.Selection(
         selection=[
@@ -336,10 +341,12 @@ class ConsultingServiceIssue(models.Model):
         ],
         string="n8n Analysis Execution Status",
         readonly=True,
+        copy=False,
     )
     n8n_analysis_latest_execution = fields.Datetime(
         string="n8n Analysis Latest Execution",
         readonly=True,
+        copy=False,
     )
 
     @api.depends(
