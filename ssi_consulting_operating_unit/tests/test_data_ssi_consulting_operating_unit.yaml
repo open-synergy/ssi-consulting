@@ -1,0 +1,278 @@
+setup:
+  steps:
+    - step: "Create shared partner"
+      action: "create"
+      model: "res.partner"
+      save_as: "partner"
+      values:
+        name: "OU Consulting Partner"
+        is_company: true
+
+    - step: "Create shared consulting service type"
+      action: "create"
+      model: "consulting_service_type"
+      save_as: "service_type"
+      values:
+        name: "OU Consulting Service Type"
+        code: "/"
+
+    - step: "Create shared schema parser"
+      action: "create"
+      model: "schema_parser"
+      save_as: "schema_parser"
+      values:
+        name: "OU Consulting Schema Parser"
+        code: "/"
+
+    - step: "Create shared consulting service (parent record)"
+      action: "create"
+      model: "consulting_service"
+      save_as: "service"
+      as_user: "base.user_admin"
+      values:
+        type_id: "REC: service_type.id"
+        date: 2026-01-15
+        date_start: 2026-01-15
+        date_end: 2026-01-31
+        partner_id: "REC: partner.id"
+
+scenarios:
+  - name: "Create Consulting Service with Operating Unit"
+    steps:
+      - step: "Create consulting_service with operating_unit_id"
+        action: "create"
+        model: "consulting_service"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          type_id: "REC: service_type.id"
+          date: 2026-02-01
+          date_start: 2026-02-01
+          date_end: 2026-02-28
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Business Process with Operating Unit"
+    steps:
+      - step: "Create consulting_service.business_process with operating_unit_id"
+        action: "create"
+        model: "consulting_service.business_process"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          title: "OU Business Process"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Business Process Area with Operating Unit"
+    steps:
+      - step: "Create consulting_service.business_process_area with operating_unit_id"
+        action: "create"
+        model: "consulting_service.business_process_area"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          title: "OU Business Process Area"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Document Extraction with Operating Unit"
+    steps:
+      - step: "Create consulting_service.document_extraction with operating_unit_id"
+        action: "create"
+        model: "consulting_service.document_extraction"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          service_id: "REC: service.id"
+          title: "OU Document Extraction"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Document Type with Operating Unit"
+    steps:
+      - step: "Create consulting_service.document_type with operating_unit_id"
+        action: "create"
+        model: "consulting_service.document_type"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          service_id: "REC: service.id"
+          title: "OU Document Type"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Entity with Operating Unit"
+    steps:
+      - step: "Create consulting_service.entity with operating_unit_id"
+        action: "create"
+        model: "consulting_service.entity"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          service_id: "REC: service.id"
+          title: "OU Entity"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Issue with Operating Unit"
+    steps:
+      - step: "Create consulting_service.issue with operating_unit_id"
+        action: "create"
+        model: "consulting_service.issue"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          service_id: "REC: service.id"
+          title: "OU Issue"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          system_prompting_schema_parser_id: "REC: schema_parser.id"
+          system_prompting_specification: "system: {}"
+          user_prompting_schema_parser_id: "REC: schema_parser.id"
+          user_prompting_specification: "user: {}"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Create Materialized View with Operating Unit"
+    steps:
+      - step: "Create consulting_service.materialized_view with operating_unit_id"
+        action: "create"
+        model: "consulting_service.materialized_view"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          service_id: "REC: service.id"
+          title: "OU Materialized View"
+          date: 2026-02-01
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Assert operating_unit_id is set"
+        action: "assert"
+        target: "record"
+        asserts:
+          operating_unit_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "User without operating unit access cannot read or write consulting_service"
+    steps:
+      - step: "Create restricted operating unit"
+        action: "create"
+        model: "operating.unit"
+        save_as: "ou_restricted"
+        values:
+          name: "OU Restricted Test Consulting"
+          code: "OURESTRICTEDCONSULTING"
+          partner_id: "REC: company.partner_id.id"
+
+      - step: "Create user without access to main operating unit"
+        action: "create"
+        model: "res.users"
+        save_as: "restricted_user"
+        values:
+          name: "Restricted OU User Consulting"
+          login: "restricted_ou_user_consulting@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_consulting.consulting_service_user_group"
+                - "REF: ssi_consulting_operating_unit.consulting_service_ou_group"
+          assigned_operating_unit_ids:
+            - - 6
+              - 0
+              - - "REC: ou_restricted.id"
+
+      - step: "Create consulting_service with main operating unit"
+        action: "create"
+        model: "consulting_service"
+        save_as: "record"
+        as_user: "base.user_admin"
+        values:
+          type_id: "REC: service_type.id"
+          date: 2026-02-05
+          date_start: 2026-02-05
+          date_end: 2026-02-28
+          partner_id: "REC: partner.id"
+          operating_unit_id: "REF: operating_unit.main_operating_unit"
+
+      - step: "Restricted user cannot read the record"
+        action: "call"
+        target: "record"
+        method: "read"
+        args:
+          - - "date"
+        as_user: "restricted_user"
+        expect_error:
+          type: "AccessError"
+
+      - step: "Restricted user cannot write the record"
+        action: "write"
+        target: "record"
+        as_user: "restricted_user"
+        expect_error:
+          type: "AccessError"
+        values:
+          date: 2026-02-10

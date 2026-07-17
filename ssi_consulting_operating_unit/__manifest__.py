@@ -1,0 +1,41 @@
+# Copyright 2026 OpenSynergy Indonesia
+# Copyright 2026 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+{
+    "name": "Consulting + Operating Unit",
+    "version": "14.0.1.0.0",
+    "website": "https://simetri-sinergi.id",
+    "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
+    "license": "AGPL-3",
+    "installable": True,
+    "depends": [
+        "ssi_consulting",
+        "ssi_operating_unit_mixin",
+    ],
+    "data": [
+        "security/res_group/consulting_service.xml",
+        "security/res_group/consulting_service_business_process.xml",
+        "security/res_group/consulting_service_business_process_area.xml",
+        "security/res_group/consulting_service_document_extraction.xml",
+        "security/res_group/consulting_service_document_type.xml",
+        "security/res_group/consulting_service_entity.xml",
+        "security/res_group/consulting_service_issue.xml",
+        "security/res_group/consulting_service_materialized_view.xml",
+        "security/ir_rule/consulting_service.xml",
+        "security/ir_rule/consulting_service_business_process.xml",
+        "security/ir_rule/consulting_service_business_process_area.xml",
+        "security/ir_rule/consulting_service_document_extraction.xml",
+        "security/ir_rule/consulting_service_document_type.xml",
+        "security/ir_rule/consulting_service_entity.xml",
+        "security/ir_rule/consulting_service_issue.xml",
+        "security/ir_rule/consulting_service_materialized_view.xml",
+        "view/consulting_service.xml",
+        "view/consulting_service_business_process.xml",
+        "view/consulting_service_business_process_area.xml",
+        "view/consulting_service_document_extraction.xml",
+        "view/consulting_service_document_type.xml",
+        "view/consulting_service_entity.xml",
+        "view/consulting_service_issue.xml",
+        "view/consulting_service_materialized_view.xml",
+    ],
+}

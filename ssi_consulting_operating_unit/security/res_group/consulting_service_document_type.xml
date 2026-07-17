@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="consulting_service_document_type_ou_group" model="res.groups">
+    <field name="name">Operating Unit</field>
+    <field
+            name="category_id"
+            ref="ssi_consulting.consulting_service_document_type_data_ownership_module_category"
+        />
+</record>
+
+<record
+        id="ssi_consulting.consulting_service_document_type_company_group"
+        model="res.groups"
+    >
+    <field
+            name="implied_ids"
+            eval="[(4, ref('consulting_service_document_type_ou_group'))]"
+        />
+</record>
+</odoo>
