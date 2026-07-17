@@ -915,6 +915,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_materialized_view__data_structure_ids
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_entity__data_structure_id
 #: model:res.groups,name:ssi_consulting.consulting_data_structure_group
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_ds
 msgid "Data Structure"
 msgstr ""
 
@@ -1329,6 +1330,11 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_issue
+msgid "Issue"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_issue__issue_template_id
 #: model:res.groups,name:ssi_consulting.consulting_issue_template_group
 msgid "Issue Template"
@@ -1511,6 +1517,7 @@ msgstr ""
 #: model:ir.module.category,name:ssi_consulting.consulting_service_materialized_view_data_ownership_module_category
 #: model:ir.module.category,name:ssi_consulting.consulting_service_materialized_view_workflow_module_category
 #: model:res.groups,name:ssi_consulting.consulting_materialized_view_group
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_mv
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_issue_template_view_form
 msgid "Materialized View"
 msgstr ""
@@ -1922,6 +1929,11 @@ msgid "Rendered Example Data"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_rs
+msgid "Report Style"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_report_template__style_schema_parser_id
 msgid "Report Style Schema Parser"
 msgstr ""
@@ -2228,11 +2240,17 @@ msgid "Success"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_sc
+msgid "Superset Chart"
+msgstr ""
+
+#. module: ssi_consulting
 #: model:ir.model.fields,field_description:ssi_consulting.field_consulting_service_chart__superset_id
 msgid "Superset ID"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_sp
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
 msgid "System Prompting"
@@ -2391,6 +2409,7 @@ msgid "User"
 msgstr ""
 
 #. module: ssi_consulting
+#: model:schema_parser_category,name:ssi_consulting.schema_parser_category_up
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_report_template_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_consulting.consulting_service_issue_view_form
 msgid "User Prompting"
@@ -2737,6 +2756,12 @@ msgstr ""
 #: code:addons/ssi_consulting/models/consulting_service_materialized_view.py:0
 #, python-format
 msgid "[action_build_pandas] Tidak ada DataFrame sumber yang berhasil dimuat."
+msgstr ""
+
+#. module: ssi_consulting
+#: code:addons/ssi_consulting/models/consulting_service_entity.py:0
+#, python-format
+msgid "[consulting_service.entity.extract_df] Field `{}` kosong."
 msgstr ""
 
 #. module: ssi_consulting
