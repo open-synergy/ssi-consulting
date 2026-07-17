@@ -10,8 +10,9 @@
 import csv
 import io
 
-from odoo import api, fields, models
 from tabulate import tabulate
+
+from odoo import api, fields, models
 
 try:
     import yaml

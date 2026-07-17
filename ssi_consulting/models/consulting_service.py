@@ -5,6 +5,7 @@
 import logging
 
 from odoo import api, fields, models
+
 from odoo.addons.ssi_decorator import ssi_decorator
 
 _logger = logging.getLogger(__name__)

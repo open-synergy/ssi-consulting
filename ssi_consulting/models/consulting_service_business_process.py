@@ -7,7 +7,9 @@ from urllib.parse import quote, urlsplit, urlunsplit
 
 # External libs used to fetch & render CSV as plain text
 import requests
+
 from odoo import api, fields, models
+
 from odoo.addons.ssi_decorator import ssi_decorator
 
 _logger = logging.getLogger(__name__)

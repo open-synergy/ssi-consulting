@@ -6,6 +6,7 @@
 # External libs used to fetch & render CSV as plain text
 
 from odoo import api, fields, models
+
 from odoo.addons.ssi_decorator import ssi_decorator
 
 
