@@ -19,6 +19,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_consulting](ssi_consulting/) | 14.0.5.19.0 |  | Consulting
+[ssi_consulting_operating_unit](ssi_consulting_operating_unit/) | 14.0.1.0.0 |  | Consulting + Operating Unit
 
 [//]: # (end addons)
 
