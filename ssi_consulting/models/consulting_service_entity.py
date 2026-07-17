@@ -7,9 +7,11 @@ import io
 import json
 
 import pandas as pd
+
 from odoo import _, api, fields, models
-from odoo.addons.ssi_decorator import ssi_decorator
 from odoo.exceptions import ValidationError
+
+from odoo.addons.ssi_decorator import ssi_decorator
 
 
 class ConsultingServiceEntity(models.Model):
@@ -137,7 +139,9 @@ class ConsultingServiceEntity(models.Model):
     def _ensure_nonempty(name: str, value: str) -> None:
         if not value or not str(value).strip():
             raise ValidationError(
-                _(f"[consulting_service.entity.extract_df] Field `{name}` kosong.")
+                _("[consulting_service.entity.extract_df] Field `{}` kosong.").format(
+                    name
+                )
             )
 
     @staticmethod

@@ -7,6 +7,7 @@ import logging
 from typing import Any, Dict, List, Optional
 
 import yaml
+
 from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)

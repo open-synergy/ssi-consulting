@@ -9,10 +9,12 @@ import json
 
 import pandas as pd
 import requests
-from odoo import _, api, fields, models
-from odoo.addons.ssi_decorator import ssi_decorator
-from odoo.exceptions import ValidationError
 from tabulate import tabulate
+
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
+
+from odoo.addons.ssi_decorator import ssi_decorator
 
 
 class ConsultingServiceMaterializedView(models.Model):

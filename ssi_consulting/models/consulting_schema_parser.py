@@ -6,6 +6,7 @@ import json
 from typing import Any, Dict, List, Optional
 
 import yaml
+
 from odoo import fields, models
 from odoo.exceptions import UserError
 from odoo.tools.safe_eval import safe_eval
