@@ -28,7 +28,6 @@ setup:
       action: "create"
       model: "consulting_service"
       save_as: "service"
-      as_user: "base.user_admin"
       values:
         type_id: "REC: service_type.id"
         date: 2026-01-15
@@ -43,7 +42,6 @@ scenarios:
         action: "create"
         model: "consulting_service"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           type_id: "REC: service_type.id"
           date: 2026-02-01
@@ -66,7 +64,6 @@ scenarios:
         action: "create"
         model: "consulting_service.business_process"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           title: "OU Business Process"
           date: 2026-02-01
@@ -87,7 +84,6 @@ scenarios:
         action: "create"
         model: "consulting_service.business_process_area"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           title: "OU Business Process Area"
           date: 2026-02-01
@@ -108,7 +104,6 @@ scenarios:
         action: "create"
         model: "consulting_service.document_extraction"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           service_id: "REC: service.id"
           title: "OU Document Extraction"
@@ -130,7 +125,6 @@ scenarios:
         action: "create"
         model: "consulting_service.document_type"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           service_id: "REC: service.id"
           title: "OU Document Type"
@@ -152,7 +146,6 @@ scenarios:
         action: "create"
         model: "consulting_service.entity"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           service_id: "REC: service.id"
           title: "OU Entity"
@@ -174,7 +167,6 @@ scenarios:
         action: "create"
         model: "consulting_service.issue"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           service_id: "REC: service.id"
           title: "OU Issue"
@@ -200,7 +192,6 @@ scenarios:
         action: "create"
         model: "consulting_service.materialized_view"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           service_id: "REC: service.id"
           title: "OU Materialized View"
@@ -249,7 +240,6 @@ scenarios:
         action: "create"
         model: "consulting_service"
         save_as: "record"
-        as_user: "base.user_admin"
         values:
           type_id: "REC: service_type.id"
           date: 2026-02-05
